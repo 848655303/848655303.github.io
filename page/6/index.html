@@ -180,6 +180,140 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-学习备注-未分类" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/archives/260ef4a7.html">学习备注-未分类</a>
+    </h1>
+  
+
+        
+        <a href="/archives/260ef4a7.html" class="archive-article-date">
+  	<time datetime="2020-12-02T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="学习备注-未分类"><a href="#学习备注-未分类" class="headerlink" title="学习备注-未分类"></a>学习备注-未分类</h1><p>jQuery.parent(expr)，找父亲节点，可以传入expr进行过滤，比如$(“span”).parent()或者$(“span”).parent(“.class”)<br>jQuery.parents(expr)，类似于jQuery.parents(expr),但是是查找所有祖先元素，不限于父元素<br>jQuery.children(expr)，返回所有子节点，这个方法只会返回直接的孩子节点，不会返回所有的子孙节点<br>jQuery.contents()，返回下面的所有内容，包括节点和文本。这个方法和children()的区别就在于，包括空白文本，也会被作为一个jQuery对象返回，children()则只会返回节点<br>jQuery.prev()，返回上一个兄弟节点，不是所有的兄弟节点<br>jQuery.prevAll()，返回所有之前的兄弟节点<br>jQuery.next()，返回下一个兄弟节点，不是所有的兄弟节点<br>jQuery.nextAll()，返回所有之后的兄弟节点<br>jQuery.siblings()，返回兄弟姐妹节点，不分前后<br>jQuery.find(expr)，跟jQuery.filter(expr)完全不一样：</p>
+<p>jQuery.filter()，是从初始的jQuery对象集合中筛选出一部分，而</p>
+<p>jQuery.find()，的返回结果，不会有初始集合中的内容，比如$(“p”).find(“span”)，是从</p><p>元素开始找<span>，等同于$(“p span”)</span></p>
+<p>pointer-events: all;</p>
+<p>navigator.userAgent   获取浏览器版本</p>
+<p>“Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36”</p>
+<p>Request.UserAgent;  后台获取浏览器版本</p>
+<p>当你在子线程中要修改主线程某个控件的值时，有不想再去定义一个线程变量时，就可以直接使用线程匿名委托来实现。</p>
+<p>主要是方便快捷</p>
+<p>控件.BeginInvoke(new ThreadStart(delegate ()<br>              {<br>                控件.Text = DateTime.Now.ToShortDateString();<br>              }));</p>
+<p>DDD 领域驱动涉及概念</p>
+<p>领域模型：和数据库交互</p>
+<p>视图模型：和前端交互</p>
+<p>有属性有方法的类，叫充血模型</p>
+<p>layui 下拉框高度</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.layui-form-select</span> <span class="selector-tag">dl</span> &#123;</span><br><span class="line">    <span class="attribute">max-height</span>: <span class="number">160px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>发送邮件（schema）</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;mailto:848655303@qq.com?subject=你好&amp;body=你好的啊&quot;</span>&gt;</span>发送邮件<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>MVC 内置对象</p>
+<p><img src="/archives/260ef4a7/image-20210916155657428.png" alt="image-20210916155657428"></p>
+<p>响应头和返回请求头</p>
+<p><img src="/archives/260ef4a7/image-20210916160349962.png" alt="image-20210916160349962"></p>
+<p>每个人的Session是独立的，数据保存在服务器中。IIS中默认存活20分钟。</p>
+<p><img src="/archives/260ef4a7/image-20210916161042991.png" alt="image-20210916161042991"></p>
+<p>清除session</p>
+<p><img src="/archives/260ef4a7/image-20210916161340756.png" alt="image-20210916161340756"></p>
+<p>Cookie。在浏览器里的过期时间是格林威治平太阳时间</p>
+<p><img src="/archives/260ef4a7/image-20210916162420628.png" alt="image-20210916162420628"></p>
+<p><img src="/archives/260ef4a7/image-20210916162714233.png" alt="image-20210916162714233"></p>
+<p>application 整网站共享</p>
+<p><img src="/archives/260ef4a7/image-20210916164415618.png" alt="image-20210916164415618"></p>
+<p>server</p>
+<p><img src="/archives/260ef4a7/image-20210916170747161.png" alt="image-20210916170747161"></p>
+<p>TempData,是session,可以跨页面，只能取一次。</p>
+<p><img src="/archives/260ef4a7/image-20210916171853680.png" alt="image-20210916171853680"></p>
+<p>返回值ActionResult</p>
+<p><img src="/archives/260ef4a7/image-20210916184406602.png" alt="image-20210916184406602"></p>
+<p>var和dynamic<br>静态类型语言类别:var<br>动态语言类别:dynamic<br>var关键字在编译时静态的定义数据类型，而不是在运行时，即：一旦定义了数据类型，它将不会在运行时更改。<br>1、var 仅能声明方法内的局部变量<br>2、var 声明的变量在被赋值后类型即确定下了，</p>
+<p>1、dynamic 表示动态类型，动态类型的含义就是 程序编写、编译阶段 类型不确定，在Runtime时再通过反射机制确定相关对象的属性或方法。因此编写阶段不会进行语法检测。<br>2、dynamic 可用来声明 字段、属性、方法参数、方法返回值</p>
+<p>○ 委托就是一个类，也可以实例化，通过委托的构造函数来把方法赋值给委托实例<br>○ 触发委托有2种方式: 委托实例.Invoke(参数列表)，委托实例(参数列表)<br>○ 事件可以看作是一个委托类型的变量<br>○ 通过+=为事件注册多个委托实例或多个方法<br>○ 通过-=为事件注销多个委托实例或多个方法<br>○ EventHandler就是一个委托</p>
+<p>确保 yum 包更新到最新。<br>sudo yum update      </p>
+<p>sudo yum check-update<br>curl -sSL <a target="_blank" rel="noopener" href="https://get.daocloud.io/docker">https://get.daocloud.io/docker</a> | sh<br>sudo systemctl start docker<br>sudo systemctl status docker<br>sudo systemctl enable docker</p>
+<p>docker run -dit –name QL –hostname QL –restart always -p 5700:5700 -v $PWD/QL/config:/ql/config -v $PWD/QL/log:/ql/log -v $PWD/QL/db:/ql/db -v $PWD/QL/scripts:/ql/scripts -v $PWD/QL/jbot:/ql/jbot whyour/qinglong:latest</p>
+<p>docker ps -a</p>
+<figure class="highlight vb"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">If</span> AscB(MidB(MidB(<span class="string">&quot;你好sdgg&quot;</span>, <span class="number">1</span>, <span class="number">2</span>), <span class="number">2</span>, <span class="number">1</span>)) &gt; <span class="number">0</span> <span class="keyword">Then</span><span class="comment">&#x27;大于零是中文</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>不同空格符合的区别</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">&amp;nbsp;</span> 半角的不断行的空白格（推荐使用）</span><br><span class="line"><span class="symbol">&amp;ensp;</span>  半角的空格 </span><br><span class="line"><span class="symbol">&amp;emsp;</span>  全角的空格</span><br><span class="line">详细的含义：</span><br><span class="line"></span><br><span class="line"><span class="symbol">&amp;nbsp;</span>：这是我们使用最多的空格，也就是按下space键产生的空格。在HTML中，如果你用空格键产生此空格，空格是不会累加的（只算1个）。要使用html实体表示才可累加。该空格占据宽度受字体影响明显而强烈。在inline-block布局中会搞些小破坏，在两端对齐布局中又是不可少的元素。</span><br><span class="line"></span><br><span class="line"><span class="symbol">&amp;ensp;</span>：此空格有个相当稳健的特性，就是其占据的宽度正好是1/2个中文宽度，而且基本上不受字体影响。</span><br><span class="line"></span><br><span class="line"><span class="symbol">&amp;emsp;</span> ：此空格也有个相当稳健的特性，就是其占据的宽度正好是1个中文宽度，而且基本上不受字体影响。</span><br></pre></td></tr></table></figure>
+
+<p>marquee标签是HTML标签中创建文字滚动的标签。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">marquee</span> </span></span><br><span class="line"><span class="tag"><span class="attr">direction</span>=<span class="string">&quot;up&quot;</span> </span></span><br><span class="line"><span class="tag"><span class="attr">behavior</span>=<span class="string">&quot;scroll&quot;</span> </span></span><br><span class="line"><span class="tag"><span class="attr">loop</span>=<span class="string">&quot;3&quot;</span> </span></span><br><span class="line"><span class="tag"><span class="attr">scrollamount</span>=<span class="string">&quot;1&quot;</span> </span></span><br><span class="line"><span class="tag"><span class="attr">scrolldelay</span>=<span class="string">&quot;10&quot;</span> </span></span><br><span class="line"><span class="tag"><span class="attr">align</span>=<span class="string">&quot;top&quot;</span> </span></span><br><span class="line"><span class="tag"><span class="attr">bgcolor</span>=<span class="string">&quot;#ffffff&quot;</span> </span></span><br><span class="line"><span class="tag"><span class="attr">height</span>=<span class="string">&quot;300&quot;</span> </span></span><br><span class="line"><span class="tag"><span class="attr">width</span>=<span class="string">&quot;30%&quot;</span> </span></span><br><span class="line"><span class="tag"><span class="attr">hspace</span>=<span class="string">&quot;20&quot;</span> </span></span><br><span class="line"><span class="tag"><span class="attr">vspace</span>=<span class="string">&quot;10&quot;</span> </span></span><br><span class="line"><span class="tag">ο<span class="attr">nm</span>ο<span class="attr">use</span>ο<span class="attr">ver</span>=<span class="string">&quot;this.stop()&quot;</span> </span></span><br><span class="line"><span class="tag">ο<span class="attr">nm</span>ο<span class="attr">use</span>ο<span class="attr">ut</span>=<span class="string">&quot;this.start()&quot;</span>&gt;</span> </span><br><span class="line">此处输入滚动内容 <span class="tag">&lt;/<span class="name">marquee</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>direction 滚动的方向，值可以是left，right，up，down，默认为left<br>behavior 滚动的方式，值可以是scroll（连续滚动）slide（滑动一次）alternate（往返滚动）<br>loop 循环的次数，值是正整数，默认为无限循环<br>scrollamount 示运动速度，值是正整数，默认为6<br>scrolldelay 停顿时间，值是正整数，默认为0，单位似乎是毫秒<br>align 元素的垂直对齐方式，值可以是top，middle，bottom，默认为middle<br>bgcolor 运动区域的背景色，值是16进制的RGB颜色，默认为白色<br>height、width 运动区域的高度和宽度，值是正整数（单位是像素）或百分数，默认width=100% height为标签内元素的高度<br>hspace、vspace 元素到区域边界的水平距离和垂直距离，值是正整数，单位是像素。<br>οnmοuseοver=this.stop() 当鼠标以上区域的时候滚动停止<br>οnmοuseοut=this.start() 当鼠标移开的时候又继续滚动</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">未分类</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/archives/260ef4a7.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-11-发送邮件outlook" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -268,19 +402,19 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-9-播放本地音乐" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-10-发送邮件SMTP和接收邮件IMAP" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/archives/1ddd0061.html">9-C#播放本地音乐</a>
+      <a class="article-title" href="/archives/6a7dde03.html">10-C#发送邮件SMTP和接收邮件IMAP</a>
     </h1>
   
 
         
-        <a href="/archives/1ddd0061.html" class="archive-article-date">
+        <a href="/archives/6a7dde03.html" class="archive-article-date">
   	<time datetime="2020-11-29T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-30</time>
 </a>
         
@@ -288,7 +422,8 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="9-C-播放本地音乐"><a href="#9-C-播放本地音乐" class="headerlink" title="9-C#播放本地音乐"></a>9-C#播放本地音乐</h1><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">PlayMusic</span>(<span class="params"><span class="keyword">string</span> path</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    System.Media.SoundPlayer player = <span class="keyword">new</span> System.Media.SoundPlayer();</span><br><span class="line">    player.SoundLocation = Application.StartupPath + path;</span><br><span class="line">    player.Load();</span><br><span class="line">    player.Play();  </span><br><span class="line">&#125;       </span><br></pre></td></tr></table></figure>
+        <h1 id="10-C-发送邮件SMTP和接收邮件IMAP"><a href="#10-C-发送邮件SMTP和接收邮件IMAP" class="headerlink" title="10-C#发送邮件SMTP和接收邮件IMAP"></a>10-C#发送邮件SMTP和接收邮件IMAP</h1><p>注意，IMAP/SMTP需要在邮箱设置内打开，qq邮箱等会生成另外一个密码，用于IMAP和SMTP使用。</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//接收邮件</span></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">async</span> Task <span class="title">ConnectionEmailServer</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>      &#123;</span><br><span class="line">          <span class="keyword">using</span> (<span class="keyword">var</span> client = <span class="keyword">new</span> ImapClient())</span><br><span class="line">          &#123;</span><br><span class="line">              client.ServerCertificateValidationCallback = (s, c, h, e) =&gt; <span class="literal">true</span>;    <span class="comment">//使用SSL证书</span></span><br><span class="line">              <span class="keyword">await</span> client.ConnectAsync(<span class="string">&quot;imap.qq.com&quot;</span>, <span class="number">993</span>, <span class="literal">true</span>);                 <span class="comment">//imap服务器地址 端口 是否使用SSL</span></span><br><span class="line">              <span class="comment">//await client.AuthenticateAsync(&quot;18662520804@163.com&quot;, &quot;XXXXXX&quot;);         //身份验证 账号 密码</span></span><br><span class="line">              <span class="keyword">await</span> client.AuthenticateAsync(<span class="string">&quot;848655303&quot;</span>, <span class="string">&quot;XXXXXX&quot;</span>);         <span class="comment">//身份验证 账号 密码</span></span><br><span class="line">              <span class="keyword">var</span> namespaces = client.PersonalNamespaces;                            <span class="comment">//获取命名空间</span></span><br><span class="line">              <span class="keyword">var</span> folders = <span class="keyword">await</span> client.GetFoldersAsync(namespaces.First());        <span class="comment">//使用默认命名空间获取所有文件夹</span></span><br><span class="line">                                                                                     <span class="comment">//遍历文件夹</span></span><br><span class="line">              <span class="keyword">foreach</span> (<span class="keyword">var</span> folder <span class="keyword">in</span> folders)</span><br><span class="line">              &#123;</span><br><span class="line">                  <span class="comment">//打开文件夹获取邮件</span></span><br><span class="line">                  <span class="keyword">await</span> folder.OpenAsync(FolderAccess.ReadOnly);</span><br><span class="line">                  <span class="comment">//遍历邮件</span></span><br><span class="line">                  <span class="keyword">foreach</span> (<span class="keyword">var</span> summary <span class="keyword">in</span> folder.Fetch(<span class="number">0</span>, <span class="number">-1</span>, MessageSummaryItems.Full | MessageSummaryItems.UniqueId))</span><br><span class="line">                  &#123;</span><br><span class="line">                      _currentDao.ExecuteProcForDataSet(<span class="string">&quot;sp_Test&quot;</span>, <span class="keyword">new</span> SqlParameter[] &#123;</span><br><span class="line">                              <span class="keyword">new</span> SqlParameter(<span class="string">&quot;@Desc&quot;</span>,DateTime.Now.ToString(<span class="string">&quot;yyyy-MM-dd HH:mm:ss&quot;</span>))</span><br><span class="line">                              ,<span class="keyword">new</span> SqlParameter(<span class="string">&quot;@test1&quot;</span>,summary.Index)</span><br><span class="line">                              ,<span class="keyword">new</span> SqlParameter(<span class="string">&quot;@test2&quot;</span>,summary.Envelope.Subject)</span><br><span class="line">                          &#125;);</span><br><span class="line">                  &#125;</span><br><span class="line">              &#125;</span><br><span class="line">              <span class="keyword">await</span> client.DisconnectAsync(<span class="literal">true</span>);</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">//发送邮件</span></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">async</span> Task <span class="title">SendEmail</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>      &#123;</span><br><span class="line">          <span class="keyword">var</span> message = <span class="keyword">new</span> MimeMessage();</span><br><span class="line">          message.From.Add(<span class="keyword">new</span> MailboxAddress(<span class="string">&quot;name&quot;</span>, <span class="string">&quot;email address&quot;</span>));                        <span class="comment">//发送 别名 email地址</span></span><br><span class="line">          message.To.Add(<span class="keyword">new</span> MailboxAddress(<span class="string">&quot;name&quot;</span>, <span class="string">&quot;email address&quot;</span>));                        <span class="comment">//接收人</span></span><br><span class="line">          message.Cc.Add(<span class="keyword">new</span> MailboxAddress(<span class="string">&quot;name&quot;</span>, <span class="string">&quot;email address&quot;</span>));                    <span class="comment">//抄送</span></span><br><span class="line">          <span class="comment">/*</span></span><br><span class="line"><span class="comment">          * 暗抄 message.Bcc.Add(...)</span></span><br><span class="line"><span class="comment">          */</span></span><br><span class="line"></span><br><span class="line">          <span class="comment">//邮件主题</span></span><br><span class="line">          message.Subject = <span class="string">&quot;你好？?&quot;</span>;</span><br><span class="line">          <span class="comment">//发送消息主体</span></span><br><span class="line">          <span class="keyword">var</span> bodyBuilder = <span class="keyword">new</span> BodyBuilder</span><br><span class="line">          &#123;</span><br><span class="line">              HtmlBody = <span class="string">&quot;&lt;h3&gt;你好，&lt;a href=&#x27;https://www.github.com&#x27;&gt;点这里&lt;/a&gt;&lt;/h3&gt;&lt;br /&gt; 分享一首歌给你。&quot;</span>,</span><br><span class="line">          &#125;;</span><br><span class="line">          <span class="comment">//发送附件</span></span><br><span class="line">          <span class="comment">//var stream = File.OpenRead(@&quot;D:\CloudMusic\成都 - 赵雷.mp3&quot;);</span></span><br><span class="line">          <span class="comment">//bodyBuilder.Attachments.Add(&quot;成都 - 赵雷.mp3&quot;, stream);</span></span><br><span class="line">          message.Body = bodyBuilder.ToMessageBody();</span><br><span class="line">          <span class="keyword">using</span> (<span class="keyword">var</span> client = <span class="keyword">new</span> SmtpClient())</span><br><span class="line">          &#123;</span><br><span class="line">              client.ServerCertificateValidationCallback = (s, c, h, e) =&gt; <span class="literal">true</span>;</span><br><span class="line">              <span class="keyword">await</span> client.ConnectAsync(<span class="string">&quot;smtp.host.com&quot;</span>, <span class="number">587</span>, <span class="literal">false</span>);                                <span class="comment"><span class="doctag">///</span>/smtp服务器地址 端口 是否使用SSL</span></span><br><span class="line">              <span class="keyword">await</span> client.AuthenticateAsync(<span class="string">&quot;email address&quot;</span>, <span class="string">&quot;password&quot;</span>);</span><br><span class="line">              <span class="keyword">await</span> client.SendAsync(message);</span><br><span class="line">              <span class="keyword">await</span> client.DisconnectAsync(<span class="literal">true</span>);</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;      </span><br></pre></td></tr></table></figure>
 
 
 
@@ -306,6 +441,10 @@ var _hmt = _hmt || [];
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">C#</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">邮件</a>
+        		</li>
       		
 		</ul>
 	</div>
@@ -314,7 +453,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/archives/1ddd0061.html">展开全文 >></a>
+          <a class="article-more-a" href="/archives/6a7dde03.html">展开全文 >></a>
         </p>
       
 
@@ -421,6 +560,82 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a class="article-more-a" href="/archives/8f1ebb8b.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-9-播放本地音乐" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/archives/1ddd0061.html">9-C#播放本地音乐</a>
+    </h1>
+  
+
+        
+        <a href="/archives/1ddd0061.html" class="archive-article-date">
+  	<time datetime="2020-11-29T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="9-C-播放本地音乐"><a href="#9-C-播放本地音乐" class="headerlink" title="9-C#播放本地音乐"></a>9-C#播放本地音乐</h1><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">PlayMusic</span>(<span class="params"><span class="keyword">string</span> path</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    System.Media.SoundPlayer player = <span class="keyword">new</span> System.Media.SoundPlayer();</span><br><span class="line">    player.SoundLocation = Application.StartupPath + path;</span><br><span class="line">    player.Load();</span><br><span class="line">    player.Play();  </span><br><span class="line">&#125;       </span><br></pre></td></tr></table></figure>
+
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">C#</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/archives/1ddd0061.html">展开全文 >></a>
         </p>
       
 
@@ -629,12 +844,16 @@ var _hmt = _hmt || [];
         <h1 id="5-CSS（layui下拉框显示不全）"><a href="#5-CSS（layui下拉框显示不全）" class="headerlink" title="5-CSS（layui下拉框显示不全）"></a>5-CSS（layui下拉框显示不全）</h1><h2 id="overflow"><a href="#overflow" class="headerlink" title="overflow"></a>overflow</h2><p>这个属性定义溢出元素内容区的内容会如何处理。</p>
 <p><img src="/archives/9e388790/overflow.png" alt="overflow"></p>
 <p>例：layui下拉框超出边框被自动裁剪时，则可以</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.layer-ext-myskin .layui-layer-content &#123;</span><br><span class="line">    overflow: visible;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.layer-ext-myskin</span> <span class="selector-class">.layui-layer-content</span> &#123;</span><br><span class="line">    <span class="attribute">overflow</span>: visible;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>或设置下拉框最大高度</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.layui-form-select dl &#123; max-height:200px; &#125;</span><br></pre></td></tr></table></figure>
-
-
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.layui-form-select</span> <span class="selector-tag">dl</span> &#123; <span class="attribute">max-height</span>:<span class="number">200px</span>; &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="css单位"><a href="#css单位" class="headerlink" title="css单位"></a>css单位</h3><p>1.em<br>在做手机端的时候经常会用到的做字体的尺寸单位<br>说白了 em就相当于“倍”，比如设置当前的div的字体大小为1.5em，则当前的div的字体大小为：当前div继承的字体大小*1.5<br>但是当div进行嵌套的时候，em始终是按照当前div继承的字体大小来缩放，参照后面的例子。</p>
+<p>2.rem<br>这里的r就是root的意思，意思是相对于根节点来进行缩放，当有嵌套关系的时候，嵌套关系的元素的字体大小始终按照根节点的字体大小进行缩放。<br>参照后面给的demo</p>
+<p>3.vh<br>vh就是当前屏幕可见高度的1%，也就是说<br>height:100vh == height:100%;<br>但是有个好处是当元素没有内容时候，设置height:100%该元素不会被撑开，<br>但是设置height:100vh，该元素会被撑开屏幕高度一致。</p>
+<p>4.vw<br>vw就是当前屏幕宽度的1%<br>补充一句，当设置width:100%，被设置元素的宽度是按照父元素的宽度来设置，<br>但是100vw是相对于屏幕可见宽度来设置的，所以会出现50vw 比50%大的情况。</p>
+<h3 id="计算"><a href="#计算" class="headerlink" title="计算"></a>计算</h3><p>可用符号+-*/<br>注意运算符前后需要空格</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="built_in">calc</span>(<span class="number">100%</span> - <span class="number">200px</span>);</span><br><span class="line">    <span class="attribute">height</span>:<span class="built_in">calc</span>(<span class="number">100vh</span> - <span class="number">500px</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//父元素的1/6</span><br><span class="line"><span class="selector-class">.foo</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="built_in">calc</span>(<span class="number">100%</span> / <span class="number">6</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="selector-tag">html</span> &#123;  </span><br><span class="line">    <span class="attribute">font-size</span>: <span class="built_in">calc</span>(<span class="number">100vw</span> / <span class="number">30</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
 
       
@@ -867,162 +1086,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-2-C-S端音乐播放代码" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/archives/686d354.html">2-C/S端音乐播放代码</a>
-    </h1>
-  
-
-        
-        <a href="/archives/686d354.html" class="archive-article-date">
-  	<time datetime="2020-10-13T08:16:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <pre><code>#region 音乐播放
-public void PlayMusic(string path)
-&#123;
-    System.Media.SoundPlayer player = new System.Media.SoundPlayer();
-    player.SoundLocation = Application.StartupPath + path;
-    player.Load();
-    player.Play();  
-&#125;       
-#endregion</code></pre>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">代码片段</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/archives/686d354.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-各颜色" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/archives/2ee1cb27.html">各种颜色</a>
-    </h1>
-  
-
-        
-        <a href="/archives/2ee1cb27.html" class="archive-article-date">
-  	<time datetime="2020-10-12T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>浅粉红 #FFB6C1  255,182,193<br>粉红 #FFC0CB 255,192,203<br>猩红/深红 #DC143C 220,20,60<br>淡紫红 #FFF0F5 255,240,245<br>弱紫罗兰红 #DB7093 219,112,147<br>热情的粉红 #FF69B4 255,105,180<br>深粉红 #FF1493 255,20,147<br>中紫罗兰红 #C71585 199,21,133<br>兰花紫 #DA70D6 218,112,214<br>蓟 #D8BFD8 216,191,216<br>李子紫 #DDA0DD 221,160,221<br>紫罗兰 #EE82EE 238,130,238<br>洋红红 #FF00FF 255,0,255<br>灯笼海棠/紫红 #FF00FF 255,0,255<br>深洋红 #8B008B 139,0,139<br>紫色 #800080 128,0,128<br>中兰花紫 #BA55D3 186,85,211<br>暗紫罗兰 #9400D3 148,0,211<br>暗兰花紫 #9932CC 153,50,204<br>靛青/紫兰色 #4B0082 75,0,130<br>蓝紫罗兰 #8A2BE2 138,43,226<br>中紫色 #9370DB 147,112,219<br>中板岩蓝 #7B68EE 123,104,238<br>板岩蓝 #6A5ACD 106,90,205<br>暗板岩蓝 #483D8B 72,61,139<br>熏衣草淡紫 #E6E6FA 230,230,250<br>幽灵白 #F8F8FF 248,248,255<br>纯蓝 #0000FF 0,0,255<br>中蓝色 #0000CD 0,0,205<br>午夜蓝 #191970 25,25,112<br>暗蓝色 #00008B 0,0,139<br>海军蓝 #000080 0,0,128<br>皇家蓝/宝蓝 #4169E1 65,105,225<br>矢车菊蓝 #6495ED 100,149,237<br>亮钢蓝 #B0C4DE 176,196,222<br>亮石板灰 #778899 119,136,153<br>石板灰 #708090 112,128,144<br>道奇蓝 #1E90FF 30,144,255<br>爱丽丝蓝 #F0F8FF 240,248,255<br>钢蓝/铁青 #4682B4 70,130,180<br>亮天蓝色 #87CEFA 135,206,250<br>天蓝色 #87CEEB 135,206,235<br>深天蓝 #00BFFF 0,191,255<br>亮蓝 #ADD8E6 173,216,23</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">辅助</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/archives/2ee1cb27.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/5/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/7/">下一页</a>
@@ -1143,10 +1206,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Hexo使用</a>
               </li>
              
@@ -1159,35 +1218,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">EF</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">outlook</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">代码片段</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">打印</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">全屏</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">浏览器</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">单例</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">双判断锁</a>
+                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1207,27 +1242,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">行列转换</a>
+                <a href="javascript:void(0)" class="js-tag color3">单例</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">行转列</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">列转行</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Linq</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">TakeWhile</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SkipWhile</a>
+                <a href="javascript:void(0)" class="js-tag color5">双判断锁</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1235,15 +1254,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">VS</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">配置</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">快捷键</a>
+                <a href="javascript:void(0)" class="js-tag color3">EF</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1263,15 +1278,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">字符串</a>
+                <a href="javascript:void(0)" class="js-tag color5">行列转换</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">拾遗</a>
+                <a href="javascript:void(0)" class="js-tag color4">行转列</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color4">列转行</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">代码片段</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1283,11 +1302,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">VUE</a>
+                <a href="javascript:void(0)" class="js-tag color3">VS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">学习</a>
+                <a href="javascript:void(0)" class="js-tag color3">配置</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">快捷键</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">打印</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">全屏</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">浏览器</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1335,83 +1370,35 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">VUE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Linq</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">TakeWhile</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SkipWhile</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
+                <a href="javascript:void(0)" class="js-tag color4">字符串</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">test</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">环境</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">栅格</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">5等分</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">监听</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SQL Server</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SQL Server Profiler</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">abstract</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">virtual</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">B站</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">下载</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">委托</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Action</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Func</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">axios</a>
+                <a href="javascript:void(0)" class="js-tag color3">拾遗</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1427,11 +1414,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">组件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">NPOI</a>
+                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1440,6 +1423,62 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">插件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">监听</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">SQL Server</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SQL Server Profiler</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">test</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">B站</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">下载</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">axios</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">栅格</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">5等分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">abstract</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">virtual</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1463,14 +1502,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MES</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">JS</a>
               </li>
              
@@ -1483,15 +1514,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+                <a href="javascript:void(0)" class="js-tag color4">Azure AD</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">青龙面板</a>
+                <a href="javascript:void(0)" class="js-tag color5">统一登录</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">工具命令</a>
+                <a href="javascript:void(0)" class="js-tag color5">saml</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">MES</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1511,15 +1546,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">CSS基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">报错</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">工具命令</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">青龙面板</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Node</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1531,15 +1574,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Azure AD</a>
+                <a href="javascript:void(0)" class="js-tag color1">CSS基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">统一登录</a>
+                <a href="javascript:void(0)" class="js-tag color5">系统架构</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">saml</a>
+                <a href="javascript:void(0)" class="js-tag color4">DDD</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1571,11 +1614,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统架构</a>
+                <a href="javascript:void(0)" class="js-tag color4">IIS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">DDD</a>
+                <a href="javascript:void(0)" class="js-tag color3">错误</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1584,6 +1631,34 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">未分类</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">委托</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Action</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Func</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">环境</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">组件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">NPOI</a>
               </li>
             
             <div class="clearfix"></div>
