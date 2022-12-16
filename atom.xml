@@ -6,7 +6,7 @@
   <link href="https://xuzengjie.gitee.io/atom.xml" rel="self"/>
   
   <link href="https://xuzengjie.gitee.io/"/>
-  <updated>2022-12-16T05:50:13.588Z</updated>
+  <updated>2022-12-16T09:00:45.388Z</updated>
   <id>https://xuzengjie.gitee.io/</id>
   
   <author>
@@ -17,33 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>62-NPM</title>
-    <link href="https://xuzengjie.gitee.io/archives/228a19a5.html"/>
-    <id>https://xuzengjie.gitee.io/archives/228a19a5.html</id>
-    <published>2022-12-15T16:00:00.000Z</published>
-    <updated>2022-12-16T05:50:13.588Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="查看全局的包"><a href="#查看全局的包" class="headerlink" title="查看全局的包"></a>查看全局的包</h1><p>npm -g list<br><img src="/archives/228a19a5/1.png" alt="1"></p><h1 id="查看全局可更新的包"><a href="#查看全局可更新的包" class="headerlink" title="查看全局可更新的包"></a>查看全局可更新的包</h1><p>npm outdated -g</p><h1 id="更新全局的包"><a href="#更新全局的包" class="headerlink" title="更新全局的包"></a>更新全局的包</h1><p>npm update -g</p><h1 id="更新特定的全局包"><a href="#更新特定的全局包" class="headerlink" title="更新特定的全局包"></a>更新特定的全局包</h1><p>npm update -g <package_name></package_name></p><h1 id="查看特定的所有版本"><a href="#查看特定的所有版本" class="headerlink" title="查看特定的所有版本"></a>查看特定的所有版本</h1><p>pnpm info vue-router versions</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;查看全局的包&quot;&gt;&lt;a href=&quot;#查看全局的包&quot; class=&quot;headerlink&quot; title=&quot;查看全局的包&quot;&gt;&lt;/a&gt;查看全局的包&lt;/h1&gt;&lt;p&gt;npm -g list&lt;br&gt;&lt;img src=&quot;/archives/228a19a5/1.png&quot; alt</summary>
-      
-    
-    
-    
-    
-    <category term="npm" scheme="https://xuzengjie.gitee.io/tags/npm/"/>
-    
-  </entry>
-  
-  <entry>
     <title>63-Vue项目初始</title>
     <link href="https://xuzengjie.gitee.io/archives/afd9e000.html"/>
     <id>https://xuzengjie.gitee.io/archives/afd9e000.html</id>
     <published>2022-12-15T16:00:00.000Z</published>
-    <updated>2022-12-16T00:24:06.972Z</updated>
+    <updated>2022-12-16T09:00:45.388Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Vite初始化项目"><a href="#Vite初始化项目" class="headerlink" title="Vite初始化项目"></a>Vite初始化项目</h1><p>npm init vite@latest xzj.admin</p>]]></content>
     
@@ -60,6 +38,28 @@
     <category term="Vue" scheme="https://xuzengjie.gitee.io/tags/Vue/"/>
     
     <category term="初始" scheme="https://xuzengjie.gitee.io/tags/%E5%88%9D%E5%A7%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>62-NPM</title>
+    <link href="https://xuzengjie.gitee.io/archives/228a19a5.html"/>
+    <id>https://xuzengjie.gitee.io/archives/228a19a5.html</id>
+    <published>2022-12-14T16:00:00.000Z</published>
+    <updated>2022-12-16T09:01:18.341Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="查看全局的包"><a href="#查看全局的包" class="headerlink" title="查看全局的包"></a>查看全局的包</h1><p>npm -g list<br><img src="/archives/228a19a5/1.png" alt="1"></p><h1 id="查看全局可更新的包"><a href="#查看全局可更新的包" class="headerlink" title="查看全局可更新的包"></a>查看全局可更新的包</h1><p>npm outdated -g</p><h1 id="更新全局的包"><a href="#更新全局的包" class="headerlink" title="更新全局的包"></a>更新全局的包</h1><p>npm update -g</p><h1 id="更新特定的全局包"><a href="#更新特定的全局包" class="headerlink" title="更新特定的全局包"></a>更新特定的全局包</h1><p>npm update -g <package_name></package_name></p><h1 id="查看特定的所有版本"><a href="#查看特定的所有版本" class="headerlink" title="查看特定的所有版本"></a>查看特定的所有版本</h1><p>pnpm info vue-router versions</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;查看全局的包&quot;&gt;&lt;a href=&quot;#查看全局的包&quot; class=&quot;headerlink&quot; title=&quot;查看全局的包&quot;&gt;&lt;/a&gt;查看全局的包&lt;/h1&gt;&lt;p&gt;npm -g list&lt;br&gt;&lt;img src=&quot;/archives/228a19a5/1.png&quot; alt</summary>
+      
+    
+    
+    
+    
+    <category term="npm" scheme="https://xuzengjie.gitee.io/tags/npm/"/>
     
   </entry>
   
@@ -350,9 +350,9 @@
     
     
     
-    <category term="linux" scheme="https://xuzengjie.gitee.io/tags/linux/"/>
-    
     <category term="工具命令" scheme="https://xuzengjie.gitee.io/tags/%E5%B7%A5%E5%85%B7%E5%91%BD%E4%BB%A4/"/>
+    
+    <category term="linux" scheme="https://xuzengjie.gitee.io/tags/linux/"/>
     
     <category term="Node" scheme="https://xuzengjie.gitee.io/tags/Node/"/>
     
@@ -376,11 +376,11 @@
     
     
     
+    <category term="工具命令" scheme="https://xuzengjie.gitee.io/tags/%E5%B7%A5%E5%85%B7%E5%91%BD%E4%BB%A4/"/>
+    
     <category term="linux" scheme="https://xuzengjie.gitee.io/tags/linux/"/>
     
     <category term="报错" scheme="https://xuzengjie.gitee.io/tags/%E6%8A%A5%E9%94%99/"/>
-    
-    <category term="工具命令" scheme="https://xuzengjie.gitee.io/tags/%E5%B7%A5%E5%85%B7%E5%91%BD%E4%BB%A4/"/>
     
   </entry>
   
@@ -402,11 +402,11 @@
     
     
     
-    <category term="工具命令" scheme="https://xuzengjie.gitee.io/tags/%E5%B7%A5%E5%85%B7%E5%91%BD%E4%BB%A4/"/>
-    
     <category term="docker" scheme="https://xuzengjie.gitee.io/tags/docker/"/>
     
     <category term="青龙面板" scheme="https://xuzengjie.gitee.io/tags/%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF/"/>
+    
+    <category term="工具命令" scheme="https://xuzengjie.gitee.io/tags/%E5%B7%A5%E5%85%B7%E5%91%BD%E4%BB%A4/"/>
     
   </entry>
   
