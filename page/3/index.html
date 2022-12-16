@@ -180,6 +180,193 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-43-VUE" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/archives/33bb1fa1.html">43-VUE</a>
+    </h1>
+  
+
+        
+        <a href="/archives/33bb1fa1.html" class="archive-article-date">
+  	<time datetime="2021-10-17T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="备注"><a href="#备注" class="headerlink" title="备注"></a>备注</h1><p>大小写敏感</p>
+<h1 id="相关命令"><a href="#相关命令" class="headerlink" title="相关命令"></a>相关命令</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ yarn create vite &lt;project-name&gt; --template vue</span><br><span class="line">$ cd &lt;project-name&gt;</span><br><span class="line">$ yarn</span><br><span class="line">$ yarn dev</span><br><span class="line"></span><br><span class="line">$ npm list</span><br><span class="line">$ npm uninstall element-plus              &#x2F;&#x2F;卸载element-plus    ,或 yarn remove element-plus </span><br><span class="line">$ yarn add element-plus@1.0.2-beta.48    &#x2F;&#x2F;安装特定版本的element-plus,新版本不支持Font Icon </span><br><span class="line">$ yarn add axios</span><br><span class="line">$ yarn add @vueup&#x2F;vue-quill@beta         &#x2F;&#x2F;富文本</span><br></pre></td></tr></table></figure>
+<h1 id="缩写"><a href="#缩写" class="headerlink" title="缩写"></a>缩写</h1><p>“:” 是指令 “v-bind”的缩写，“@”是指令“v-on”的缩写；“.”是修饰符</p>
+<h1 id="props"><a href="#props" class="headerlink" title="props"></a>props</h1><p>父组件向子组件传值<br>v-bind:参数=参数值 （即:参数=参数值）<br>父组件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">  &lt;AddProduct :centerDialogVisible&#x3D;&quot;centerDialogVisible&quot;&gt;&lt;&#x2F;AddProduct&gt;</span><br><span class="line"></span><br><span class="line">setup() &#123;</span><br><span class="line">    const state &#x3D; reactive(&#123;</span><br><span class="line">      tableData: [],</span><br><span class="line">      centerDialogVisible:false,</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    return &#123;</span><br><span class="line">      ...toRefs(state),</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+<p>子组件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">props:&#123;</span><br><span class="line">        centerDialogVisible:Boolean,</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    setup(props,&#123;emit&#125;)&#123;</span><br><span class="line">        const state&#x3D;reactive(&#123;</span><br><span class="line">            centerDialogVisible:props.centerDialogVisible,</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        return &#123;</span><br><span class="line">            ...toRefs(state),</span><br><span class="line"></span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="emits"><a href="#emits" class="headerlink" title="emits"></a>emits</h1><p>父组件向子组件传方法。<br>类似C#的委托，跨窗体传值。</p>
+<p>以下例子为，子界面，修改主界面的centerDialogVisible参数值。</p>
+<p>父组件定义箭头函数并返回</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;AddProduct @onCloseDialog&#x3D;&quot;closeDialogVisible&quot;&gt;&lt;&#x2F;AddProduct&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">setup() &#123;</span><br><span class="line">    const closeDialogVisible&#x3D;(visible)&#x3D;&gt;&#123;</span><br><span class="line">      centerDialogVisible&#x3D;visible;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    return &#123;</span><br><span class="line">      closeDialogVisible,</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+
+<p>子组件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-button @click&#x3D;&quot;()&#x3D;&gt;&#123;closeDialog(false)&#125;&quot;&gt;Cancel&lt;&#x2F;el-button&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">   emits:[&quot;onCloseDialog&quot;],</span><br><span class="line">   setup(props,&#123;emit&#125;)&#123;</span><br><span class="line">       const closeDialog&#x3D;(visible)&#x3D;&gt;&#123;</span><br><span class="line">           emit(&quot;onCloseDialog&quot;,visible);  </span><br><span class="line">       &#125;;</span><br><span class="line">       return &#123;</span><br><span class="line">           closeDialog,</span><br><span class="line">       &#125;;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="components"><a href="#components" class="headerlink" title="components"></a>components</h1><p>注册组件（自定义组件或引用的组件）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">components:&#123;</span><br><span class="line">        QuilEditor,</span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/archives/33bb1fa1.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-42-异步" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/archives/38c2a169.html">42-异步</a>
+    </h1>
+  
+
+        
+        <a href="/archives/38c2a169.html" class="archive-article-date">
+  	<time datetime="2021-09-30T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Task"><a href="#Task" class="headerlink" title="Task"></a>Task</h1><p>任务，背后的实现也是使用了线程池线程，但它的性能优于ThreadPoll,因为它使用的不是线程池的全局队列，而是使用的本地队列，使线程之间的资源竞争减少。同时Task提供了丰富的API来管理线程、控制。但是相对前面的两种耗内存，Task依赖于CPU对于多核的CPU性能远超前两者，单核的CPU三者（thread、threadpool、Task）的性能没什么差别</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> 启动方式</span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">StartWay</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="keyword">var</span> task1 = <span class="keyword">new</span> Task(() =&gt;</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(<span class="string">&quot;Hello,task&quot;</span>);</span><br><span class="line">            &#125;);</span><br><span class="line">            task1.Start();</span><br><span class="line"></span><br><span class="line">            <span class="keyword">var</span> task2 = Task.Factory.StartNew(() =&gt;</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(<span class="string">&quot;Hello,task started by task factory&quot;</span>);</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> 生命周期测试</span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">LifeCircle</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="keyword">var</span> task1 = <span class="keyword">new</span> Task(() =&gt;</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(<span class="string">&quot;Begin&quot;</span>);</span><br><span class="line">                System.Threading.Thread.Sleep(<span class="number">2000</span>);</span><br><span class="line">                Console.WriteLine(<span class="string">&quot;Finish&quot;</span>);</span><br><span class="line">            &#125;);</span><br><span class="line">            Console.WriteLine(<span class="string">&quot;Before start:&quot;</span> + task1.Status);</span><br><span class="line">            task1.Start();</span><br><span class="line">            Console.WriteLine(<span class="string">&quot;After start:&quot;</span> + task1.Status);</span><br><span class="line">            task1.Wait();</span><br><span class="line">            Console.WriteLine(<span class="string">&quot;After Finish:&quot;</span> + task1.Status);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> 等待所有任务完成</span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">WaitAll</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="keyword">string</span> zhe = <span class="string">&quot;&quot;</span>;</span><br><span class="line">            <span class="keyword">var</span> task1 = <span class="keyword">new</span> Task(() =&gt;</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(<span class="string">&quot;Task 1 Begin&quot;</span>);</span><br><span class="line">                System.Threading.Thread.Sleep(<span class="number">2000</span>);</span><br><span class="line">                Console.WriteLine(<span class="string">&quot;Task 1 Finish&quot;</span>);</span><br><span class="line">                zhe = <span class="string">&quot;fswet&quot;</span>;</span><br><span class="line">            &#125;);</span><br><span class="line">            <span class="keyword">var</span> task2 = <span class="keyword">new</span> Task(() =&gt;</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(<span class="string">&quot;Task 2 Begin&quot;</span>);</span><br><span class="line">                System.Threading.Thread.Sleep(<span class="number">3000</span>);</span><br><span class="line">                Console.WriteLine(<span class="string">&quot;Task 2 Finish&quot;</span>);</span><br><span class="line">            &#125;);</span><br><span class="line"></span><br><span class="line">            task1.Start();</span><br><span class="line">            task2.Start();</span><br><span class="line">            Task.WaitAll(task1, task2);</span><br><span class="line">            Console.WriteLine(<span class="string">&quot;WaitAll task finished!&quot;</span>+ zhe);</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> 等待任意一个执行任务完成</span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">WaitAny</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="keyword">var</span> task1 = <span class="keyword">new</span> Task(() =&gt;</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(<span class="string">&quot;Task 1 Begin&quot;</span>);</span><br><span class="line">                System.Threading.Thread.Sleep(<span class="number">2000</span>);</span><br><span class="line">                Console.WriteLine(<span class="string">&quot;Task 1 Finish&quot;</span>);</span><br><span class="line">            &#125;);</span><br><span class="line">            <span class="keyword">var</span> task2 = <span class="keyword">new</span> Task(() =&gt;</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(<span class="string">&quot;Task 2 Begin&quot;</span>);</span><br><span class="line">                System.Threading.Thread.Sleep(<span class="number">3000</span>);</span><br><span class="line">                Console.WriteLine(<span class="string">&quot;Task 2 Finish&quot;</span>);</span><br><span class="line">            &#125;);</span><br><span class="line"></span><br><span class="line">            task1.Start();</span><br><span class="line">            task2.Start();</span><br><span class="line">            Task.WaitAny(task1, task2);</span><br><span class="line">            Console.WriteLine(<span class="string">&quot;WaitAny task finished!&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> 任务回调方法</span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">ContinueWith</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="keyword">var</span> task1 = <span class="keyword">new</span> Task(() =&gt;</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(<span class="string">&quot;Task 1 Begin&quot;</span>);</span><br><span class="line">                System.Threading.Thread.Sleep(<span class="number">2000</span>);</span><br><span class="line">                Console.WriteLine(<span class="string">&quot;Task 1 Finish&quot;</span>);</span><br><span class="line">            &#125;);</span><br><span class="line">            <span class="keyword">var</span> task2 = <span class="keyword">new</span> Task(() =&gt;</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(<span class="string">&quot;Task 2 Begin&quot;</span>);</span><br><span class="line">                System.Threading.Thread.Sleep(<span class="number">3000</span>);</span><br><span class="line">                Console.WriteLine(<span class="string">&quot;Task 2 Finish&quot;</span>);</span><br><span class="line">            &#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            task1.Start();</span><br><span class="line">            task2.Start();</span><br><span class="line">            <span class="keyword">var</span> result = task1.ContinueWith&lt;<span class="keyword">string</span>&gt;(task =&gt;</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(<span class="string">&quot;task1 finished!&quot;</span>);</span><br><span class="line">                <span class="keyword">return</span> <span class="string">&quot;This is task1 result!&quot;</span>;</span><br><span class="line">            &#125;);</span><br><span class="line"></span><br><span class="line">            Console.WriteLine(result.Result.ToString());</span><br><span class="line"></span><br><span class="line">            <span class="keyword">var</span> result2 = task2.ContinueWith&lt;<span class="keyword">string</span>&gt;(task =&gt;</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(<span class="string">&quot;task2 finished!&quot;</span>);</span><br><span class="line">                <span class="keyword">return</span> <span class="string">&quot;This is task2 result!&quot;</span>;</span><br><span class="line">            &#125;);</span><br><span class="line"></span><br><span class="line">            Console.WriteLine(result2.Result.ToString());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> 取消任务</span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Cancel</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="keyword">var</span> tokenSource = <span class="keyword">new</span> CancellationTokenSource();</span><br><span class="line">            <span class="keyword">var</span> token = tokenSource.Token;</span><br><span class="line">            <span class="keyword">var</span> task = Task.Factory.StartNew(() =&gt;</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">1000</span>; i++)</span><br><span class="line">                &#123;</span><br><span class="line">                    System.Threading.Thread.Sleep(<span class="number">1000</span>);</span><br><span class="line">                    <span class="keyword">if</span> (token.IsCancellationRequested)</span><br><span class="line">                    &#123;</span><br><span class="line">                        Console.WriteLine(<span class="string">&quot;Abort mission success!&quot;</span>);</span><br><span class="line">                        <span class="keyword">return</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;, token);</span><br><span class="line">            token.Register(() =&gt;</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(<span class="string">&quot;Canceled&quot;</span>);</span><br><span class="line">            &#125;);</span><br><span class="line">            Console.WriteLine(<span class="string">&quot;Press enter to cancel task...&quot;</span>);</span><br><span class="line">            Console.ReadKey();</span><br><span class="line">            tokenSource.Cancel();</span><br><span class="line"></span><br><span class="line">            Console.ReadKey();<span class="comment">//这句忘了加，程序退出了，看不到“Abort mission success!“这个提示</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="keyword">string</span>[] args</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="comment">//Console.WriteLine(&quot;StartWay is runing&quot;);</span></span><br><span class="line">            <span class="comment">//StartWay();</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">//Console.WriteLine(&quot;LifeCircle is runing&quot;);</span></span><br><span class="line">            <span class="comment">//LifeCircle();</span></span><br><span class="line">            <span class="comment">//Console.WriteLine(&quot;WaitAll is runing&quot;);</span></span><br><span class="line">            WaitAll();</span><br><span class="line">            <span class="comment">//Console.WriteLine(&quot;WaitAny is runing&quot;);</span></span><br><span class="line">            <span class="comment">//WaitAny();</span></span><br><span class="line">            <span class="comment">//Console.WriteLine(&quot;ContinueWith is runing&quot;);</span></span><br><span class="line">            <span class="comment">//ContinueWith();</span></span><br><span class="line">            <span class="comment">//Console.WriteLine(&quot;Cancel is runing&quot;);</span></span><br><span class="line">            <span class="comment">//Cancel();</span></span><br><span class="line"></span><br><span class="line">            Console.Read();</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h1 id="Net-提供了3中异步编程模型"><a href="#Net-提供了3中异步编程模型" class="headerlink" title=".Net 提供了3中异步编程模型"></a>.Net 提供了3中异步编程模型</h1><ul>
+<li>TAP（基于任务的异步模式）：使用单一方法表示异步操作的开始和结束，是.Net中进行异步编程的推荐方法。（.Net Framework 4中引入的）</li>
+<li>EAP（基于事件的异步模式）：提供异步行为的基于事件的旧模型。 这种模式需要后缀为 Async 的方法，以及一个或多个事件、事件处理程序委托类型和 EventArg 派生类型。 EAP 是在 .NET Framework 2.0 中引入的。 不建议新的开发使用此模式。</li>
+<li>APM（异步编程模型）：（也称为 IAsyncResult 模式），这是使用 IAsyncResult 接口提供异步行为的旧模型。 在这种模式下，同步操作需要 Begin 和 End 方法（例如，BeginWrite 和 EndWrite以实现异步写入操作）。 不建议新的开发使用此模式。</li>
+</ul>
+<h1 id="TAP（基于任务的异步模式）"><a href="#TAP（基于任务的异步模式）" class="headerlink" title="TAP（基于任务的异步模式）"></a>TAP（基于任务的异步模式）</h1><p>C# 异步编程的核心是 Task 和 Task<T> 对象（深入了解Task和Task<T>），这两个对象对异步操作建模。它们受关键字 async 和 await 的支持（二者是异步编程的核心关键字）。通过这两个关键字，可以使用 .NET Framework、.NET Core 或 Windows 运行时中的资源，轻松创建异步方法（几乎与创建同步方法一样轻松）。 使用 async 关键字定义的异步方法简称为“异步方法”。await 关键字控制执行 await 的方法的调用方，且它最终允许 UI 具有响应性或服务具有灵活性。</T></T></p>
+<p>async是用来修饰方法，表示此方法可以是异步方法，如果方法里不包含await，则此方法相当于普通的同步方法。<br>await是使用在被async修饰的方法里。</p>
+<p>await 后面跟上一个异步操作Task，当程序执行到此行代码时，由于有await的修饰，会等待异步操作Task执行，Task执行完成后才会执行此方法里await这一行后面的代码，</p>
+<p>但是外部调用async方法的地方，不会等待Task完成，就执行后面的代码。</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="keyword">string</span>[] args</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        Console.WriteLine(<span class="string">&quot;Main function begin...CurrentThread ID:&quot;</span> + Thread.CurrentThread.ManagedThreadId.ToString());</span><br><span class="line">        Test();</span><br><span class="line">        Console.WriteLine(<span class="string">&quot;Main function end&quot;</span>);</span><br><span class="line">        Console.ReadLine();</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">async</span>  <span class="keyword">void</span> <span class="title">Test</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        Console.WriteLine(<span class="string">&quot;test begin...CurrentThread ID:&quot;</span> + Thread.CurrentThread.ManagedThreadId.ToString());</span><br><span class="line">        <span class="keyword">await</span> Task.Run(()=&gt;&#123; Work1(); &#125;);</span><br><span class="line">        <span class="keyword">await</span> Task.Run(() =&gt; &#123; Work2(); &#125;);</span><br><span class="line">        <span class="keyword">await</span> Task.Run(() =&gt; &#123; Work3(); &#125;);</span><br><span class="line">         Console.WriteLine(<span class="string">&quot;test end---&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Work1</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        Console.WriteLine(<span class="string">&quot;Work1 start...CurrentThread ID:&quot;</span> + Thread.CurrentThread.ManagedThreadId.ToString());</span><br><span class="line">        Thread.Sleep(<span class="number">6000</span>);</span><br><span class="line">        Console.WriteLine(<span class="string">&quot;Work1 end---&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Work2</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        Console.WriteLine(<span class="string">&quot;Work2 start...CurrentThread ID:&quot;</span> + Thread.CurrentThread.ManagedThreadId.ToString());</span><br><span class="line">        Thread.Sleep(<span class="number">6000</span>);</span><br><span class="line">        Console.WriteLine(<span class="string">&quot;Work2 end---&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Work3</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        Console.WriteLine(<span class="string">&quot;Work3 start...CurrentThread ID:&quot;</span> + Thread.CurrentThread.ManagedThreadId.ToString());</span><br><span class="line">        Thread.Sleep(<span class="number">6000</span>);</span><br><span class="line">        Console.WriteLine(<span class="string">&quot;Work3 end---&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/archives/38c2a169/image-20211013160841557.png" alt="image-20211013160841557"></p>
+<p>从测试结果，可以看出，Test方法还没有执行结束，Main方法里调用Test方法这一行后面的代码，已经执行，无需等待Test方法。</p>
+<p>Test方法由于被async修饰，表明这个可以是异步方法，方法内部await修饰的Task，执行到这一行代码时，会等待Task执行完成后，才会执行Test方法里下一行的代码。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Task</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">await</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">async</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/archives/38c2a169.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-41-抽象类和接口" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -883,240 +1070,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-33-插件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/archives/3ba70b3e.html">33-插件</a>
-    </h1>
-  
-
-        
-        <a href="/archives/3ba70b3e.html" class="archive-article-date">
-  	<time datetime="2021-08-18T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="33-VSCode插件"><a href="#33-VSCode插件" class="headerlink" title="33-VSCode插件"></a>33-VSCode插件</h1><h2 id="简体中文包"><a href="#简体中文包" class="headerlink" title="简体中文包"></a>简体中文包</h2><p>Chinese (Simplified) Language Pack for Visual Studio Code</p>
-<h2 id="小型web服务器"><a href="#小型web服务器" class="headerlink" title="小型web服务器"></a>小型web服务器</h2><p>Live Server<br>在html代码内，右键选择”open with Live Server”,即可启动web页面。<br>点击vscode右下角 Port:5500 即可关闭web服务</p>
-<h2 id="vscode-md文件思维导图"><a href="#vscode-md文件思维导图" class="headerlink" title="vscode md文件思维导图"></a>vscode md文件思维导图</h2><p>Markdown Mind Map Preview<br>在MD文件内，点击右上角的view mind map，即可打开思维导图。<br>各等级标题即是各节点。<br>点击思维导图，可以拖拽。<br>滚轮可以放大缩小。<br>点击节点，可以展开收缩。</p>
-<p><img src="/archives/3ba70b3e/image-20210819100518041.png" alt="image-20210819100518041"></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">VSCode</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">插件</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/archives/3ba70b3e.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-32-VUE3环境" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/archives/23d21e78.html">32-VUE3环境</a>
-    </h1>
-  
-
-        
-        <a href="/archives/23d21e78.html" class="archive-article-date">
-  	<time datetime="2021-08-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="32-VUE3环境"><a href="#32-VUE3环境" class="headerlink" title="32-VUE3环境"></a>32-VUE3环境</h1><h2 id="1-安装Node"><a href="#1-安装Node" class="headerlink" title="1 安装Node"></a>1 安装Node</h2><h2 id="2-使用npm安装yarn"><a href="#2-使用npm安装yarn" class="headerlink" title="2 使用npm安装yarn"></a>2 使用npm安装yarn</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g yarn</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>查看是否安装成功</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn -v</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-配置环境变量"><a href="#3-配置环境变量" class="headerlink" title="3 配置环境变量"></a>3 配置环境变量</h2><ul>
-<li>通过执行 yarn global bin 获得yarn安装地址</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn global bin</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>把获得的地址放入环境变量，已英文分号分隔。下图</li>
-</ul>
-<p><img src="/archives/23d21e78/image-20210816144547312.png" alt="image-20210816144547312"></p>
-<h2 id="4-安装vue"><a href="#4-安装vue" class="headerlink" title="4 安装vue"></a>4 安装vue</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn global add @vue/cli</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>重启命令行工具后，查看vue版本</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vue -V</span><br></pre></td></tr></table></figure>
-
-<h2 id="5-创建并运行项目"><a href="#5-创建并运行项目" class="headerlink" title="5 创建并运行项目"></a>5 创建并运行项目</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd 项目存放文件夹</span><br><span class="line">yarn create vite &lt;project-name&gt; --template vue</span><br><span class="line">cd &lt;project-name&gt;</span><br><span class="line">yarn</span><br><span class="line">yarn dev</span><br></pre></td></tr></table></figure>
-
-<h2 id="6-修改淘宝源"><a href="#6-修改淘宝源" class="headerlink" title="6 修改淘宝源"></a>6 修改淘宝源</h2><p>查看当前源</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn config get registry</span><br></pre></td></tr></table></figure>
-
-<p>临时修yran源</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn save package_name --registry https:&#x2F;&#x2F;registry.npm.taobao.org&#x2F;</span><br></pre></td></tr></table></figure>
-
-<p>修改yarn源为taobao源</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn config set registry https:&#x2F;&#x2F;registry.npm.taobao.org&#x2F;</span><br></pre></td></tr></table></figure>
-
-<p>修改yarn源为官方源</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn config set registry https:&#x2F;&#x2F;registry.yarnpkg.com</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="7-npm和yarn的对比"><a href="#7-npm和yarn的对比" class="headerlink" title="7 npm和yarn的对比"></a>7 npm和yarn的对比</h1><p>npm run dev   yarn dev<br><img src="/archives/23d21e78/image-20210817100046291.png" alt="image-20210817100046291"></p>
-<h1 id="8-npm"><a href="#8-npm" class="headerlink" title="8 npm"></a>8 npm</h1><p>查看全局安装的包</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm list -g --depth 0</span><br></pre></td></tr></table></figure>
-<p>最近在写Node程序的时候，突然对 npm install 的-save和-save-dev 这两个参数的使用比较混乱。其实博主在这之前对这两个参数的理解也是模糊的，各种查资料和实践后对它们之间的异同点略有理解。遂写下这篇文章避免自己忘记，同时也给node猿友一点指引。</p>
-<p>我们在使用 npm install 安装模块的模块的时候 ，一般会使用下面这几种命令形式：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">npm install moduleName # 安装模块到项目目录下</span><br><span class="line"> </span><br><span class="line">npm install -g moduleName # -g 的意思是将模块安装到全局，具体安装到磁盘哪个位置，要看 npm config prefix 的位置。</span><br><span class="line"> </span><br><span class="line">npm install -save moduleName # -save 的意思是将模块安装到项目目录下，并在package文件的dependencies节点写入依赖。</span><br><span class="line"> </span><br><span class="line">npm install -save-dev moduleName # -save-dev 的意思是将模块安装到项目目录下，并在package文件的devDependencies节点写入依赖。</span><br></pre></td></tr></table></figure>
-<p>那么问题来了，在项目中我们应该使用四个命令中的哪个呢？这个就要视情况而定了。下面对这四个命令进行对比，看完后你就不再这么问了。</p>
-<p>npm install moduleName 命令</p>
-<ol>
-<li>安装模块到项目node_modules目录下。</li>
-<li>不会将模块依赖写入devDependencies或dependencies 节点。</li>
-<li>运行 npm install 初始化项目时不会下载模块。</li>
-</ol>
-<p>npm install -g moduleName 命令</p>
-<ol>
-<li>安装模块到全局，不会在项目node_modules目录中保存模块包。</li>
-<li>不会将模块依赖写入devDependencies或dependencies 节点。</li>
-<li>运行 npm install 初始化项目时不会下载模块。</li>
-</ol>
-<p>npm install -save moduleName 命令</p>
-<ol>
-<li>安装模块到项目node_modules目录下。</li>
-<li>会将模块依赖写入dependencies 节点。</li>
-<li>运行 npm install 初始化项目时，会将模块下载到项目目录下。</li>
-<li>运行npm install –production或者注明NODE_ENV变量值为production时，会自动下载模块到node_modules目录中。</li>
-</ol>
-<p>npm install -save-dev moduleName 命令</p>
-<ol>
-<li>安装模块到项目node_modules目录下。</li>
-<li>会将模块依赖写入devDependencies 节点。</li>
-<li>运行 npm install 初始化项目时，会将模块下载到项目目录下。</li>
-<li>运行npm install –production或者注明NODE_ENV变量值为production时，不会自动下载模块到node_modules目录中。</li>
-</ol>
-<p>总结<br>devDependencies 节点下的模块是我们在开发时需要用的，比如项目中使用的 gulp ，压缩css、js的模块。这些模块在我们的项目部署后是不需要的，所以我们可以使用 -save-dev 的形式安装。像 express 这些模块是项目运行必备的，应该安装在 dependencies 节点下，所以我们应该使用 -save 的形式安装。</p>
-<p>9 yarn<br>查看全局安装的包</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn global list</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"># 初始化一个项目</span><br><span class="line">yarn init</span><br><span class="line"># 装包</span><br><span class="line">yarn add packagename</span><br><span class="line">yarn add packagename --dev</span><br><span class="line"># 更新包</span><br><span class="line">yarn upgrade packagename</span><br><span class="line"># 删除包</span><br><span class="line">yarn remove packagename</span><br><span class="line"># 安装所有包</span><br><span class="line">yarn</span><br><span class="line">yarn install</span><br><span class="line"># 发布包</span><br><span class="line">yarn publish</span><br><span class="line"># 查看包的缓存列表</span><br><span class="line">yarn cache list</span><br><span class="line"># 全局安装包 &#x3D;&#x3D; npm -g</span><br><span class="line">yarn global</span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">环境</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/archives/23d21e78.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/2/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/">下一页</a>
@@ -1237,7 +1190,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Hexo使用</a>
+                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1253,7 +1206,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
+                <a href="javascript:void(0)" class="js-tag color2">Hexo使用</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">EFCore</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1281,18 +1238,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">EFCore</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">EF</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">SQLServer</a>
               </li>
              
@@ -1309,6 +1254,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">代码片段</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">EF</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">行列转换</a>
               </li>
              
@@ -1321,7 +1278,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">代码片段</a>
+                <a href="javascript:void(0)" class="js-tag color5">Linq</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">TakeWhile</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SkipWhile</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">打印</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">全屏</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">浏览器</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1330,6 +1307,30 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">swagger</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">字符串</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">拾遗</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">test</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">VUE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1345,15 +1346,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">打印</a>
+                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">全屏</a>
+                <a href="javascript:void(0)" class="js-tag color3">IIS定时任务</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">浏览器</a>
+                <a href="javascript:void(0)" class="js-tag color3">回收</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">未整理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1401,83 +1406,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">VUE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Linq</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">TakeWhile</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SkipWhile</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">字符串</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">拾遗</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">IIS定时任务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">回收</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">未整理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">VSCode</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">插件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">监听</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SQL Server</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SQL Server Profiler</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">test</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">B站</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">下载</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1493,11 +1426,55 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">栅格</a>
+                <a href="javascript:void(0)" class="js-tag color3">委托</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">5等分</a>
+                <a href="javascript:void(0)" class="js-tag color2">Action</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Func</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">监听</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">SQL Server</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SQL Server Profiler</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">组件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">NPOI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">B站</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">下载</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Task</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">await</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">async</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1506,10 +1483,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">virtual</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1545,6 +1518,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">报错</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">工具命令</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Azure AD</a>
               </li>
              
@@ -1561,27 +1554,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Task</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">await</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">async</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">报错</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">工具命令</a>
+                <a href="javascript:void(0)" class="js-tag color4">半导体</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1593,14 +1566,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">半导体</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">封装</a>
               </li>
              
@@ -1609,11 +1574,59 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">系统架构</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">DDD</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SqlSugar</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">工厂模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">反射</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">IIS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">错误</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">初始</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">辅助</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1629,51 +1642,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">工厂模式</a>
+                <a href="javascript:void(0)" class="js-tag color3">栅格</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">反射</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SqlSugar</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IIS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">错误</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">辅助</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">未分类</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">委托</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Action</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Func</a>
+                <a href="javascript:void(0)" class="js-tag color4">5等分</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1681,15 +1654,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">组件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">NPOI</a>
+                <a href="javascript:void(0)" class="js-tag color4">未分类</a>
               </li>
             
             <div class="clearfix"></div>
