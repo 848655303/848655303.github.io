@@ -6,7 +6,7 @@
   <link href="https://xuzengjie.gitee.io/atom.xml" rel="self"/>
   
   <link href="https://xuzengjie.gitee.io/"/>
-  <updated>2023-01-05T03:44:37.280Z</updated>
+  <updated>2023-01-05T03:46:45.122Z</updated>
   <id>https://xuzengjie.gitee.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://xuzengjie.gitee.io/archives/d16f2002.html"/>
     <id>https://xuzengjie.gitee.io/archives/d16f2002.html</id>
     <published>2023-01-03T16:00:00.000Z</published>
-    <updated>2023-01-05T03:44:37.280Z</updated>
+    <updated>2023-01-05T03:46:45.122Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h1><p>书签项目地址： <a href="https://gitee.com/xuzengjie/book-mark-sync">https://gitee.com/xuzengjie/book-mark-sync</a></p><h1 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h1><p>谷歌浏览器打开 chrome://extensions/ ，开启开发者模式，点击”加载已解压的扩展程序”,选中书签项目源码路径即可。</p><h1 id="更新项目"><a href="#更新项目" class="headerlink" title="更新项目"></a>更新项目</h1><p>开发过程中，可用直接更新源码后，在扩展程序界面，点击刷新即可<br>(F5 刷新调试界面似乎也是可以的)<br><img src="/archives/d16f2002/1.png" alt="1"></p><h1 id="调试项目"><a href="#调试项目" class="headerlink" title="调试项目"></a>调试项目</h1><p>chrome-extension://项目 ID/popup.html<br>例：chrome-extension://hceaeddpkeidodfbmjmcnilccgikmkda/popup.html<br>项目 ID 在扩展程序界面可以看到（需开启开发者模式）</p><h1 id="谷歌书签"><a href="#谷歌书签" class="headerlink" title="谷歌书签"></a>谷歌书签</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> bookMarks = chrome.bookmarks</span><br></pre></td></tr></table></figure><p>参考： <a href="https://developer.mozilla.org/zh-CN/docs/Mozilla/Add-ons/WebExtensions/API/bookmarks">https://developer.mozilla.org/zh-CN/docs/Mozilla/Add-ons/WebExtensions/API/bookmarks</a></p><h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><p>manifest.json 内<br>manifest_version 为 3，版本 2 的已快被舍弃<br>permissions 为需要的权限<br>background service_worker 为服务工作者，暂时还不知道怎么用</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;manifest_version&quot;</span>: <span class="number">3</span>,</span><br><span class="line"><span class="string">&quot;version&quot;</span>: <span class="string">&quot;1.0.3&quot;</span>,</span><br><span class="line"><span class="string">&quot;name&quot;</span>: <span class="string">&quot;BookMarkSync&quot;</span>,</span><br><span class="line"><span class="string">&quot;description&quot;</span>: <span class="string">&quot;书签同步&quot;</span>,</span><br><span class="line"><span class="string">&quot;icons&quot;</span>: &#123;</span><br><span class="line"><span class="string">&quot;16&quot;</span>: <span class="string">&quot;images/icon.png&quot;</span>,</span><br><span class="line"><span class="string">&quot;32&quot;</span>: <span class="string">&quot;images/icon.png&quot;</span>,</span><br><span class="line"><span class="string">&quot;48&quot;</span>: <span class="string">&quot;images/icon.png&quot;</span>,</span><br><span class="line"><span class="string">&quot;128&quot;</span>: <span class="string">&quot;images/icon.png&quot;</span></span><br><span class="line">&#125;,</span><br><span class="line"><span class="string">&quot;action&quot;</span>: &#123;</span><br><span class="line"><span class="string">&quot;default_popup&quot;</span>: <span class="string">&quot;popup.html&quot;</span></span><br><span class="line">&#125;,</span><br><span class="line"><span class="string">&quot;permissions&quot;</span>: [</span><br><span class="line"><span class="string">&quot;storage&quot;</span>,</span><br><span class="line"><span class="string">&quot;activeTab&quot;</span>,</span><br><span class="line"><span class="string">&quot;tabs&quot;</span>,</span><br><span class="line"><span class="string">&quot;notifications&quot;</span>,</span><br><span class="line"><span class="string">&quot;bookmarks&quot;</span>,</span><br><span class="line"><span class="string">&quot;scripting&quot;</span></span><br><span class="line">],</span><br><span class="line"><span class="string">&quot;background&quot;</span>: &#123;</span><br><span class="line"><span class="string">&quot;service_worker&quot;</span>: <span class="string">&quot;background.js&quot;</span></span><br><span class="line">&#125;,</span><br><span class="line"><span class="string">&quot;homepage_url&quot;</span>: <span class="string">&quot;https://xuzengjie.gitee.io/&quot;</span></span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h1 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h1><p>书签项目地址： <a href="https://gitee.com/xuzengjie/book-mark-sync">https://gitee.com/xuzengjie/book-mark-sync</a></p><h1 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h1><p>谷歌浏览器打开 chrome://extensions/ ，开启开发者模式，点击”加载已解压的扩展程序”,选中书签项目源码路径即可。</p><h1 id="更新项目"><a href="#更新项目" class="headerlink" title="更新项目"></a>更新项目</h1><p>开发过程中，可用直接更新源码后，在扩展程序界面，点击刷新即可<br>(F5 刷新调试界面似乎也是可以的)<br><img src="/archives/d16f2002/1.png" alt="1"></p><h1 id="调试项目"><a href="#调试项目" class="headerlink" title="调试项目"></a>调试项目</h1><p>chrome-extension://项目 ID/popup.html<br>例：chrome-extension://hceaeddpkeidodfbmjmcnilccgikmkda/popup.html<br>项目 ID 在扩展程序界面可以看到（需开启开发者模式）</p><h1 id="谷歌书签"><a href="#谷歌书签" class="headerlink" title="谷歌书签"></a>谷歌书签</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> bookMarks = chrome.bookmarks</span><br></pre></td></tr></table></figure><p>参考： <a href="https://developer.mozilla.org/zh-CN/docs/Mozilla/Add-ons/WebExtensions/API/bookmarks">https://developer.mozilla.org/zh-CN/docs/Mozilla/Add-ons/WebExtensions/API/bookmarks</a></p><h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><p>manifest.json 内<br>manifest_version 为 3，版本 2 的已快被舍弃<br>permissions 为需要的权限<br>background service_worker 为服务工作者，暂时还不知道怎么用</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"><span class="string">&quot;manifest_version&quot;</span>: <span class="number">3</span>,</span><br><span class="line"><span class="string">&quot;version&quot;</span>: <span class="string">&quot;1.0.3&quot;</span>,</span><br><span class="line"><span class="string">&quot;name&quot;</span>: <span class="string">&quot;BookMarkSync&quot;</span>,</span><br><span class="line"><span class="string">&quot;description&quot;</span>: <span class="string">&quot;书签同步&quot;</span>,</span><br><span class="line"><span class="string">&quot;icons&quot;</span>: &#123;</span><br><span class="line"><span class="string">&quot;16&quot;</span>: <span class="string">&quot;images/icon.png&quot;</span>,</span><br><span class="line"><span class="string">&quot;32&quot;</span>: <span class="string">&quot;images/icon.png&quot;</span>,</span><br><span class="line"><span class="string">&quot;48&quot;</span>: <span class="string">&quot;images/icon.png&quot;</span>,</span><br><span class="line"><span class="string">&quot;128&quot;</span>: <span class="string">&quot;images/icon.png&quot;</span></span><br><span class="line">&#125;,</span><br><span class="line"><span class="string">&quot;action&quot;</span>: &#123;</span><br><span class="line"><span class="string">&quot;default_popup&quot;</span>: <span class="string">&quot;popup.html&quot;</span></span><br><span class="line">&#125;,</span><br><span class="line"><span class="string">&quot;permissions&quot;</span>: [</span><br><span class="line"><span class="string">&quot;storage&quot;</span>,</span><br><span class="line"><span class="string">&quot;activeTab&quot;</span>,</span><br><span class="line"><span class="string">&quot;tabs&quot;</span>,</span><br><span class="line"><span class="string">&quot;notifications&quot;</span>,</span><br><span class="line"><span class="string">&quot;bookmarks&quot;</span>,</span><br><span class="line"><span class="string">&quot;scripting&quot;</span></span><br><span class="line">],</span><br><span class="line"><span class="string">&quot;background&quot;</span>: &#123;</span><br><span class="line"><span class="string">&quot;service_worker&quot;</span>: <span class="string">&quot;background.js&quot;</span></span><br><span class="line">&#125;,</span><br><span class="line"><span class="string">&quot;homepage_url&quot;</span>: <span class="string">&quot;https://xuzengjie.gitee.io/&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
     
     
       
@@ -173,9 +173,9 @@
     
     
     
-    <category term="反射" scheme="https://xuzengjie.gitee.io/tags/%E5%8F%8D%E5%B0%84/"/>
-    
     <category term="工厂模式" scheme="https://xuzengjie.gitee.io/tags/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/"/>
+    
+    <category term="反射" scheme="https://xuzengjie.gitee.io/tags/%E5%8F%8D%E5%B0%84/"/>
     
   </entry>
   
@@ -276,9 +276,9 @@
     
     
     
-    <category term="VSCode" scheme="https://xuzengjie.gitee.io/tags/VSCode/"/>
-    
     <category term="linux" scheme="https://xuzengjie.gitee.io/tags/linux/"/>
+    
+    <category term="VSCode" scheme="https://xuzengjie.gitee.io/tags/VSCode/"/>
     
   </entry>
   
@@ -374,11 +374,11 @@
     
     
     
+    <category term="工具命令" scheme="https://xuzengjie.gitee.io/tags/%E5%B7%A5%E5%85%B7%E5%91%BD%E4%BB%A4/"/>
+    
     <category term="linux" scheme="https://xuzengjie.gitee.io/tags/linux/"/>
     
     <category term="Node" scheme="https://xuzengjie.gitee.io/tags/Node/"/>
-    
-    <category term="工具命令" scheme="https://xuzengjie.gitee.io/tags/%E5%B7%A5%E5%85%B7%E5%91%BD%E4%BB%A4/"/>
     
   </entry>
   
@@ -400,9 +400,9 @@
     
     
     
-    <category term="linux" scheme="https://xuzengjie.gitee.io/tags/linux/"/>
-    
     <category term="工具命令" scheme="https://xuzengjie.gitee.io/tags/%E5%B7%A5%E5%85%B7%E5%91%BD%E4%BB%A4/"/>
+    
+    <category term="linux" scheme="https://xuzengjie.gitee.io/tags/linux/"/>
     
     <category term="报错" scheme="https://xuzengjie.gitee.io/tags/%E6%8A%A5%E9%94%99/"/>
     
@@ -426,11 +426,11 @@
     
     
     
-    <category term="工具命令" scheme="https://xuzengjie.gitee.io/tags/%E5%B7%A5%E5%85%B7%E5%91%BD%E4%BB%A4/"/>
-    
     <category term="docker" scheme="https://xuzengjie.gitee.io/tags/docker/"/>
     
     <category term="青龙面板" scheme="https://xuzengjie.gitee.io/tags/%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF/"/>
+    
+    <category term="工具命令" scheme="https://xuzengjie.gitee.io/tags/%E5%B7%A5%E5%85%B7%E5%91%BD%E4%BB%A4/"/>
     
   </entry>
   
