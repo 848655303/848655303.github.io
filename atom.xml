@@ -6,7 +6,7 @@
   <link href="https://xuzengjie.gitee.io/atom.xml" rel="self"/>
   
   <link href="https://xuzengjie.gitee.io/"/>
-  <updated>2022-12-16T09:00:45.388Z</updated>
+  <updated>2023-01-05T03:44:37.280Z</updated>
   <id>https://xuzengjie.gitee.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>64-Google插件</title>
+    <link href="https://xuzengjie.gitee.io/archives/d16f2002.html"/>
+    <id>https://xuzengjie.gitee.io/archives/d16f2002.html</id>
+    <published>2023-01-03T16:00:00.000Z</published>
+    <updated>2023-01-05T03:44:37.280Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h1><p>书签项目地址： <a href="https://gitee.com/xuzengjie/book-mark-sync">https://gitee.com/xuzengjie/book-mark-sync</a></p><h1 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h1><p>谷歌浏览器打开 chrome://extensions/ ，开启开发者模式，点击”加载已解压的扩展程序”,选中书签项目源码路径即可。</p><h1 id="更新项目"><a href="#更新项目" class="headerlink" title="更新项目"></a>更新项目</h1><p>开发过程中，可用直接更新源码后，在扩展程序界面，点击刷新即可<br>(F5 刷新调试界面似乎也是可以的)<br><img src="/archives/d16f2002/1.png" alt="1"></p><h1 id="调试项目"><a href="#调试项目" class="headerlink" title="调试项目"></a>调试项目</h1><p>chrome-extension://项目 ID/popup.html<br>例：chrome-extension://hceaeddpkeidodfbmjmcnilccgikmkda/popup.html<br>项目 ID 在扩展程序界面可以看到（需开启开发者模式）</p><h1 id="谷歌书签"><a href="#谷歌书签" class="headerlink" title="谷歌书签"></a>谷歌书签</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> bookMarks = chrome.bookmarks</span><br></pre></td></tr></table></figure><p>参考： <a href="https://developer.mozilla.org/zh-CN/docs/Mozilla/Add-ons/WebExtensions/API/bookmarks">https://developer.mozilla.org/zh-CN/docs/Mozilla/Add-ons/WebExtensions/API/bookmarks</a></p><h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><p>manifest.json 内<br>manifest_version 为 3，版本 2 的已快被舍弃<br>permissions 为需要的权限<br>background service_worker 为服务工作者，暂时还不知道怎么用</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;manifest_version&quot;</span>: <span class="number">3</span>,</span><br><span class="line"><span class="string">&quot;version&quot;</span>: <span class="string">&quot;1.0.3&quot;</span>,</span><br><span class="line"><span class="string">&quot;name&quot;</span>: <span class="string">&quot;BookMarkSync&quot;</span>,</span><br><span class="line"><span class="string">&quot;description&quot;</span>: <span class="string">&quot;书签同步&quot;</span>,</span><br><span class="line"><span class="string">&quot;icons&quot;</span>: &#123;</span><br><span class="line"><span class="string">&quot;16&quot;</span>: <span class="string">&quot;images/icon.png&quot;</span>,</span><br><span class="line"><span class="string">&quot;32&quot;</span>: <span class="string">&quot;images/icon.png&quot;</span>,</span><br><span class="line"><span class="string">&quot;48&quot;</span>: <span class="string">&quot;images/icon.png&quot;</span>,</span><br><span class="line"><span class="string">&quot;128&quot;</span>: <span class="string">&quot;images/icon.png&quot;</span></span><br><span class="line">&#125;,</span><br><span class="line"><span class="string">&quot;action&quot;</span>: &#123;</span><br><span class="line"><span class="string">&quot;default_popup&quot;</span>: <span class="string">&quot;popup.html&quot;</span></span><br><span class="line">&#125;,</span><br><span class="line"><span class="string">&quot;permissions&quot;</span>: [</span><br><span class="line"><span class="string">&quot;storage&quot;</span>,</span><br><span class="line"><span class="string">&quot;activeTab&quot;</span>,</span><br><span class="line"><span class="string">&quot;tabs&quot;</span>,</span><br><span class="line"><span class="string">&quot;notifications&quot;</span>,</span><br><span class="line"><span class="string">&quot;bookmarks&quot;</span>,</span><br><span class="line"><span class="string">&quot;scripting&quot;</span></span><br><span class="line">],</span><br><span class="line"><span class="string">&quot;background&quot;</span>: &#123;</span><br><span class="line"><span class="string">&quot;service_worker&quot;</span>: <span class="string">&quot;background.js&quot;</span></span><br><span class="line">&#125;,</span><br><span class="line"><span class="string">&quot;homepage_url&quot;</span>: <span class="string">&quot;https://xuzengjie.gitee.io/&quot;</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;项目地址&quot;&gt;&lt;a href=&quot;#项目地址&quot; class=&quot;headerlink&quot; title=&quot;项目地址&quot;&gt;&lt;/a&gt;项目地址&lt;/h1&gt;&lt;p&gt;书签项目地址： &lt;a href=&quot;https://gitee.com/xuzengjie/book-mark-sync&quot;&gt;h</summary>
+      
+    
+    
+    
+    
+    <category term="浏览器" scheme="https://xuzengjie.gitee.io/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/"/>
+    
+    <category term="插件" scheme="https://xuzengjie.gitee.io/tags/%E6%8F%92%E4%BB%B6/"/>
+    
+  </entry>
   
   <entry>
     <title>63-Vue项目初始</title>
@@ -149,9 +173,9 @@
     
     
     
-    <category term="工厂模式" scheme="https://xuzengjie.gitee.io/tags/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/"/>
-    
     <category term="反射" scheme="https://xuzengjie.gitee.io/tags/%E5%8F%8D%E5%B0%84/"/>
+    
+    <category term="工厂模式" scheme="https://xuzengjie.gitee.io/tags/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/"/>
     
   </entry>
   
@@ -350,11 +374,11 @@
     
     
     
-    <category term="工具命令" scheme="https://xuzengjie.gitee.io/tags/%E5%B7%A5%E5%85%B7%E5%91%BD%E4%BB%A4/"/>
-    
     <category term="linux" scheme="https://xuzengjie.gitee.io/tags/linux/"/>
     
     <category term="Node" scheme="https://xuzengjie.gitee.io/tags/Node/"/>
+    
+    <category term="工具命令" scheme="https://xuzengjie.gitee.io/tags/%E5%B7%A5%E5%85%B7%E5%91%BD%E4%BB%A4/"/>
     
   </entry>
   
@@ -376,9 +400,9 @@
     
     
     
-    <category term="工具命令" scheme="https://xuzengjie.gitee.io/tags/%E5%B7%A5%E5%85%B7%E5%91%BD%E4%BB%A4/"/>
-    
     <category term="linux" scheme="https://xuzengjie.gitee.io/tags/linux/"/>
+    
+    <category term="工具命令" scheme="https://xuzengjie.gitee.io/tags/%E5%B7%A5%E5%85%B7%E5%91%BD%E4%BB%A4/"/>
     
     <category term="报错" scheme="https://xuzengjie.gitee.io/tags/%E6%8A%A5%E9%94%99/"/>
     
@@ -402,11 +426,11 @@
     
     
     
+    <category term="工具命令" scheme="https://xuzengjie.gitee.io/tags/%E5%B7%A5%E5%85%B7%E5%91%BD%E4%BB%A4/"/>
+    
     <category term="docker" scheme="https://xuzengjie.gitee.io/tags/docker/"/>
     
     <category term="青龙面板" scheme="https://xuzengjie.gitee.io/tags/%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF/"/>
-    
-    <category term="工具命令" scheme="https://xuzengjie.gitee.io/tags/%E5%B7%A5%E5%85%B7%E5%91%BD%E4%BB%A4/"/>
     
   </entry>
   
@@ -484,32 +508,6 @@
     <category term="MQTT" scheme="https://xuzengjie.gitee.io/tags/MQTT/"/>
     
     <category term="EMQX" scheme="https://xuzengjie.gitee.io/tags/EMQX/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>44-net注释改为中文</title>
-    <link href="https://xuzengjie.gitee.io/archives/33bb1fa1.html"/>
-    <id>https://xuzengjie.gitee.io/archives/33bb1fa1.html</id>
-    <published>2021-11-30T16:00:00.000Z</published>
-    <updated>2022-10-28T07:21:14.618Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="下载翻译文件"><a href="#下载翻译文件" class="headerlink" title="下载翻译文件"></a>下载翻译文件</h1><p><a href="https://dotnet.microsoft.com/download/intellisense">下载地址</a></p><p><img src="/archives/33bb1fa1/image-20211203142345956.png" alt="image-20211203142345956"></p><h1 id="下载的文件对应情况"><a href="#下载的文件对应情况" class="headerlink" title="下载的文件对应情况"></a>下载的文件对应情况</h1><p><img src="/archives/33bb1fa1/image-20211203142602709.png" alt="image-20211203142602709"></p><p>.NET Core 对应 Microsoft.NETCore.App.Ref</p><p>Windows Desktop 对应 Microsoft.WindowsDesktop.App.Ref</p><p>.NET Standard 对应 NETStandard.Library.Ref</p><h1 id="拷贝"><a href="#拷贝" class="headerlink" title="拷贝"></a>拷贝</h1><p>把下载文件内的语言文件夹（zh-hans等）拷贝到C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\5.0.0\ref\net5.0</p><h1 id="重启VS"><a href="#重启VS" class="headerlink" title="重启VS"></a>重启VS</h1><p>重启Visual Studio即可。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;下载翻译文件&quot;&gt;&lt;a href=&quot;#下载翻译文件&quot; class=&quot;headerlink&quot; title=&quot;下载翻译文件&quot;&gt;&lt;/a&gt;下载翻译文件&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://dotnet.microsoft.com/download/intelli</summary>
-      
-    
-    
-    
-    
-    <category term=".net" scheme="https://xuzengjie.gitee.io/tags/net/"/>
-    
-    <category term="vs" scheme="https://xuzengjie.gitee.io/tags/vs/"/>
-    
-    <category term="中文" scheme="https://xuzengjie.gitee.io/tags/%E4%B8%AD%E6%96%87/"/>
     
   </entry>
   
