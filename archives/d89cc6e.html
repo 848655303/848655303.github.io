@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="https://xuzengjie.gitee.io">
   <title>27-Ubuntu | xzj个人记录</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="27-Ubuntu1、命令查看版本：cat &#x2F;etc&#x2F;lsb-release（具体）    或lsb_release -a 查看IP：ifconfig -a 修改密码：passwd 使用高级权限操作：sudo xxx     (xxx为相关需要高权限的命令) 切换root账户：sudo su 切换普通账户：su user   (user为普通账户名) 查询当前所在文件路径：pwd 查看当前路径下目">
+  <meta name="description" content="27-Ubuntu1、命令查看版本：cat &#x2F;etc&#x2F;lsb-release（具体） 或 lsb_release -a 查看 IP：ip address 或 hostname -I 修改 root 密码：sudo passwd root修改密码：passwd 使用高级权限操作：sudo xxx (xxx 为相关需要高权限的命令) 切换 root 账户：sudo su 切换普通账户：su user">
 <meta property="og:type" content="article">
 <meta property="og:title" content="27-Ubuntu">
 <meta property="og:url" content="https://xuzengjie.gitee.io/archives/d89cc6e.html">
 <meta property="og:site_name" content="xzj个人记录">
-<meta property="og:description" content="27-Ubuntu1、命令查看版本：cat &#x2F;etc&#x2F;lsb-release（具体）    或lsb_release -a 查看IP：ifconfig -a 修改密码：passwd 使用高级权限操作：sudo xxx     (xxx为相关需要高权限的命令) 切换root账户：sudo su 切换普通账户：su user   (user为普通账户名) 查询当前所在文件路径：pwd 查看当前路径下目">
+<meta property="og:description" content="27-Ubuntu1、命令查看版本：cat &#x2F;etc&#x2F;lsb-release（具体） 或 lsb_release -a 查看 IP：ip address 或 hostname -I 修改 root 密码：sudo passwd root修改密码：passwd 使用高级权限操作：sudo xxx (xxx 为相关需要高权限的命令) 切换 root 账户：sudo su 切换普通账户：su user">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-07-28T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-10-28T07:21:14.564Z">
+<meta property="article:modified_time" content="2023-01-13T08:33:53.643Z">
 <meta property="article:author" content="徐增杰">
 <meta property="article:tag" content="ubuntu">
 <meta name="twitter:card" content="summary">
@@ -201,44 +201,40 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="27-Ubuntu"><a href="#27-Ubuntu" class="headerlink" title="27-Ubuntu"></a>27-Ubuntu</h1><h4 id="1、命令"><a href="#1、命令" class="headerlink" title="1、命令"></a>1、命令</h4><p>查看版本：cat /etc/lsb-release（具体）    或lsb_release -a</p>
-<p>查看IP：ifconfig -a</p>
-<p>修改密码：passwd</p>
-<p>使用高级权限操作：sudo xxx     (xxx为相关需要高权限的命令)</p>
-<p>切换root账户：sudo su</p>
-<p>切换普通账户：su user   (user为普通账户名)</p>
+        <h1 id="27-Ubuntu"><a href="#27-Ubuntu" class="headerlink" title="27-Ubuntu"></a>27-Ubuntu</h1><h4 id="1、命令"><a href="#1、命令" class="headerlink" title="1、命令"></a>1、命令</h4><p>查看版本：cat /etc/lsb-release（具体） 或 lsb_release -a</p>
+<p>查看 IP：ip address 或 hostname -I</p>
+<p>修改 root 密码：sudo passwd root<br>修改密码：passwd</p>
+<p>使用高级权限操作：sudo xxx (xxx 为相关需要高权限的命令)</p>
+<p>切换 root 账户：sudo su</p>
+<p>切换普通账户：su user (user 为普通账户名)</p>
 <p>查询当前所在文件路径：pwd</p>
-<p>查看当前路径下目录：ls</p>
+<p>查看当前路径下目录：ls<br>查看当前路径下目录：ll</p>
 <p>打开文件夹：cd</p>
 <p>到上层目录：cd ..</p>
 <p>到根目录：cd /</p>
 <h4 id="2、修改软件源"><a href="#2、修改软件源" class="headerlink" title="2、修改软件源"></a>2、修改软件源</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//备份原来的数据源配置文件</span><br><span class="line">sudo cp /etc/apt/sources.list /etc/apt/sources.list_backup</span><br><span class="line"></span><br><span class="line">//修改数据源配置文件</span><br><span class="line">sudo vi /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
 
-<p>将光标移动到开头，输入dG(即删除光标处到文本末的所有数据）</p>
-<p>输入i，即切换编辑模式</p>
-<p>阿里源、清华源、中科大源，三选一，粘贴到vi内</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">#阿里源</span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic main restricted universe multiverse</span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-security main restricted universe multiverse</span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-updates main restricted universe multiverse</span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-proposed main restricted universe multiverse</span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-backports main restricted universe multiverse</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic main restricted universe multiverse</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-security main restricted universe multiverse</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-updates main restricted universe multiverse</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-proposed main restricted universe multiverse</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-backports main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">#清华源</span><br><span class="line">deb https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; bionic main restricted universe multiverse</span><br><span class="line">deb https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; bionic-updates main restricted universe multiverse</span><br><span class="line">deb https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; bionic-backports main restricted universe multiverse</span><br><span class="line">deb https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; bionic-security main restricted universe multiverse</span><br><span class="line">deb https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; bionic-proposed main restricted universe multiverse</span><br><span class="line">deb-src https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; bionic main restricted universe multiverse</span><br><span class="line">deb-src https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; bionic-updates main restricted universe multiverse</span><br><span class="line">deb-src https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; bionic-backports main restricted universe multiverse</span><br><span class="line">deb-src https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; bionic-security main restricted universe multiverse</span><br><span class="line">deb-src https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; bionic-proposed main restricted universe multiverse</span><br><span class="line"> </span><br><span class="line">#中科大源</span><br><span class="line">deb https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;ubuntu&#x2F; bionic main restricted universe multiverse</span><br><span class="line">deb https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;ubuntu&#x2F; bionic-updates main restricted universe multiverse</span><br><span class="line">deb https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;ubuntu&#x2F; bionic-backports main restricted universe multiverse</span><br><span class="line">deb https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;ubuntu&#x2F; bionic-security main restricted universe multiverse</span><br><span class="line">deb https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;ubuntu&#x2F; bionic-proposed main restricted universe multiverse</span><br><span class="line">deb-src https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;ubuntu&#x2F; bionic main restricted universe multiverse</span><br><span class="line">deb-src https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;ubuntu&#x2F; bionic-updates main restricted universe multiverse</span><br><span class="line">deb-src https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;ubuntu&#x2F; bionic-backports main restricted universe multiverse</span><br><span class="line">deb-src https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;ubuntu&#x2F; bionic-security main restricted universe multiverse</span><br><span class="line">deb-src https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;ubuntu&#x2F; bionic-proposed main restricted universe multiverse</span><br></pre></td></tr></table></figure>
+<p>将光标移动到开头，输入 dG(即删除光标处到文本末的所有数据）</p>
+<p>输入 i，即切换编辑模式</p>
+<p>阿里源、清华源、中科大源，三选一，粘贴到 vi 内</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">#阿里源</span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic main restricted universe multiverse</span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-security main restricted universe multiverse</span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-updates main restricted universe multiverse</span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-proposed main restricted universe multiverse</span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-backports main restricted universe multiverse</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic main restricted universe multiverse</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-security main restricted universe multiverse</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-updates main restricted universe multiverse</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-proposed main restricted universe multiverse</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-backports main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">#清华源</span><br><span class="line">deb https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; bionic main restricted universe multiverse</span><br><span class="line">deb https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; bionic-updates main restricted universe multiverse</span><br><span class="line">deb https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; bionic-backports main restricted universe multiverse</span><br><span class="line">deb https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; bionic-security main restricted universe multiverse</span><br><span class="line">deb https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; bionic-proposed main restricted universe multiverse</span><br><span class="line">deb-src https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; bionic main restricted universe multiverse</span><br><span class="line">deb-src https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; bionic-updates main restricted universe multiverse</span><br><span class="line">deb-src https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; bionic-backports main restricted universe multiverse</span><br><span class="line">deb-src https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; bionic-security main restricted universe multiverse</span><br><span class="line">deb-src https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; bionic-proposed main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">#中科大源</span><br><span class="line">deb https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;ubuntu&#x2F; bionic main restricted universe multiverse</span><br><span class="line">deb https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;ubuntu&#x2F; bionic-updates main restricted universe multiverse</span><br><span class="line">deb https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;ubuntu&#x2F; bionic-backports main restricted universe multiverse</span><br><span class="line">deb https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;ubuntu&#x2F; bionic-security main restricted universe multiverse</span><br><span class="line">deb https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;ubuntu&#x2F; bionic-proposed main restricted universe multiverse</span><br><span class="line">deb-src https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;ubuntu&#x2F; bionic main restricted universe multiverse</span><br><span class="line">deb-src https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;ubuntu&#x2F; bionic-updates main restricted universe multiverse</span><br><span class="line">deb-src https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;ubuntu&#x2F; bionic-backports main restricted universe multiverse</span><br><span class="line">deb-src https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;ubuntu&#x2F; bionic-security main restricted universe multiverse</span><br><span class="line">deb-src https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;ubuntu&#x2F; bionic-proposed main restricted universe multiverse</span><br></pre></td></tr></table></figure>
 
-<p>按ESC退出编辑模式</p>
+<p>按 ESC 退出编辑模式</p>
 <p>输入:wq! 回车保存退出。!是强制退出。</p>
 <p>更新源配置</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
 
-
-
-<p>在bash里面下载桌面</p>
+<p>在 bash 里面下载桌面</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install ubuntu-desktop unity compiz-core compizconfig-settings-manager</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">export  DISPLAY&#x3D;localhost:0</span><br><span class="line">ccsm</span><br></pre></td></tr></table></figure>
 
-
-
 <h4 id="3-其它"><a href="#3-其它" class="headerlink" title="3 其它"></a>3 其它</h4><p>服务器性能工具：安装命令如下：sudo apt-get install htop<br>安装完后，直接输入命令：htop</p>
-<h4 id="4-IPV6转IPV4-用于只有IPV6的服务器可以访问IPV4的资源"><a href="#4-IPV6转IPV4-用于只有IPV6的服务器可以访问IPV4的资源" class="headerlink" title="4 IPV6转IPV4  (用于只有IPV6的服务器可以访问IPV4的资源)"></a>4 IPV6转IPV4  (用于只有IPV6的服务器可以访问IPV4的资源)</h4><p>DNS：IPV6到IPV4<br>vim /etc/resolv.conf<br>nameserver 2a09:11c0:f1:bbf0::70<br>nameserver 2a03:7900:2:0:31:3:104:161</p>
+<h4 id="4-IPV6-转-IPV4-用于只有-IPV6-的服务器可以访问-IPV4-的资源"><a href="#4-IPV6-转-IPV4-用于只有-IPV6-的服务器可以访问-IPV4-的资源" class="headerlink" title="4 IPV6 转 IPV4 (用于只有 IPV6 的服务器可以访问 IPV4 的资源)"></a>4 IPV6 转 IPV4 (用于只有 IPV6 的服务器可以访问 IPV4 的资源)</h4><p>DNS：IPV6 到 IPV4<br>vim /etc/resolv.conf<br>nameserver 2a09:11c0:f1:bbf0::70<br>nameserver 2a03:7900:2:0:31:3:104:161</p>
 <p>#yum<br>yum clean all<br>yum makecache<br>#apt<br>apt-get update</p>
-<h4 id="5-是否开启了某个程序"><a href="#5-是否开启了某个程序" class="headerlink" title="5 是否开启了某个程序"></a>5 是否开启了某个程序</h4><p>是否开启了ftp：ps  -ef  |  grep ftp<br>ps -ef | grep nginx 就可以看到Nginx进程是否存在了。<br>ps -C nginx -o pid  直接查看进程id<br>netstat -anp | grep :80命令来判断Nginx是否启动。<br>lsof -i:80 也可以查到80端口进程是否有进程在运行。<br>netstat -aptn</p>
-<h4 id="6-关闭6010和53端口"><a href="#6-关闭6010和53端口" class="headerlink" title="6 关闭6010和53端口"></a>6 关闭6010和53端口</h4><p>6010端口关闭，修改/etc/ssh/sshd_config，注释掉XllForwarding yes。之后重启服务器就没有了</p>
-<p>解决systemd-resolved占用了53端口<br>1、先停用 systemd-resolved 服务<br>systemctl stop systemd-resolved<br>2、编辑 /etc/systemd/resolved.conf 文件<br>3、换下面说明更改，然后按一下“esc”键，再输入“:wq”（不要输入引号），回车保存即可。<br>[Resolve]<br>DNS=8.8.8.8  #取消注释，增加dns<br>#FallbackDNS=<br>#Domains=<br>#LLMNR=no<br>#MulticastDNS=no<br>#DNSSEC=no<br>#Cache=yes<br>DNSStubListener=no  #取消注释，把yes改为no</p>
+<h4 id="5-是否开启了某个程序"><a href="#5-是否开启了某个程序" class="headerlink" title="5 是否开启了某个程序"></a>5 是否开启了某个程序</h4><p>是否开启了 ftp：ps -ef | grep ftp<br>ps -ef | grep nginx 就可以看到 Nginx 进程是否存在了。<br>ps -C nginx -o pid 直接查看进程 id<br>netstat -anp | grep :80 命令来判断 Nginx 是否启动。<br>lsof -i:80 也可以查到 80 端口进程是否有进程在运行。<br>netstat -aptn</p>
+<h4 id="6-关闭-6010-和-53-端口"><a href="#6-关闭-6010-和-53-端口" class="headerlink" title="6 关闭 6010 和 53 端口"></a>6 关闭 6010 和 53 端口</h4><p>6010 端口关闭，修改/etc/ssh/sshd_config，注释掉 XllForwarding yes。之后重启服务器就没有了</p>
+<p>解决 systemd-resolved 占用了 53 端口<br>1、先停用 systemd-resolved 服务<br>systemctl stop systemd-resolved<br>2、编辑 /etc/systemd/resolved.conf 文件<br>3、换下面说明更改，然后按一下“esc”键，再输入“:wq”（不要输入引号），回车保存即可。<br>[Resolve]<br>DNS=8.8.8.8 #取消注释，增加 dns<br>#FallbackDNS=<br>#Domains=<br>#LLMNR=no<br>#MulticastDNS=no<br>#DNSSEC=no<br>#Cache=yes<br>DNSStubListener=no #取消注释，把 yes 改为 no</p>
 <p>4、最后运行下面命令即可。<br>ln -sf /run/systemd/resolve/resolv.conf /etc/resolv.conf</p>
-<h4 id="7-修改SSH的端口"><a href="#7-修改SSH的端口" class="headerlink" title="7 修改SSH的端口"></a>7 修改SSH的端口</h4><p>修改SSH端口：vim /etc/ssh/sshd_config<br>删除掉Port 22前面的#，然后下一行输入新的端口号如：Port 10000（这个你自己定，最大不能超过65535）<br>编辑好，先按ESC键，再输入 :wq  保存退出.<br>重启ssh：sudo /etc/init.d/ssh restart<br>新端口可以使用后，删除22端口。</p>
+<h4 id="7-修改-SSH-的端口"><a href="#7-修改-SSH-的端口" class="headerlink" title="7 修改 SSH 的端口"></a>7 修改 SSH 的端口</h4><p>修改 SSH 端口：vim /etc/ssh/sshd_config<br>删除掉 Port 22 前面的#，然后下一行输入新的端口号如：Port 10000（这个你自己定，最大不能超过 65535）<br>编辑好，先按 ESC 键，再输入 :wq 保存退出.<br>重启 ssh：sudo /etc/init.d/ssh restart<br>新端口可以使用后，删除 22 端口。</p>
 
       
 
@@ -340,7 +336,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#27-Ubuntu"><span class="toc-number">1.</span> <span class="toc-text">27-Ubuntu</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%E3%80%81%E5%91%BD%E4%BB%A4"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">1、命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2%E3%80%81%E4%BF%AE%E6%94%B9%E8%BD%AF%E4%BB%B6%E6%BA%90"><span class="toc-number">1.0.0.2.</span> <span class="toc-text">2、修改软件源</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%85%B6%E5%AE%83"><span class="toc-number">1.0.0.3.</span> <span class="toc-text">3 其它</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-IPV6%E8%BD%ACIPV4-%E7%94%A8%E4%BA%8E%E5%8F%AA%E6%9C%89IPV6%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%8F%AF%E4%BB%A5%E8%AE%BF%E9%97%AEIPV4%E7%9A%84%E8%B5%84%E6%BA%90"><span class="toc-number">1.0.0.4.</span> <span class="toc-text">4 IPV6转IPV4  (用于只有IPV6的服务器可以访问IPV4的资源)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E6%98%AF%E5%90%A6%E5%BC%80%E5%90%AF%E4%BA%86%E6%9F%90%E4%B8%AA%E7%A8%8B%E5%BA%8F"><span class="toc-number">1.0.0.5.</span> <span class="toc-text">5 是否开启了某个程序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-%E5%85%B3%E9%97%AD6010%E5%92%8C53%E7%AB%AF%E5%8F%A3"><span class="toc-number">1.0.0.6.</span> <span class="toc-text">6 关闭6010和53端口</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-%E4%BF%AE%E6%94%B9SSH%E7%9A%84%E7%AB%AF%E5%8F%A3"><span class="toc-number">1.0.0.7.</span> <span class="toc-text">7 修改SSH的端口</span></a></li></ol></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#27-Ubuntu"><span class="toc-number">1.</span> <span class="toc-text">27-Ubuntu</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%E3%80%81%E5%91%BD%E4%BB%A4"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">1、命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2%E3%80%81%E4%BF%AE%E6%94%B9%E8%BD%AF%E4%BB%B6%E6%BA%90"><span class="toc-number">1.0.0.2.</span> <span class="toc-text">2、修改软件源</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%85%B6%E5%AE%83"><span class="toc-number">1.0.0.3.</span> <span class="toc-text">3 其它</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-IPV6-%E8%BD%AC-IPV4-%E7%94%A8%E4%BA%8E%E5%8F%AA%E6%9C%89-IPV6-%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%8F%AF%E4%BB%A5%E8%AE%BF%E9%97%AE-IPV4-%E7%9A%84%E8%B5%84%E6%BA%90"><span class="toc-number">1.0.0.4.</span> <span class="toc-text">4 IPV6 转 IPV4 (用于只有 IPV6 的服务器可以访问 IPV4 的资源)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E6%98%AF%E5%90%A6%E5%BC%80%E5%90%AF%E4%BA%86%E6%9F%90%E4%B8%AA%E7%A8%8B%E5%BA%8F"><span class="toc-number">1.0.0.5.</span> <span class="toc-text">5 是否开启了某个程序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-%E5%85%B3%E9%97%AD-6010-%E5%92%8C-53-%E7%AB%AF%E5%8F%A3"><span class="toc-number">1.0.0.6.</span> <span class="toc-text">6 关闭 6010 和 53 端口</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-%E4%BF%AE%E6%94%B9-SSH-%E7%9A%84%E7%AB%AF%E5%8F%A3"><span class="toc-number">1.0.0.7.</span> <span class="toc-text">7 修改 SSH 的端口</span></a></li></ol></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -477,6 +473,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Hexo使用</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">C#</a>
               </li>
              
@@ -485,15 +485,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Hexo使用</a>
+                <a href="javascript:void(0)" class="js-tag color3">outlook</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">EF</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -513,11 +509,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">EF</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">代码片段</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">outlook</a>
+                <a href="javascript:void(0)" class="js-tag color2">EFCore</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -526,22 +526,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">双判断锁</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SQLServer</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ACCESS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Oracle</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -557,22 +541,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">EFCore</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">webapi</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">swagger</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">VS</a>
               </li>
              
@@ -582,30 +550,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">快捷键</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">字符串</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">拾遗</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Linq</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">TakeWhile</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SkipWhile</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -653,63 +597,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">IIS定时任务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">回收</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">未整理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">VUE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">委托</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Action</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Func</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">环境</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">test</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">监听</a>
+                <a href="javascript:void(0)" class="js-tag color5">SQLServer</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SQL Server</a>
+                <a href="javascript:void(0)" class="js-tag color1">MySql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SQL Server Profiler</a>
+                <a href="javascript:void(0)" class="js-tag color2">ACCESS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Oracle</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -725,11 +633,63 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">组件</a>
+                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">NPOI</a>
+                <a href="javascript:void(0)" class="js-tag color4">VUE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">环境</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">字符串</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">拾遗</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">webapi</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">swagger</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">VSCode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">插件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">IIS定时任务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">回收</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">未整理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -738,6 +698,34 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">5等分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">监听</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">SQL Server</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SQL Server Profiler</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Linq</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">TakeWhile</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SkipWhile</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -765,18 +753,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">.net</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">vs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">中文</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Task</a>
               </li>
              
@@ -789,51 +765,35 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+                <a href="javascript:void(0)" class="js-tag color3">委托</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+                <a href="javascript:void(0)" class="js-tag color2">Action</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">青龙面板</a>
+                <a href="javascript:void(0)" class="js-tag color5">Func</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">工具命令</a>
+                <a href="javascript:void(0)" class="js-tag color3">组件</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color5">NPOI</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">报错</a>
+                <a href="javascript:void(0)" class="js-tag color5">.net</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">JS</a>
+                <a href="javascript:void(0)" class="js-tag color3">vs</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">CSS基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MES</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Azure AD</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">统一登录</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">saml</a>
+                <a href="javascript:void(0)" class="js-tag color3">中文</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -849,15 +809,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">半导体</a>
+                <a href="javascript:void(0)" class="js-tag color4">Azure AD</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">封装</a>
+                <a href="javascript:void(0)" class="js-tag color5">统一登录</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">VSCode</a>
+                <a href="javascript:void(0)" class="js-tag color5">saml</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">报错</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">工具命令</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">JS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -869,19 +845,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统架构</a>
+                <a href="javascript:void(0)" class="js-tag color1">CSS基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">DDD</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SqlSugar</a>
+                <a href="javascript:void(0)" class="js-tag color4">半导体</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -889,7 +857,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">插件</a>
+                <a href="javascript:void(0)" class="js-tag color3">封装</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">青龙面板</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">系统架构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">DDD</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -905,10 +889,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">工厂模式</a>
               </li>
              
@@ -917,19 +897,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">MES</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">npm</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">初始</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">未分类</a>
+                <a href="javascript:void(0)" class="js-tag color4">SqlSugar</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -941,7 +925,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">初始</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">辅助</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">未分类</a>
               </li>
             
             <div class="clearfix"></div>
