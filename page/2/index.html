@@ -180,6 +180,339 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-55-Oracle" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/archives/a16fcb03.html">55-Oracle</a>
+    </h1>
+  
+
+        
+        <a href="/archives/a16fcb03.html" class="archive-article-date">
+  	<time datetime="2022-07-02T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>名称</th>
+<th>最大</th>
+<th>举例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>char</td>
+<td>定长字符串</td>
+<td>2000字节</td>
+<td>CHAR(10)</td>
+<td>会使用空格补齐至最大容量</td>
+</tr>
+<tr>
+<td>varchar2</td>
+<td>不定长字符串</td>
+<td>4000字节</td>
+<td>varchar2(10)</td>
+<td>最大1/3长度的中文</td>
+</tr>
+<tr>
+<td>nvarchar2</td>
+<td>不定长字符串</td>
+<td>2000字符</td>
+<td>nvarchar2(10)</td>
+<td>中文英文最大长度等长</td>
+</tr>
+<tr>
+<td>number</td>
+<td>数值</td>
+<td>38位</td>
+<td>number(10,2)</td>
+<td>精度超了会四舍五入</td>
+</tr>
+<tr>
+<td>date</td>
+<td>日期</td>
+<td>X字节</td>
+<td>date</td>
+<td>精确到秒</td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td>日期</td>
+<td>X字节</td>
+<td>timestamp</td>
+<td>精确到毫秒</td>
+</tr>
+<tr>
+<td>blob</td>
+<td>二进制数据</td>
+<td>4G</td>
+<td>blob</td>
+<td>可以存文件、图片等</td>
+</tr>
+</tbody></table>
+<h1 id="伪表"><a href="#伪表" class="headerlink" title="伪表"></a>伪表</h1><p>Dual表是只含有一个字段且只有一行记录的表。<br>Oracle和MySQL中有，MsSQL中无。Oracle 常用，Mysql基本不用。</p>
+<h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>当数据库引擎发现用户在SELET语句处理dual表时，数据库引擎会跳过查询过程，以此节约开销。<br>这个特性用来做单纯处理数据，而不进行查询的操作时格外合适。<br>即字符处理函数的语法格式需要借助dual表实现。</p>
+<h1 id="伪列"><a href="#伪列" class="headerlink" title="伪列"></a>伪列</h1><h1 id="函数Function"><a href="#函数Function" class="headerlink" title="函数Function"></a>函数Function</h1><h3 id="系统函数"><a href="#系统函数" class="headerlink" title="系统函数"></a>系统函数</h3><table>
+<thead>
+<tr>
+<th>关键字</th>
+<th>描述</th>
+<th>举例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>lower</td>
+<td>小写</td>
+<td>lower(‘abCdEFg’)</td>
+</tr>
+<tr>
+<td>Upper</td>
+<td>大写</td>
+<td>Upper(‘abCdEFg’)</td>
+</tr>
+<tr>
+<td>ASCII</td>
+<td>字符转ASCII</td>
+<td>ASCII(‘a’)   –97</td>
+</tr>
+<tr>
+<td>chr</td>
+<td>ASCII转字符</td>
+<td>chr(97)         –a</td>
+</tr>
+<tr>
+<td>Initcap</td>
+<td>首字母大写，其它小写</td>
+<td>Initcap(‘abCdEFg’)</td>
+</tr>
+<tr>
+<td>CONCAT</td>
+<td>字符串拼接</td>
+<td>CONCAT(‘hello’,’world’)</td>
+</tr>
+<tr>
+<td>SUBSTR</td>
+<td>字符串截取</td>
+<td>SUBSTR(‘helloWorld’,1,5)</td>
+</tr>
+<tr>
+<td>LENGTH</td>
+<td>字符串长度</td>
+<td>LENGTH(‘helloWorld’)</td>
+</tr>
+<tr>
+<td>INSTR</td>
+<td>字符串查询</td>
+<td>INSTR(‘helloWorld’,’W’，2，1)</td>
+</tr>
+<tr>
+<td>LPAD</td>
+<td>左侧补字符</td>
+<td>LPAD(‘10’,5,’0’)</td>
+</tr>
+<tr>
+<td>RPAD</td>
+<td>右侧补字符</td>
+<td>RPAD(‘123’,5,’0’)</td>
+</tr>
+<tr>
+<td>TRIM</td>
+<td>移除头尾的字符</td>
+<td>TRIM(both、leading、trailing ‘H’ FROM ‘HelloWorld’)</td>
+</tr>
+<tr>
+<td>REPLACE</td>
+<td>字符串替换</td>
+<td>REPLACE(‘123456789’,’345’,’000’)    –120006789</td>
+</tr>
+<tr>
+<td>round</td>
+<td>指定小数四舍五入</td>
+<td>round(45.926,2)   –45.93</td>
+</tr>
+<tr>
+<td>trunc</td>
+<td>指定小数截断</td>
+<td>trunc(45.926,2)      –45.92</td>
+</tr>
+<tr>
+<td>mod</td>
+<td>取余</td>
+<td>mod(1600,300)      –100</td>
+</tr>
+<tr>
+<td>ABS</td>
+<td>绝对值</td>
+<td>ABS(-1)</td>
+</tr>
+<tr>
+<td>ACOS</td>
+<td>反余弦</td>
+<td>ACOS(1)=0</td>
+</tr>
+<tr>
+<td>COS</td>
+<td>余弦</td>
+<td>COS(1)=0.54030230586814</td>
+</tr>
+<tr>
+<td>Ceil</td>
+<td>向上取整</td>
+<td>CEIL(5.4)=6</td>
+</tr>
+<tr>
+<td>Floor</td>
+<td>向下取整</td>
+<td>FLOOR(5.8)=5</td>
+</tr>
+<tr>
+<td>LOG(X,Y)</td>
+<td>X为底Y的对数</td>
+<td>LOG(2，4)=2</td>
+</tr>
+<tr>
+<td>POWER(X,Y)</td>
+<td>X的Y次幂</td>
+<td>POWER(2，3)=8</td>
+</tr>
+<tr>
+<td>SQRT(X)</td>
+<td>X的平方根</td>
+<td>SQRT(4)=2</td>
+</tr>
+<tr>
+<td>to_date</td>
+<td>转日期</td>
+<td>sysdate、to_date(‘20220701 101010’,’yyyyMMdd hh24:mi:ss’)</td>
+</tr>
+<tr>
+<td>to_number</td>
+<td>转数值</td>
+<td>to_number(‘201’)</td>
+</tr>
+<tr>
+<td>to_char</td>
+<td>转字符</td>
+<td>to_char(201)、to_char(current_timestamp,’yyyymmdd hh24missff3’)</td>
+</tr>
+<tr>
+<td>MONTHS_BETWEEN</td>
+<td>月份差</td>
+<td>MONTHS_BETWEEN(date1,date2)</td>
+</tr>
+<tr>
+<td>NEXT_DAY</td>
+<td>最近的下一个日期</td>
+<td>NEXT_DAY(date,2)</td>
+</tr>
+<tr>
+<td>LAST_DAY</td>
+<td>当月的最后一天</td>
+<td>LAST_DAY(date)</td>
+</tr>
+<tr>
+<td>两个日期相减</td>
+<td>带小数的差异天(可转换到分秒等)</td>
+<td>sysdate-to_date(‘20220531’,’yyyyMMdd’)</td>
+</tr>
+</tbody></table>
+<h3 id="自定义函数"><a href="#自定义函数" class="headerlink" title="自定义函数"></a>自定义函数</h3><h1 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h1><h3 id="四个特性"><a href="#四个特性" class="headerlink" title="四个特性"></a>四个特性</h3><p>原子性：要么全做（commit），要么全不做(rollback)。<br>一致性：事务的执行不能破坏数据库数据的完整性。<br>隔离性：一个事务的执行不被另一个事务的执行干扰。<br>持续性：一个事务一旦提交，它对数据库中数据的改变是永久的。</p>
+<h3 id="关键词"><a href="#关键词" class="headerlink" title="关键词"></a>关键词</h3><p>提交：Commit<br>回滚：RollBack<br>设置回滚点：SavePoint point_name<br>回滚回滚点：RollBack To point_name</p>
+<h1 id="存储过程"><a href="#存储过程" class="headerlink" title="存储过程"></a>存储过程</h1><p>一次编译多次运行，带流程的sql语句的集合</p>
+<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><p>1、执行效率高<br>2、降低传输占用<br>3、复用性高<br>4、修改便捷<br>5、安全性高</p>
+<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><p>谁用谁知道</p>
+<h1 id="索引-Indexes"><a href="#索引-Indexes" class="headerlink" title="索引 Indexes"></a>索引 Indexes</h1><h1 id="DB-Links"><a href="#DB-Links" class="headerlink" title="DB Links"></a>DB Links</h1><h1 id="视图Views"><a href="#视图Views" class="headerlink" title="视图Views"></a>视图Views</h1><h2 id="普通视图"><a href="#普通视图" class="headerlink" title="普通视图"></a>普通视图</h2><p>就是个虚拟表，不建议使用。<br>就是个多表的组合查询，只能查询。</p>
+<h2 id="物化视图-Materialized-Views"><a href="#物化视图-Materialized-Views" class="headerlink" title="物化视图 Materialized Views"></a>物化视图 Materialized Views</h2><p>目前只有Oracle原生支持物化视图。<br>一张物理表，Oracle内部帮忙自动更新。<br>一般情况查询速度比普通试图快。</p>
+<h3 id="创建语句"><a href="#创建语句" class="headerlink" title="创建语句"></a>创建语句</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">materialized</span> <span class="keyword">view</span> 物化视图名        <span class="comment">-- 1. 创建物化视图</span></span><br><span class="line"><span class="keyword">build</span> [<span class="keyword">immediate</span> | <span class="keyword">deferred</span>] 			  <span class="comment">-- 2. 创建方式，默认 immediate</span></span><br><span class="line"><span class="keyword">refresh</span> [<span class="keyword">force</span> | <span class="keyword">fast</span> | <span class="keyword">complete</span> | <span class="keyword">never</span>] <span class="comment">-- 3. 物化视图刷新方式，默认 force</span></span><br><span class="line"><span class="keyword">on</span> [<span class="keyword">commit</span> | <span class="keyword">demand</span>] 					  <span class="comment">-- 4. 刷新触发方式</span></span><br><span class="line"><span class="keyword">start</span> <span class="keyword">with</span> 开始时间						  <span class="comment">-- 5. 设置开始时间</span></span><br><span class="line"><span class="keyword">next</span> 间隔时间				              <span class="comment">-- 6. 设置间隔时间</span></span><br><span class="line"><span class="keyword">with</span> [primary <span class="keyword">key</span> | <span class="keyword">rowid</span>]                <span class="comment">-- 7. 类型，默认 primary key</span></span><br><span class="line">[<span class="keyword">enable</span> | <span class="keyword">disable</span>] <span class="keyword">query</span> rewrite          <span class="comment">-- 8. 是否启用查询重写</span></span><br><span class="line"><span class="keyword">as</span>	                                      <span class="comment">-- 9. 关键字</span></span><br><span class="line">查询语句;                                  <span class="comment">-- 10. select 语句</span></span><br></pre></td></tr></table></figure>
+<h3 id="语句解释"><a href="#语句解释" class="headerlink" title="语句解释"></a>语句解释</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">1. 创建的方式</span><br><span class="line">	(1) &#x27;immediate&#x27;：立即生效，默认。</span><br><span class="line">	(2) &#x27;deferred&#x27; : 延迟至第一次刷新时才生效</span><br><span class="line">2. 刷新的方式</span><br><span class="line">	(1) force	：默认。如果可以 &#x27;快速刷新&#x27; 就 &#x27;快速刷新&#x27;，否则执行 &#x27;完全刷新&#x27;</span><br><span class="line">	(2) fast	：&#x27;快速刷新&#x27;。只刷新 &#x27;增量&#x27; 部分（前提：创建 &#x27;物化日志&#x27;）</span><br><span class="line">	(3) complete: &#x27;完全刷新&#x27;。刷新时更新全部数据，包括视图中已经生成的原有数据</span><br><span class="line">	(4) never	: 从不刷新	</span><br><span class="line">3. 触发 (请注意，on demand 中，才需要设置 &#x27;开始时间&#x27; 和 &#x27;间隔时间&#x27;) </span><br><span class="line">	(1) on <span class="keyword">commit</span>：基表有 <span class="keyword">commit</span> 动作时，刷新刷图（<span class="string">&quot;不能跨库执行&quot;</span>）</span><br><span class="line">	(<span class="number">2</span>) <span class="keyword">on</span> <span class="keyword">demand</span>：在需要时刷新</span><br><span class="line">			       [<span class="number">1</span>] 根据后面设定的 <span class="string">&#x27;开始时间&#x27;</span> 和 <span class="string">&#x27;结束时间&#x27;</span> 进行刷新</span><br><span class="line">			       [<span class="number">2</span>] 手动调用 dbms_mview 包中的过程进行刷新			       </span><br><span class="line"><span class="number">4.</span> 基于基表的 primary <span class="keyword">key</span> 或 <span class="keyword">rowid</span> 创建</span><br><span class="line">	(<span class="number">1</span>) 如果是基于 <span class="keyword">rowid</span>，则不能对基表执行 <span class="string">&#x27;分组函数&#x27;</span>、<span class="string">&#x27;多表连接&#x27;</span> 等需要把多个 <span class="keyword">rowid</span> 合成一行的操作（理由很简单：到底以哪个 <span class="keyword">rowid</span> 为准呢？）</span><br><span class="line"><span class="number">5.</span> <span class="keyword">enable</span> <span class="keyword">query</span> rewrite 启用查询重写（请注意， <span class="string">&#x27;开始时间&#x27;</span> 和 <span class="string">&#x27;间隔时间&#x27;</span> 不支持）</span><br><span class="line">	(<span class="number">1</span>) 不支持的理由也很简单。</span><br><span class="line">		所谓的 <span class="string">&#x27;重写&#x27;</span>，就是讲对基表的查询定位到物化视图上，</span><br><span class="line">		而 <span class="string">&#x27;开始时间&#x27;</span> 和 <span class="string">&#x27;间隔时间&#x27;</span> 会造成物化视图上部分数据延迟，所以，不能重写</span><br><span class="line">	(<span class="number">2</span>) 参数: query_rewrite_enabled (可通过 v$parameter 视图查询)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">---测试表</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> person_info (</span><br><span class="line">  person_no   <span class="built_in">VARCHAR2</span>(<span class="number">10</span>),</span><br><span class="line">  <span class="keyword">NAME</span>        <span class="built_in">VARCHAR2</span>(<span class="number">30</span>),</span><br><span class="line">  create_date <span class="built_in">DATE</span></span><br><span class="line">);</span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> person_info <span class="keyword">add</span> <span class="keyword">constraint</span> pk_id  primary <span class="keyword">key</span> (person_no);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> person_info(person_no, <span class="keyword">NAME</span>, create_date) <span class="keyword">VALUES</span>(<span class="string">&#x27;001&#x27;</span>, <span class="string">&#x27;瑶瑶&#x27;</span>, <span class="keyword">SYSDATE</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> person_info(person_no, <span class="keyword">NAME</span>, create_date) <span class="keyword">VALUES</span>(<span class="string">&#x27;002&#x27;</span>, <span class="string">&#x27;倩倩&#x27;</span>, <span class="keyword">SYSDATE</span>);</span><br><span class="line"><span class="keyword">COMMIT</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">----1分钟刷新一次</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">MATERIALIZED</span> <span class="keyword">VIEW</span> mvw_person_info </span><br><span class="line"><span class="keyword">BUILD</span> <span class="keyword">IMMEDIATE</span>					</span><br><span class="line"><span class="keyword">REFRESH</span> <span class="keyword">FORCE</span>					</span><br><span class="line"><span class="keyword">ON</span> <span class="keyword">DEMAND</span>						</span><br><span class="line"><span class="keyword">START</span> <span class="keyword">WITH</span> <span class="keyword">SYSDATE</span></span><br><span class="line"><span class="keyword">NEXT</span> <span class="keyword">SYSDATE</span> + <span class="number">1</span>/<span class="number">1440</span>		</span><br><span class="line"><span class="keyword">AS</span></span><br><span class="line"><span class="keyword">SELECT</span>  pi.person_no,    </span><br><span class="line">       pi.name,</span><br><span class="line">       pi.create_date</span><br><span class="line">  <span class="keyword">FROM</span> person_info <span class="keyword">pi</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-----1分钟增量刷新</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">materialized</span> <span class="keyword">view</span> <span class="keyword">log</span> <span class="keyword">on</span> person_info <span class="keyword">with</span> <span class="keyword">rowid</span>; </span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">MATERIALIZED</span> <span class="keyword">VIEW</span> mvw_person_info 				</span><br><span class="line"><span class="keyword">REFRESH</span> <span class="keyword">FAST</span>					</span><br><span class="line"><span class="keyword">ON</span> <span class="keyword">DEMAND</span>						</span><br><span class="line"><span class="keyword">START</span> <span class="keyword">WITH</span> <span class="keyword">SYSDATE</span></span><br><span class="line"><span class="keyword">NEXT</span> <span class="keyword">SYSDATE</span> + <span class="number">1</span>/<span class="number">1440</span>	</span><br><span class="line"><span class="keyword">with</span> <span class="keyword">rowid</span> </span><br><span class="line"><span class="keyword">AS</span></span><br><span class="line"><span class="keyword">SELECT</span> P.ROWID <span class="keyword">AS</span> PROWID,P.person_no <span class="keyword">AS</span> pperson_no,P.NAME <span class="keyword">as</span> PNAME,P.create_date <span class="keyword">AS</span>  Pcreate_date</span><br><span class="line">  <span class="keyword">FROM</span> person_info P;</span><br><span class="line">  </span><br></pre></td></tr></table></figure>
+
+
+<h1 id="包体-Packages"><a href="#包体-Packages" class="headerlink" title="包体 Packages"></a>包体 Packages</h1><h1 id="序列-Sequences"><a href="#序列-Sequences" class="headerlink" title="序列 Sequences"></a>序列 Sequences</h1><p>序列号生成器</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">SEQUENCE</span> 序列名    </span><br><span class="line"><span class="keyword">INCREMENT</span> <span class="keyword">BY</span> <span class="number">1</span>           <span class="comment">--步长，默认1，可为负数</span></span><br><span class="line"><span class="keyword">START</span> <span class="keyword">WITH</span> <span class="number">1</span>			<span class="comment">---最小</span></span><br><span class="line">MAXVALUE <span class="number">9999999</span>		<span class="comment">----最大</span></span><br><span class="line">[<span class="keyword">CYCLE</span> | <span class="keyword">NOCYCLE</span> ]		<span class="comment">---是否循环。CYCLE循环；NOCYCLE不循环</span></span><br><span class="line">[<span class="keyword">CACHE</span> n| NOCACHE];		<span class="comment">---缓存。NOCACHE不缓存；CACHE缓存，默认长度20，可修改</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> 序列名.currval   <span class="comment">---当前序列值</span></span><br><span class="line">,序列名.nextval 		<span class="comment">---下一个序列值，获取下一个序列值时，序列增加</span></span><br><span class="line"><span class="keyword">from</span> dual;</span><br></pre></td></tr></table></figure>
+
+<h1 id="触发器-Triggers"><a href="#触发器-Triggers" class="headerlink" title="触发器 Triggers"></a>触发器 Triggers</h1><p>当 ‘触发条件’ 成立时，其语句就会 ‘自动执行’  </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> [<span class="keyword">or</span> <span class="keyword">replace</span>] <span class="keyword">trigger</span> 触发器名</span><br><span class="line">   触发时间 &#123;<span class="keyword">before</span> | <span class="keyword">after</span>&#125;           <span class="comment">-- 前置触发(一般做校验)还是后置触发（一般用于添加其它表数据）</span></span><br><span class="line">   触发事件 &#123;<span class="keyword">insert</span> | <span class="keyword">update</span> | <span class="keyword">delete</span>&#125; </span><br><span class="line"><span class="keyword">on</span> 触发对象                            <span class="comment">-- table、view、schema、database </span></span><br><span class="line">   触发频率 &#123;<span class="keyword">for</span> <span class="keyword">each</span> <span class="keyword">row</span>&#125;            <span class="comment">-- 行级触发器。默认：语句级触发器</span></span><br><span class="line">   [<span class="keyword">follows</span> 其它触发器名]              <span class="comment">-- 多个触发器执行的 前后顺序</span></span><br><span class="line">   [<span class="keyword">when</span> 触发条件]</span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line">   pl/<span class="keyword">sql</span> 语句;</span><br><span class="line"><span class="keyword">end</span>;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>触发器名：一般格式 tr_*</li>
+<li>触发时间：在 ‘触发事件’ 发生之前（before）还是之后（after）</li>
+<li>触发事件：根据不同的 ‘触发事件’，可以分为不同的 ‘类型’</li>
+<li>触发对象：table、view、schema、database</li>
+<li>触发频率：’语句级触发器’（默认）指触发一次，’行级触发器’ 每一行触发一次</li>
+<li>触发条件：仅当 ‘触发条件’ 为 True 时，才执行 pl/sql 语句</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">功能：after insert or update or delete 时，执行语句</span></span><br><span class="line"><span class="comment">命名：tr_aiud_student_info</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">or</span> <span class="keyword">replace</span> <span class="keyword">trigger</span> scott.tr_aiud_student_info</span><br><span class="line">   <span class="keyword">after</span> </span><br><span class="line">   <span class="keyword">insert</span> <span class="keyword">or</span> <span class="keyword">update</span> <span class="keyword">or</span> <span class="keyword">delete</span> </span><br><span class="line">   <span class="keyword">on</span> scott.student_info</span><br><span class="line">   <span class="keyword">for</span> <span class="keyword">each</span> <span class="keyword">row</span></span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line">   <span class="keyword">case</span></span><br><span class="line">      <span class="keyword">when</span> inserting <span class="keyword">then</span></span><br><span class="line">         dbms_output.put_line(<span class="string">&#x27;插入成功！&#x27;</span>|| :new.lotid);</span><br><span class="line">      when updating then</span><br><span class="line">         dbms_output.put_line(&#x27;更新成功！&#x27;|| :OLD.lotid);</span><br><span class="line">      when deleting then</span><br><span class="line">         dbms_output.put_line(&#x27;删除成功！&#x27;|| :OLD.lotid);</span><br><span class="line">      else</span><br><span class="line">         dbms_output.put_line(&#x27;无操作！&#x27;);</span><br><span class="line">   <span class="keyword">end</span> <span class="keyword">case</span>;</span><br><span class="line"><span class="keyword">end</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h3><p>当触发器执行失败时，会导致对表的操作失败。后置触发器会导致数据回滚。</p>
+<h1 id="Jobs"><a href="#Jobs" class="headerlink" title="Jobs"></a>Jobs</h1><h1 id="同义词Synonyms"><a href="#同义词Synonyms" class="headerlink" title="同义词Synonyms"></a>同义词Synonyms</h1><p>连个词的意思可以互相替换。<br>类似别名，但别名只能在一个SQL语句中生效，同义词在整个数据库生效。<br>跨数据库的表也可以使用别名。</p>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> [<span class="keyword">PUBLIC</span>] <span class="keyword">SYNONYM</span> synonym_name <span class="keyword">FOR</span> [ <span class="keyword">schema</span> .] <span class="keyword">object</span>[@db_link];</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">PUBLIC</span> <span class="keyword">SYNONYM</span> arwen <span class="keyword">FOR</span> table_of_arwen;   <span class="comment">--创建所有用户同义词</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">SYNONYM</span> arwen <span class="keyword">FOR</span> table_of_arwen;    <span class="comment">--创建同义词</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--和正常表名一样使用同义词</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> arwen;</span><br><span class="line"><span class="keyword">update</span> arwen <span class="keyword">set</span> .. where.. ;</span><br><span class="line"></span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">SYNONYM</span> arwen;    <span class="comment">---删除同义词</span></span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">PUBLIC</span> <span class="keyword">SYNONYM</span> public_emp;   <span class="comment">---删除所有同义词</span></span><br></pre></td></tr></table></figure>
+<h3 id="作用-1"><a href="#作用-1" class="headerlink" title="作用"></a>作用</h3><p>1、多用户协同<br>2、简化SQL<br>3、管理多数据库连接</p>
+<h1 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">dbms_output.put_line(value);   <span class="comment">--Output,存储过程或函数调试时使用</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> All_Source    <span class="comment">----查询Oracle 数据库所有模式下Fun、Pro、Package等</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">v_str := <span class="keyword">sql</span>%rowcount;   <span class="comment">---执行完update 后获取影响行数</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> cols <span class="keyword">WHERE</span> TABLE_name=<span class="keyword">upper</span>(<span class="string">&#x27;表名&#x27;</span>)  <span class="comment">----获取该表字段信息（字段名、字段类型、字段长度等）</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> tb <span class="keyword">modify</span> (<span class="keyword">name</span> <span class="keyword">nvarchar2</span>(<span class="number">20</span>));    <span class="comment">---修改字段类型</span></span><br></pre></td></tr></table></figure>
+
+<p>全库搜索值</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">declare</span></span><br><span class="line">  v_Sql   <span class="built_in">varchar2</span>(<span class="number">2000</span>);</span><br><span class="line">  v_count number;</span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line">  <span class="keyword">for</span> xx <span class="keyword">in</span> (<span class="keyword">select</span> t.OWNER, t.TABLE_NAME, t.COLUMN_NAME <span class="keyword">from</span> dba_tab_columns t <span class="keyword">where</span> t.OWNER = <span class="string">&#x27;数据库的属主名&#x27;</span>) <span class="keyword">loop</span></span><br><span class="line">    <span class="keyword">begin</span></span><br><span class="line">      v_Sql := <span class="string">&#x27;select count(1) from &#x27;</span> || xx.owner || <span class="string">&#x27;.&#x27;</span> || xx.table_name ||<span class="string">&#x27; where &#x27;</span> || xx.column_name || <span class="string">&#x27; like &#x27;&#x27;%要查找的值，支持模糊查询%&#x27;&#x27; &#x27;</span>;</span><br><span class="line">      <span class="keyword">execute</span> <span class="keyword">immediate</span> v_Sql</span><br><span class="line">        <span class="keyword">into</span> v_count;</span><br><span class="line">      if (v_count &gt;= 1) then</span><br><span class="line">        dbms_output.put_line(xx.table_name || &#x27;:&#x27; || xx.column_name);</span><br><span class="line">      <span class="keyword">end</span> <span class="keyword">if</span>;</span><br><span class="line">    exception</span><br><span class="line">      when others then</span><br><span class="line">        null;</span><br><span class="line">    <span class="keyword">end</span>;</span><br><span class="line">  <span class="keyword">end</span> <span class="keyword">loop</span>;</span><br><span class="line"><span class="keyword">end</span>;</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Oracle</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/archives/a16fcb03.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-54-搭建VSCode网页版-codeServer" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -577,11 +910,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">工具命令</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">工具命令</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -665,15 +998,15 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">工具命令</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">报错</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">工具命令</a>
         		</li>
       		
 		</ul>
@@ -755,15 +1088,15 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">工具命令</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">青龙面板</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">工具命令</a>
         		</li>
       		
 		</ul>
@@ -1020,134 +1353,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-45-MQTT" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/archives/1a77ea4e.html">45-MQTT</a>
-    </h1>
-  
-
-        
-        <a href="/archives/1a77ea4e.html" class="archive-article-date">
-  	<time datetime="2022-01-25T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-01-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h1><p>MQTT（Message Queuing Telemetry Transport，消息队列遥测传输协议），是一种基于发布/订阅（publish/subscribe）模式的“轻量级”通讯协议，该协议构建于 TCP/IP 协议上，由 IBM 在 1999 年发布。MQTT 最大优点在于，可以以极少的代码和有限的带宽，为连接远程设备提供实时可靠的消息服务。作为一种低开销、低带宽占用的即时通讯协议，使其在物联网、小型设备、移动应用等方面有较广泛的应用。</p>
-<p>MQTT 是一个基于客户端-服务器的消息发布/订阅传输协议。MQTT 协议是轻量、简单、开放和易于实现的，这些特点使它适用范围非常广泛。在很多情况下，包括受限的环境中，如：机器与机器（M2M）通信和物联网（IoT）。其在，通过卫星链路通信传感器、偶尔拨号的医疗设备、智能家居、及一些小型化设备中已广泛使用。</p>
-<p><img src="/archives/1a77ea4e/2022012601.png" alt="2022012601.png"></p>
-<h1 id="可使用情况"><a href="#可使用情况" class="headerlink" title="可使用情况"></a>可使用情况</h1><p>网页前端的实时数据刷新，以前使用轮询等，现在可使用 MQTT 通知前端更新。<br>网页实时聊天等<br>C/S 和 B/S 实时通讯<br>各种设备的相关通讯等</p>
-<h1 id="主要特征"><a href="#主要特征" class="headerlink" title="主要特征"></a>主要特征</h1><h2 id="发布-订阅模式，一对多的消息发布，解除应用耦合"><a href="#发布-订阅模式，一对多的消息发布，解除应用耦合" class="headerlink" title="发布/订阅模式，一对多的消息发布，解除应用耦合"></a>发布/订阅模式，一对多的消息发布，解除应用耦合</h2><h2 id="对负载内容屏蔽的消息传输（没懂）"><a href="#对负载内容屏蔽的消息传输（没懂）" class="headerlink" title="对负载内容屏蔽的消息传输（没懂）"></a>对负载内容屏蔽的消息传输（没懂）</h2><h2 id="使用-TCP-IP-提供网络连接-（也有-UDP-的）"><a href="#使用-TCP-IP-提供网络连接-（也有-UDP-的）" class="headerlink" title="使用 TCP/IP 提供网络连接 （也有 UDP 的）"></a>使用 TCP/IP 提供网络连接 （也有 UDP 的）</h2><h2 id="三种消息发布服务质量-QoS"><a href="#三种消息发布服务质量-QoS" class="headerlink" title="三种消息发布服务质量(QoS)"></a>三种消息发布服务质量(QoS)</h2><h3 id="至多一次-0"><a href="#至多一次-0" class="headerlink" title="至多一次(0)"></a>至多一次(0)</h3><p>可用于丢失一次发送无所谓，不久后还会有第二次发送<br><img src="/archives/1a77ea4e/2022012602.png" alt="2022012602.png"></p>
-<h3 id="至少一次-1"><a href="#至少一次-1" class="headerlink" title="至少一次(1)"></a>至少一次(1)</h3><p>确保消息到达，但消息重复可能会发生<br><img src="/archives/1a77ea4e/2022012603.png" alt="2022012603.png"></p>
-<h3 id="只有一次-2"><a href="#只有一次-2" class="headerlink" title="只有一次(2)"></a>只有一次(2)</h3><p>确保消息只到达一次。计费等系统使用<br><img src="/archives/1a77ea4e/2022012604.png" alt="2022012604.png"></p>
-<h2 id="小型传输，开销很小，降低网络流量"><a href="#小型传输，开销很小，降低网络流量" class="headerlink" title="小型传输，开销很小，降低网络流量"></a>小型传输，开销很小，降低网络流量</h2><h2 id="Last-Will-和-Testament-特性通知有关各方客户端异常中断的机制-（似懂非懂）"><a href="#Last-Will-和-Testament-特性通知有关各方客户端异常中断的机制-（似懂非懂）" class="headerlink" title="Last Will 和 Testament 特性通知有关各方客户端异常中断的机制 （似懂非懂）"></a>Last Will 和 Testament 特性通知有关各方客户端异常中断的机制 （似懂非懂）</h2><h1 id="MQTT-协议原理等"><a href="#MQTT-协议原理等" class="headerlink" title="MQTT 协议原理等"></a>MQTT 协议原理等</h1><h2 id="三种身份"><a href="#三种身份" class="headerlink" title="三种身份"></a>三种身份</h2><p>发布者（Publish）<br>代理（服务器、消息代理）（Broker）<br>订阅者（Subscribe）</p>
-<p>从消息传递的角度看，Broker 是中心服务器，发布者和订阅者均属于客户端<br>一个客户端，即可以是发布者，同时也可以是订阅者。（我可以是杂志社的编辑，也可以订购其它杂志社的杂志）</p>
-<h2 id="主题-Topic-和负载-Payload"><a href="#主题-Topic-和负载-Payload" class="headerlink" title="主题(Topic)和负载(Payload)"></a>主题(Topic)和负载(Payload)</h2><p>Topic：消息的主题，订阅者订阅时传递订阅的主题，Broker 收该主题消息时，会根据订阅的主题情况进行分发到各订阅者<br>Payload：消息的具体内容</p>
-<h2 id="MQTT-客户端"><a href="#MQTT-客户端" class="headerlink" title="MQTT 客户端"></a>MQTT 客户端</h2><p>一个使用 MQTT 协议的应用程序或者设备，它总是建立到服务器的网络连接。客户端可以：</p>
-<p>（1）发布其他客户端可能会订阅的信息；</p>
-<p>（2）订阅其它客户端发布的消息；</p>
-<p>（3）退订或删除应用程序的消息；</p>
-<p>（4）断开与服务器连接。</p>
-<h2 id="MQTT-服务器"><a href="#MQTT-服务器" class="headerlink" title="MQTT 服务器"></a>MQTT 服务器</h2><p>MQTT 服务器以称为“消息代理”（Broker），可以是一个应用程序或一台设备。它是位于消息发布者和订阅者之间，它可以：</p>
-<p>（1）接受来自客户的网络连接；</p>
-<p>（2）接受客户发布的应用信息；</p>
-<p>（3）处理来自客户端的订阅和退订请求；</p>
-<p>（4）向订阅的客户转发应用程序消息。</p>
-<h1 id="待巩固理解信息"><a href="#待巩固理解信息" class="headerlink" title="待巩固理解信息"></a>待巩固理解信息</h1><h2 id="MQTT-协议中的订阅、主题、会话"><a href="#MQTT-协议中的订阅、主题、会话" class="headerlink" title="MQTT 协议中的订阅、主题、会话"></a>MQTT 协议中的订阅、主题、会话</h2><p>一、订阅（Subscription）</p>
-<p>订阅包含主题筛选器（Topic Filter）和最大服务质量（QoS）。订阅会与一个会话（Session）关联。一个会话可以包含多个订阅。每一个会话中的每个订阅都有一个不同的主题筛选器。</p>
-<p>二、会话（Session）</p>
-<p>每个客户端与服务器建立连接后就是一个会话，客户端和服务器之间有状态交互。会话存在于一个网络之间，也可能在客户端和服务器之间跨越多个连续的网络连接。</p>
-<p>三、主题名（Topic Name）</p>
-<p>连接到一个应用程序消息的标签，该标签与服务器的订阅相匹配。服务器会将消息发送给订阅所匹配标签的每个客户端。</p>
-<p>四、主题筛选器（Topic Filter）</p>
-<p>一个对主题名通配符筛选器，在订阅表达式中使用，表示订阅所匹配到的多个主题。</p>
-<p>五、负载（Payload）</p>
-<p>消息订阅者所具体接收的内容</p>
-<h2 id="MQTT-协议中的方法"><a href="#MQTT-协议中的方法" class="headerlink" title="MQTT 协议中的方法"></a>MQTT 协议中的方法</h2><p>MQTT 协议中定义了一些方法（也被称为动作），来于表示对确定资源所进行操作。这个资源可以代表预先存在的数据或动态生成数据，这取决于服务器的实现。通常来说，资源指服务器上的文件或输出。主要方法有：</p>
-<p>（1）Connect。等待与服务器建立连接。</p>
-<p>（2）Disconnect。等待 MQTT 客户端完成所做的工作，并与服务器断开 TCP/IP 会话。</p>
-<p>（3）Subscribe。等待完成订阅。</p>
-<p>（4）UnSubscribe。等待服务器取消客户端的一个或多个 topics 订阅。</p>
-<p>（5）Publish。MQTT 客户端发送消息请求，发送完成后返回应用程序线程。</p>
-<h1 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h1><h2 id="Broker-服务端"><a href="#Broker-服务端" class="headerlink" title="Broker 服务端"></a>Broker 服务端</h2><p>可以使用<a target="_blank" rel="noopener" href="https://www.emqx.io/zh/downloads#enterprise">EMQX 免费版</a> (默认账号 admin,密码 public)<br>也可使用<a target="_blank" rel="noopener" href="https://gitee.com/xuzengjie/mqttdemo">MQTTnet</a></p>
-<h2 id="js-客户端"><a href="#js-客户端" class="headerlink" title="js 客户端"></a>js 客户端</h2><p>使用 mqtt.js 实现，VUE 中也可用</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">&quot;https://unpkg.com/mqtt/dist/mqtt.min.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="comment">// 将在全局初始化一个 mqtt 变量</span></span><br><span class="line">    <span class="built_in">console</span>.log(mqtt)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 连接选项</span></span><br><span class="line">    <span class="keyword">const</span> options = &#123;</span><br><span class="line">        connectTimeout: <span class="number">4000</span>, <span class="comment">// 超时时间</span></span><br><span class="line">        <span class="comment">// 认证信息</span></span><br><span class="line">        clientId: <span class="string">&#x27;emq5rt&#x27;</span>,</span><br><span class="line">        username: <span class="string">&#x27;admin&#x27;</span>,</span><br><span class="line">        password: <span class="string">&#x27;public&#x27;</span>,</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> client = mqtt.connect(<span class="string">&#x27;ws://127.0.0.1:8083/mqtt&#x27;</span>, options)  <span class="comment">//链接</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//成功连接后触发</span></span><br><span class="line">    client.on(<span class="string">&#x27;connect&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        client.subscribe(<span class="string">&#x27;presence&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;         <span class="comment">//订阅</span></span><br><span class="line">            <span class="keyword">if</span> (!err) &#123;</span><br><span class="line">                client.publish(<span class="string">&#x27;presence&#x27;</span>, <span class="string">&#x27;Hello mqtt&#x27;</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    client.on(<span class="string">&#x27;reconnect&#x27;</span>, <span class="function">(<span class="params">error</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;正在重连:&#x27;</span>, error)</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    client.on(<span class="string">&#x27;error&#x27;</span>, <span class="function">(<span class="params">error</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;连接失败:&#x27;</span>, error)</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 监听接收消息事件</span></span><br><span class="line">    client.on(<span class="string">&#x27;message&#x27;</span>, <span class="function">(<span class="params">topic, message</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;收到来自&#x27;</span>, topic, <span class="string">&#x27;的消息&#x27;</span>, message.toString())      <span class="comment">//接收订阅</span></span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 发布消息</span></span><br><span class="line">    <span class="keyword">if</span> (!client.connected) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;客户端未连接&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    client.publish(<span class="string">&#x27;hello&#x27;</span>, <span class="string">&#x27;nihaoaaaa&#x27;</span>, <span class="function">(<span class="params">error</span>) =&gt;</span> &#123;                 <span class="comment">//发布</span></span><br><span class="line">        <span class="built_in">console</span>.log(error || <span class="string">&#x27;消息发布成功&#x27;</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-<h2 id="C-客户端"><a href="#C-客户端" class="headerlink" title="C#客户端"></a>C#客户端</h2><p>可使用<a target="_blank" rel="noopener" href="https://gitee.com/xuzengjie/mqttdemo">MQTTnet</a></p>
-<h2 id="MQTT-的开源版-EMQX"><a href="#MQTT-的开源版-EMQX" class="headerlink" title="MQTT 的开源版 EMQX"></a>MQTT 的开源版 EMQX</h2><p>实例源码地址：<a target="_blank" rel="noopener" href="https://github.com/emqx/MQTT-Client-Examples">https://github.com/emqx/MQTT-Client-Examples</a></p>
-<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> mqtt <span class="keyword">from</span> <span class="string">&#x27;mqtt/dist/mqtt.min&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; reactive, ref, onMounted &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> qosList = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> connection = reactive(&#123;</span><br><span class="line">	protocol: <span class="string">&#x27;ws&#x27;</span>,</span><br><span class="line">	host: <span class="string">&#x27;192.168.152.27&#x27;</span>,</span><br><span class="line">	<span class="comment">// ws: 8083; wss: 8084</span></span><br><span class="line">	port: <span class="number">8083</span>,</span><br><span class="line">	endpoint: <span class="string">&#x27;/mqtt&#x27;</span>,</span><br><span class="line">	clean: <span class="literal">true</span>, <span class="comment">// true: 清除会话, false: 保留会话</span></span><br><span class="line">	connectTimeout: <span class="number">60</span> * <span class="number">1000</span>, <span class="comment">// ms, 超时时间</span></span><br><span class="line">	reconnectPeriod: <span class="number">4000</span>, <span class="comment">// ms  ,两次重新连接之间的间隔</span></span><br><span class="line">	keepalive: <span class="number">100</span>, <span class="comment">//心跳</span></span><br><span class="line">	resubscribe: <span class="literal">true</span>, <span class="comment">//如果连接断开并重新连接，则会再次自动订阅已订阅的主题（默认true）</span></span><br><span class="line">	clientId: <span class="string">&#x27;mqtt_&#x27;</span> + <span class="built_in">Math</span>.random().toString(<span class="number">16</span>).substring(<span class="number">2</span>, <span class="number">8</span>),</span><br><span class="line">	<span class="comment">// auth</span></span><br><span class="line">	username: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">	password: <span class="string">&#x27;&#x27;</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> client = ref(&#123;&#125; <span class="keyword">as</span> mqtt.MqttClient)</span><br><span class="line"></span><br><span class="line"><span class="comment">//接收订阅的信息</span></span><br><span class="line"><span class="keyword">const</span> receiveNews = ref(<span class="string">&#x27;&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//创建连接MQTT</span></span><br><span class="line"><span class="keyword">const</span> createConnection = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">	<span class="built_in">console</span>.log(navigator)</span><br><span class="line">	<span class="built_in">console</span>.log(navigator.userAgent)</span><br><span class="line">	<span class="keyword">try</span> &#123;</span><br><span class="line">		<span class="keyword">const</span> &#123; protocol, host, port, endpoint, ...options &#125; = connection</span><br><span class="line">		<span class="keyword">const</span> connectUrl = <span class="string">`<span class="subst">$&#123;protocol&#125;</span>://<span class="subst">$&#123;host&#125;</span>:<span class="subst">$&#123;port&#125;</span><span class="subst">$&#123;endpoint&#125;</span>`</span></span><br><span class="line">		client.value = mqtt.connect(connectUrl, options)</span><br><span class="line">		<span class="keyword">if</span> (client.value.on) &#123;</span><br><span class="line">			client.value.on(<span class="string">&#x27;connect&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">				<span class="built_in">console</span>.log(<span class="string">&#x27;connection successful&#x27;</span>)</span><br><span class="line">			&#125;)</span><br><span class="line">			client.value.on(<span class="string">&#x27;reconnect&#x27;</span>, handleOnReConnect)</span><br><span class="line">			client.value.on(<span class="string">&#x27;error&#x27;</span>, <span class="function">(<span class="params">error</span>) =&gt;</span> &#123;</span><br><span class="line">				<span class="built_in">console</span>.log(<span class="string">&#x27;connection error:&#x27;</span>, error)</span><br><span class="line">			&#125;)</span><br><span class="line">			client.value.on(<span class="string">&#x27;message&#x27;</span>, <span class="function">(<span class="params">topic: <span class="built_in">string</span>, message</span>) =&gt;</span> &#123;</span><br><span class="line">				receiveNews.value = receiveNews.value.concat(message.toString())</span><br><span class="line">				<span class="built_in">console</span>.log(<span class="string">`received message: <span class="subst">$&#123;message&#125;</span> from topic: <span class="subst">$&#123;topic&#125;</span>`</span>)</span><br><span class="line">			&#125;)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">&#x27;mqtt.connect error:&#x27;</span>, error)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//重连的次数</span></span><br><span class="line"><span class="keyword">const</span> retryTimes = ref(<span class="number">0</span>)</span><br><span class="line"><span class="comment">//重连超过一定次数，就结束，不在重连</span></span><br><span class="line"><span class="keyword">const</span> handleOnReConnect = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">	retryTimes.value += <span class="number">1</span></span><br><span class="line">	<span class="keyword">if</span> (retryTimes.value &gt; <span class="number">5</span>) &#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			client.value.end()</span><br><span class="line">			initData()</span><br><span class="line">			<span class="built_in">console</span>.log(<span class="string">&#x27;connection maxReconnectTimes limit, stop retry&#x27;</span>)</span><br><span class="line">		&#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">			<span class="built_in">console</span>.log(<span class="string">&#x27;handleOnReConnect catch error:&#x27;</span>, error)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//初始数据</span></span><br><span class="line"><span class="keyword">const</span> initData = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">	client.value = &#123;</span><br><span class="line">		connected: <span class="literal">false</span></span><br><span class="line">	&#125; <span class="keyword">as</span> mqtt.MqttClient</span><br><span class="line">	retryTimes.value = <span class="number">0</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//主动断开连接</span></span><br><span class="line"><span class="keyword">const</span> destroyConnection = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">	<span class="keyword">if</span> (client.value.connected) &#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			client.value.end(<span class="literal">false</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">				initData()</span><br><span class="line">				<span class="built_in">console</span>.log(<span class="string">&#x27;disconnected successfully&#x27;</span>)</span><br><span class="line">			&#125;)</span><br><span class="line">		&#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">			<span class="built_in">console</span>.log(<span class="string">&#x27;disconnect error:&#x27;</span>, error)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//准备订阅的信息</span></span><br><span class="line"><span class="keyword">const</span> subscription = ref(&#123;</span><br><span class="line">	topic: <span class="string">&#x27;topic/mqttx&#x27;</span>, <span class="comment">//主题</span></span><br><span class="line">	qos: <span class="number">0</span> <span class="keyword">as</span> mqtt.QoS <span class="comment">//服务质量，0：至多一次，1：至少一次，2：只会到达一次</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//订阅</span></span><br><span class="line"><span class="keyword">const</span> doSubscribe = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">	<span class="keyword">const</span> &#123; topic, qos &#125; = subscription.value</span><br><span class="line">	client.value.subscribe(</span><br><span class="line">		topic,</span><br><span class="line">		&#123; qos &#125;,</span><br><span class="line">		(error: <span class="built_in">Error</span>, granted: mqtt.ISubscriptionGrant[]) =&gt; &#123;</span><br><span class="line">			<span class="keyword">if</span> (error) &#123;</span><br><span class="line">				<span class="built_in">console</span>.log(<span class="string">&#x27;subscribe error:&#x27;</span>, error)</span><br><span class="line">				<span class="keyword">return</span></span><br><span class="line">			&#125;</span><br><span class="line">			<span class="built_in">console</span>.log(<span class="string">&#x27;subscribe successfully:&#x27;</span>, granted)</span><br><span class="line">		&#125;</span><br><span class="line">	)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//取消订阅</span></span><br><span class="line"><span class="keyword">const</span> doUnSubscribe = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">	<span class="keyword">const</span> &#123; topic, qos &#125; = subscription.value</span><br><span class="line">	client.value.unsubscribe(topic, &#123; qos &#125;, <span class="function">(<span class="params">error</span>) =&gt;</span> &#123;</span><br><span class="line">		<span class="keyword">if</span> (error) &#123;</span><br><span class="line">			<span class="built_in">console</span>.log(<span class="string">&#x27;unsubscribe error:&#x27;</span>, error)</span><br><span class="line">			<span class="keyword">return</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">`unsubscribed topic: <span class="subst">$&#123;topic&#125;</span>`</span>)</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//准备发布的信息</span></span><br><span class="line"><span class="keyword">const</span> publish = ref(&#123;</span><br><span class="line">	topic: <span class="string">&#x27;topic/browser&#x27;</span>, <span class="comment">//发布的主题</span></span><br><span class="line">	qos: <span class="number">2</span> <span class="keyword">as</span> mqtt.QoS, <span class="comment">//服务质量</span></span><br><span class="line">	payload: <span class="string">&#x27;&#123; &quot;msg&quot;: &quot;Hello, I am browser.&quot; &#125;&#x27;</span> <span class="comment">//具体信息</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">//发布</span></span><br><span class="line"><span class="keyword">const</span> doPublish = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">	<span class="keyword">const</span> &#123; topic, qos, payload &#125; = publish.value</span><br><span class="line">	client.value.publish(topic, payload, &#123; qos &#125;, <span class="function">(<span class="params">error</span>) =&gt;</span> &#123;</span><br><span class="line">		<span class="keyword">if</span> (error) &#123;</span><br><span class="line">			<span class="built_in">console</span>.log(<span class="string">&#x27;publish error:&#x27;</span>, error)</span><br><span class="line">			<span class="keyword">return</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">`published message: <span class="subst">$&#123;payload&#125;</span>`</span>)</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">C#</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">MQTT</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">EMQX</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/archives/1a77ea4e.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/3/">下一页</a>
@@ -1268,6 +1473,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Hexo使用</a>
               </li>
              
@@ -1281,10 +1490,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">outlook</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1304,15 +1509,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">EF</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">代码片段</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">EFCore</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1321,6 +1522,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">双判断锁</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">代码片段</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">VS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">配置</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">快捷键</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1336,15 +1553,47 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">VS</a>
+                <a href="javascript:void(0)" class="js-tag color5">行列转换</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">配置</a>
+                <a href="javascript:void(0)" class="js-tag color4">行转列</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">快捷键</a>
+                <a href="javascript:void(0)" class="js-tag color4">列转行</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SQLServer</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">ACCESS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Oracle</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">webapi</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">swagger</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">EFCore</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1392,87 +1641,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">test</a>
+                <a href="javascript:void(0)" class="js-tag color5">Linq</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SQLServer</a>
+                <a href="javascript:void(0)" class="js-tag color5">TakeWhile</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ACCESS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Oracle</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">行列转换</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">行转列</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">列转行</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">VUE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">环境</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">字符串</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">拾遗</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">webapi</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">swagger</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">VSCode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">插件</a>
+                <a href="javascript:void(0)" class="js-tag color5">SkipWhile</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1488,75 +1665,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">栅格</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">5等分</a>
+                <a href="javascript:void(0)" class="js-tag color3">环境</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+                <a href="javascript:void(0)" class="js-tag color4">VUE</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">监听</a>
+                <a href="javascript:void(0)" class="js-tag color3">学习</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SQL Server</a>
+                <a href="javascript:void(0)" class="js-tag color4">字符串</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SQL Server Profiler</a>
+                <a href="javascript:void(0)" class="js-tag color3">拾遗</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Linq</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">TakeWhile</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SkipWhile</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">abstract</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">virtual</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">抽象类</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">接口</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">B站</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">下载</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Task</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">await</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">async</a>
+                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1572,6 +1705,42 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">监听</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">SQL Server</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SQL Server Profiler</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">B站</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">下载</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">VSCode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">插件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">栅格</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">5等分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">组件</a>
               </li>
              
@@ -1580,15 +1749,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">.net</a>
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">vs</a>
+                <a href="javascript:void(0)" class="js-tag color4">abstract</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">中文</a>
+                <a href="javascript:void(0)" class="js-tag color3">virtual</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1604,27 +1773,35 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Azure AD</a>
+                <a href="javascript:void(0)" class="js-tag color4">抽象类</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">统一登录</a>
+                <a href="javascript:void(0)" class="js-tag color3">接口</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">saml</a>
+                <a href="javascript:void(0)" class="js-tag color5">.net</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color3">vs</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">报错</a>
+                <a href="javascript:void(0)" class="js-tag color3">中文</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">工具命令</a>
+                <a href="javascript:void(0)" class="js-tag color5">Task</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">await</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">async</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1640,19 +1817,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">CSS基础</a>
+                <a href="javascript:void(0)" class="js-tag color4">Azure AD</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">半导体</a>
+                <a href="javascript:void(0)" class="js-tag color5">统一登录</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">封装</a>
+                <a href="javascript:void(0)" class="js-tag color5">saml</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1664,11 +1837,35 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统架构</a>
+                <a href="javascript:void(0)" class="js-tag color5">工具命令</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">DDD</a>
+                <a href="javascript:void(0)" class="js-tag color4">MES</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">报错</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">CSS基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">半导体</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">封装</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Node</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1684,7 +1881,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">工厂模式</a>
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SqlSugar</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1692,23 +1893,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MES</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">npm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SqlSugar</a>
+                <a href="javascript:void(0)" class="js-tag color5">工厂模式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1720,6 +1905,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Vue</a>
               </li>
              
@@ -1728,11 +1921,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">辅助</a>
+                <a href="javascript:void(0)" class="js-tag color4">未分类</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">未分类</a>
+                <a href="javascript:void(0)" class="js-tag color5">系统架构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">DDD</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">test</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">辅助</a>
               </li>
             
             <div class="clearfix"></div>

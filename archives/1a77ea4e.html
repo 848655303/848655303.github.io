@@ -20,7 +20,7 @@
 <meta property="og:image" content="https://xuzengjie.gitee.io/archives/1a77ea4e/2022012603.png">
 <meta property="og:image" content="https://xuzengjie.gitee.io/archives/1a77ea4e/2022012604.png">
 <meta property="article:published_time" content="2022-01-25T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-01-13T08:32:49.104Z">
+<meta property="article:modified_time" content="2023-01-13T08:40:05.357Z">
 <meta property="article:author" content="徐增杰">
 <meta property="article:tag" content="C#">
 <meta property="article:tag" content="JS">
@@ -251,7 +251,7 @@ var _hmt = _hmt || [];
 
 <h2 id="C-客户端"><a href="#C-客户端" class="headerlink" title="C#客户端"></a>C#客户端</h2><p>可使用<a target="_blank" rel="noopener" href="https://gitee.com/xuzengjie/mqttdemo">MQTTnet</a></p>
 <h2 id="MQTT-的开源版-EMQX"><a href="#MQTT-的开源版-EMQX" class="headerlink" title="MQTT 的开源版 EMQX"></a>MQTT 的开源版 EMQX</h2><p>实例源码地址：<a target="_blank" rel="noopener" href="https://github.com/emqx/MQTT-Client-Examples">https://github.com/emqx/MQTT-Client-Examples</a></p>
-<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> mqtt <span class="keyword">from</span> <span class="string">&#x27;mqtt/dist/mqtt.min&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; reactive, ref, onMounted &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> qosList = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> connection = reactive(&#123;</span><br><span class="line">	protocol: <span class="string">&#x27;ws&#x27;</span>,</span><br><span class="line">	host: <span class="string">&#x27;192.168.152.27&#x27;</span>,</span><br><span class="line">	<span class="comment">// ws: 8083; wss: 8084</span></span><br><span class="line">	port: <span class="number">8083</span>,</span><br><span class="line">	endpoint: <span class="string">&#x27;/mqtt&#x27;</span>,</span><br><span class="line">	clean: <span class="literal">true</span>, <span class="comment">// true: 清除会话, false: 保留会话</span></span><br><span class="line">	connectTimeout: <span class="number">60</span> * <span class="number">1000</span>, <span class="comment">// ms, 超时时间</span></span><br><span class="line">	reconnectPeriod: <span class="number">4000</span>, <span class="comment">// ms  ,两次重新连接之间的间隔</span></span><br><span class="line">	keepalive: <span class="number">100</span>, <span class="comment">//心跳</span></span><br><span class="line">	resubscribe: <span class="literal">true</span>, <span class="comment">//如果连接断开并重新连接，则会再次自动订阅已订阅的主题（默认true）</span></span><br><span class="line">	clientId: <span class="string">&#x27;mqtt_&#x27;</span> + <span class="built_in">Math</span>.random().toString(<span class="number">16</span>).substring(<span class="number">2</span>, <span class="number">8</span>),</span><br><span class="line">	<span class="comment">// auth</span></span><br><span class="line">	username: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">	password: <span class="string">&#x27;&#x27;</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> client = ref(&#123;&#125; <span class="keyword">as</span> mqtt.MqttClient)</span><br><span class="line"></span><br><span class="line"><span class="comment">//接收订阅的信息</span></span><br><span class="line"><span class="keyword">const</span> receiveNews = ref(<span class="string">&#x27;&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//创建连接MQTT</span></span><br><span class="line"><span class="keyword">const</span> createConnection = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">	<span class="built_in">console</span>.log(navigator)</span><br><span class="line">	<span class="built_in">console</span>.log(navigator.userAgent)</span><br><span class="line">	<span class="keyword">try</span> &#123;</span><br><span class="line">		<span class="keyword">const</span> &#123; protocol, host, port, endpoint, ...options &#125; = connection</span><br><span class="line">		<span class="keyword">const</span> connectUrl = <span class="string">`<span class="subst">$&#123;protocol&#125;</span>://<span class="subst">$&#123;host&#125;</span>:<span class="subst">$&#123;port&#125;</span><span class="subst">$&#123;endpoint&#125;</span>`</span></span><br><span class="line">		client.value = mqtt.connect(connectUrl, options)</span><br><span class="line">		<span class="keyword">if</span> (client.value.on) &#123;</span><br><span class="line">			client.value.on(<span class="string">&#x27;connect&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">				<span class="built_in">console</span>.log(<span class="string">&#x27;connection successful&#x27;</span>)</span><br><span class="line">			&#125;)</span><br><span class="line">			client.value.on(<span class="string">&#x27;reconnect&#x27;</span>, handleOnReConnect)</span><br><span class="line">			client.value.on(<span class="string">&#x27;error&#x27;</span>, <span class="function">(<span class="params">error</span>) =&gt;</span> &#123;</span><br><span class="line">				<span class="built_in">console</span>.log(<span class="string">&#x27;connection error:&#x27;</span>, error)</span><br><span class="line">			&#125;)</span><br><span class="line">			client.value.on(<span class="string">&#x27;message&#x27;</span>, <span class="function">(<span class="params">topic: <span class="built_in">string</span>, message</span>) =&gt;</span> &#123;</span><br><span class="line">				receiveNews.value = receiveNews.value.concat(message.toString())</span><br><span class="line">				<span class="built_in">console</span>.log(<span class="string">`received message: <span class="subst">$&#123;message&#125;</span> from topic: <span class="subst">$&#123;topic&#125;</span>`</span>)</span><br><span class="line">			&#125;)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">&#x27;mqtt.connect error:&#x27;</span>, error)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//重连的次数</span></span><br><span class="line"><span class="keyword">const</span> retryTimes = ref(<span class="number">0</span>)</span><br><span class="line"><span class="comment">//重连超过一定次数，就结束，不在重连</span></span><br><span class="line"><span class="keyword">const</span> handleOnReConnect = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">	retryTimes.value += <span class="number">1</span></span><br><span class="line">	<span class="keyword">if</span> (retryTimes.value &gt; <span class="number">5</span>) &#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			client.value.end()</span><br><span class="line">			initData()</span><br><span class="line">			<span class="built_in">console</span>.log(<span class="string">&#x27;connection maxReconnectTimes limit, stop retry&#x27;</span>)</span><br><span class="line">		&#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">			<span class="built_in">console</span>.log(<span class="string">&#x27;handleOnReConnect catch error:&#x27;</span>, error)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//初始数据</span></span><br><span class="line"><span class="keyword">const</span> initData = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">	client.value = &#123;</span><br><span class="line">		connected: <span class="literal">false</span></span><br><span class="line">	&#125; <span class="keyword">as</span> mqtt.MqttClient</span><br><span class="line">	retryTimes.value = <span class="number">0</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//主动断开连接</span></span><br><span class="line"><span class="keyword">const</span> destroyConnection = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">	<span class="keyword">if</span> (client.value.connected) &#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			client.value.end(<span class="literal">false</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">				initData()</span><br><span class="line">				<span class="built_in">console</span>.log(<span class="string">&#x27;disconnected successfully&#x27;</span>)</span><br><span class="line">			&#125;)</span><br><span class="line">		&#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">			<span class="built_in">console</span>.log(<span class="string">&#x27;disconnect error:&#x27;</span>, error)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//准备订阅的信息</span></span><br><span class="line"><span class="keyword">const</span> subscription = ref(&#123;</span><br><span class="line">	topic: <span class="string">&#x27;topic/mqttx&#x27;</span>, <span class="comment">//主题</span></span><br><span class="line">	qos: <span class="number">0</span> <span class="keyword">as</span> mqtt.QoS <span class="comment">//服务质量，0：至多一次，1：至少一次，2：只会到达一次</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//订阅</span></span><br><span class="line"><span class="keyword">const</span> doSubscribe = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">	<span class="keyword">const</span> &#123; topic, qos &#125; = subscription.value</span><br><span class="line">	client.value.subscribe(</span><br><span class="line">		topic,</span><br><span class="line">		&#123; qos &#125;,</span><br><span class="line">		(error: <span class="built_in">Error</span>, granted: mqtt.ISubscriptionGrant[]) =&gt; &#123;</span><br><span class="line">			<span class="keyword">if</span> (error) &#123;</span><br><span class="line">				<span class="built_in">console</span>.log(<span class="string">&#x27;subscribe error:&#x27;</span>, error)</span><br><span class="line">				<span class="keyword">return</span></span><br><span class="line">			&#125;</span><br><span class="line">			<span class="built_in">console</span>.log(<span class="string">&#x27;subscribe successfully:&#x27;</span>, granted)</span><br><span class="line">		&#125;</span><br><span class="line">	)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//取消订阅</span></span><br><span class="line"><span class="keyword">const</span> doUnSubscribe = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">	<span class="keyword">const</span> &#123; topic, qos &#125; = subscription.value</span><br><span class="line">	client.value.unsubscribe(topic, &#123; qos &#125;, <span class="function">(<span class="params">error</span>) =&gt;</span> &#123;</span><br><span class="line">		<span class="keyword">if</span> (error) &#123;</span><br><span class="line">			<span class="built_in">console</span>.log(<span class="string">&#x27;unsubscribe error:&#x27;</span>, error)</span><br><span class="line">			<span class="keyword">return</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">`unsubscribed topic: <span class="subst">$&#123;topic&#125;</span>`</span>)</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//准备发布的信息</span></span><br><span class="line"><span class="keyword">const</span> publish = ref(&#123;</span><br><span class="line">	topic: <span class="string">&#x27;topic/browser&#x27;</span>, <span class="comment">//发布的主题</span></span><br><span class="line">	qos: <span class="number">2</span> <span class="keyword">as</span> mqtt.QoS, <span class="comment">//服务质量</span></span><br><span class="line">	payload: <span class="string">&#x27;&#123; &quot;msg&quot;: &quot;Hello, I am browser.&quot; &#125;&#x27;</span> <span class="comment">//具体信息</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">//发布</span></span><br><span class="line"><span class="keyword">const</span> doPublish = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">	<span class="keyword">const</span> &#123; topic, qos, payload &#125; = publish.value</span><br><span class="line">	client.value.publish(topic, payload, &#123; qos &#125;, <span class="function">(<span class="params">error</span>) =&gt;</span> &#123;</span><br><span class="line">		<span class="keyword">if</span> (error) &#123;</span><br><span class="line">			<span class="built_in">console</span>.log(<span class="string">&#x27;publish error:&#x27;</span>, error)</span><br><span class="line">			<span class="keyword">return</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">`published message: <span class="subst">$&#123;payload&#125;</span>`</span>)</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> mqtt <span class="keyword">from</span> <span class="string">&#x27;mqtt/dist/mqtt.min&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; reactive, ref, onMounted &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//连接配置</span></span><br><span class="line"><span class="keyword">const</span> connection = reactive(&#123;</span><br><span class="line">	protocol: <span class="string">&#x27;ws&#x27;</span>,</span><br><span class="line">	host: <span class="string">&#x27;192.168.152.27&#x27;</span>,</span><br><span class="line">	<span class="comment">// ws: 8083; wss: 8084</span></span><br><span class="line">	port: <span class="number">8083</span>,</span><br><span class="line">	endpoint: <span class="string">&#x27;/mqtt&#x27;</span>,</span><br><span class="line">	clean: <span class="literal">true</span>, <span class="comment">// true: 清除会话, false: 保留会话</span></span><br><span class="line">	connectTimeout: <span class="number">60</span> * <span class="number">1000</span>, <span class="comment">// ms, 超时时间</span></span><br><span class="line">	reconnectPeriod: <span class="number">4000</span>, <span class="comment">// ms  ,两次重新连接之间的间隔</span></span><br><span class="line">	keepalive: <span class="number">100</span>, <span class="comment">//心跳</span></span><br><span class="line">	resubscribe: <span class="literal">true</span>, <span class="comment">//如果连接断开并重新连接，则会再次自动订阅已订阅的主题（默认true）</span></span><br><span class="line">	clientId: <span class="string">&#x27;mqtt_&#x27;</span> + <span class="built_in">Math</span>.random().toString(<span class="number">16</span>).substring(<span class="number">2</span>, <span class="number">8</span>),</span><br><span class="line">	<span class="comment">// auth</span></span><br><span class="line">	username: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">	password: <span class="string">&#x27;&#x27;</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> client = ref(&#123;&#125; <span class="keyword">as</span> mqtt.MqttClient)</span><br><span class="line"></span><br><span class="line"><span class="comment">//接收订阅的信息</span></span><br><span class="line"><span class="keyword">const</span> receiveNews = ref(<span class="string">&#x27;&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//创建连接MQTT</span></span><br><span class="line"><span class="keyword">const</span> createConnection = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">	<span class="built_in">console</span>.log(navigator)</span><br><span class="line">	<span class="built_in">console</span>.log(navigator.userAgent)</span><br><span class="line">	<span class="keyword">try</span> &#123;</span><br><span class="line">		<span class="keyword">const</span> &#123; protocol, host, port, endpoint, ...options &#125; = connection</span><br><span class="line">		<span class="keyword">const</span> connectUrl = <span class="string">`<span class="subst">$&#123;protocol&#125;</span>://<span class="subst">$&#123;host&#125;</span>:<span class="subst">$&#123;port&#125;</span><span class="subst">$&#123;endpoint&#125;</span>`</span></span><br><span class="line">		client.value = mqtt.connect(connectUrl, options)</span><br><span class="line">		<span class="keyword">if</span> (client.value.on) &#123;</span><br><span class="line">			client.value.on(<span class="string">&#x27;connect&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">				<span class="built_in">console</span>.log(<span class="string">&#x27;connection successful&#x27;</span>)</span><br><span class="line">			&#125;)</span><br><span class="line">			client.value.on(<span class="string">&#x27;reconnect&#x27;</span>, handleOnReConnect)</span><br><span class="line">			client.value.on(<span class="string">&#x27;error&#x27;</span>, <span class="function">(<span class="params">error</span>) =&gt;</span> &#123;</span><br><span class="line">				<span class="built_in">console</span>.log(<span class="string">&#x27;connection error:&#x27;</span>, error)</span><br><span class="line">			&#125;)</span><br><span class="line">			client.value.on(<span class="string">&#x27;message&#x27;</span>, <span class="function">(<span class="params">topic: <span class="built_in">string</span>, message</span>) =&gt;</span> &#123;</span><br><span class="line">				receiveNews.value = receiveNews.value.concat(message.toString())</span><br><span class="line">				<span class="built_in">console</span>.log(<span class="string">`received message: <span class="subst">$&#123;message&#125;</span> from topic: <span class="subst">$&#123;topic&#125;</span>`</span>)</span><br><span class="line">			&#125;)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">&#x27;mqtt.connect error:&#x27;</span>, error)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//重连的次数</span></span><br><span class="line"><span class="keyword">const</span> retryTimes = ref(<span class="number">0</span>)</span><br><span class="line"><span class="comment">//重连超过一定次数，就结束，不在重连</span></span><br><span class="line"><span class="keyword">const</span> handleOnReConnect = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">	retryTimes.value += <span class="number">1</span></span><br><span class="line">	<span class="keyword">if</span> (retryTimes.value &gt; <span class="number">5</span>) &#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			client.value.end()</span><br><span class="line">			initData()</span><br><span class="line">			<span class="built_in">console</span>.log(<span class="string">&#x27;connection maxReconnectTimes limit, stop retry&#x27;</span>)</span><br><span class="line">		&#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">			<span class="built_in">console</span>.log(<span class="string">&#x27;handleOnReConnect catch error:&#x27;</span>, error)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//初始数据</span></span><br><span class="line"><span class="keyword">const</span> initData = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">	client.value = &#123;</span><br><span class="line">		connected: <span class="literal">false</span></span><br><span class="line">	&#125; <span class="keyword">as</span> mqtt.MqttClient</span><br><span class="line">	retryTimes.value = <span class="number">0</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//主动断开连接</span></span><br><span class="line"><span class="keyword">const</span> destroyConnection = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">	<span class="keyword">if</span> (client.value.connected) &#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			client.value.end(<span class="literal">false</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">				initData()</span><br><span class="line">				<span class="built_in">console</span>.log(<span class="string">&#x27;disconnected successfully&#x27;</span>)</span><br><span class="line">			&#125;)</span><br><span class="line">		&#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">			<span class="built_in">console</span>.log(<span class="string">&#x27;disconnect error:&#x27;</span>, error)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//准备订阅的信息</span></span><br><span class="line"><span class="keyword">const</span> subscription = ref(&#123;</span><br><span class="line">	topic: <span class="string">&#x27;topic/mqttx&#x27;</span>, <span class="comment">//主题</span></span><br><span class="line">	qos: <span class="number">0</span> <span class="keyword">as</span> mqtt.QoS <span class="comment">//服务质量，0：至多一次，1：至少一次，2：只会到达一次</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//订阅</span></span><br><span class="line"><span class="keyword">const</span> doSubscribe = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">	<span class="keyword">const</span> &#123; topic, qos &#125; = subscription.value</span><br><span class="line">	client.value.subscribe(</span><br><span class="line">		topic,</span><br><span class="line">		&#123; qos &#125;,</span><br><span class="line">		(error: <span class="built_in">Error</span>, granted: mqtt.ISubscriptionGrant[]) =&gt; &#123;</span><br><span class="line">			<span class="keyword">if</span> (error) &#123;</span><br><span class="line">				<span class="built_in">console</span>.log(<span class="string">&#x27;subscribe error:&#x27;</span>, error)</span><br><span class="line">				<span class="keyword">return</span></span><br><span class="line">			&#125;</span><br><span class="line">			<span class="built_in">console</span>.log(<span class="string">&#x27;subscribe successfully:&#x27;</span>, granted)</span><br><span class="line">		&#125;</span><br><span class="line">	)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//取消订阅</span></span><br><span class="line"><span class="keyword">const</span> doUnSubscribe = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">	<span class="keyword">const</span> &#123; topic, qos &#125; = subscription.value</span><br><span class="line">	client.value.unsubscribe(topic, &#123; qos &#125;, <span class="function">(<span class="params">error</span>) =&gt;</span> &#123;</span><br><span class="line">		<span class="keyword">if</span> (error) &#123;</span><br><span class="line">			<span class="built_in">console</span>.log(<span class="string">&#x27;unsubscribe error:&#x27;</span>, error)</span><br><span class="line">			<span class="keyword">return</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">`unsubscribed topic: <span class="subst">$&#123;topic&#125;</span>`</span>)</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//准备发布的信息</span></span><br><span class="line"><span class="keyword">const</span> publish = ref(&#123;</span><br><span class="line">	topic: <span class="string">&#x27;topic/browser&#x27;</span>, <span class="comment">//发布的主题</span></span><br><span class="line">	qos: <span class="number">2</span> <span class="keyword">as</span> mqtt.QoS, <span class="comment">//服务质量</span></span><br><span class="line">	payload: <span class="string">&#x27;&#123; &quot;msg&quot;: &quot;Hello, I am browser.&quot; &#125;&#x27;</span> <span class="comment">//具体信息</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">//发布</span></span><br><span class="line"><span class="keyword">const</span> doPublish = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">	<span class="keyword">const</span> &#123; topic, qos, payload &#125; = publish.value</span><br><span class="line">	client.value.publish(topic, payload, &#123; qos &#125;, <span class="function">(<span class="params">error</span>) =&gt;</span> &#123;</span><br><span class="line">		<span class="keyword">if</span> (error) &#123;</span><br><span class="line">			<span class="built_in">console</span>.log(<span class="string">&#x27;publish error:&#x27;</span>, error)</span><br><span class="line">			<span class="keyword">return</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">`published message: <span class="subst">$&#123;payload&#125;</span>`</span>)</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
 
@@ -502,6 +502,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Hexo使用</a>
               </li>
              
@@ -515,10 +519,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">outlook</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -538,15 +538,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">EF</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">代码片段</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">EFCore</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -555,6 +551,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">双判断锁</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">代码片段</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">VS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">配置</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">快捷键</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -570,15 +582,47 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">VS</a>
+                <a href="javascript:void(0)" class="js-tag color5">行列转换</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">配置</a>
+                <a href="javascript:void(0)" class="js-tag color4">行转列</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">快捷键</a>
+                <a href="javascript:void(0)" class="js-tag color4">列转行</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SQLServer</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">ACCESS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Oracle</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">webapi</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">swagger</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">EFCore</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -626,87 +670,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">test</a>
+                <a href="javascript:void(0)" class="js-tag color5">Linq</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SQLServer</a>
+                <a href="javascript:void(0)" class="js-tag color5">TakeWhile</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ACCESS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Oracle</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">行列转换</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">行转列</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">列转行</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">VUE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">环境</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">字符串</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">拾遗</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">webapi</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">swagger</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">VSCode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">插件</a>
+                <a href="javascript:void(0)" class="js-tag color5">SkipWhile</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -722,75 +694,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">栅格</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">5等分</a>
+                <a href="javascript:void(0)" class="js-tag color3">环境</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+                <a href="javascript:void(0)" class="js-tag color4">VUE</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">监听</a>
+                <a href="javascript:void(0)" class="js-tag color3">学习</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SQL Server</a>
+                <a href="javascript:void(0)" class="js-tag color4">字符串</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SQL Server Profiler</a>
+                <a href="javascript:void(0)" class="js-tag color3">拾遗</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Linq</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">TakeWhile</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SkipWhile</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">abstract</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">virtual</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">抽象类</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">接口</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">B站</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">下载</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Task</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">await</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">async</a>
+                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -806,6 +734,42 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">监听</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">SQL Server</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SQL Server Profiler</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">B站</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">下载</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">VSCode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">插件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">栅格</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">5等分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">组件</a>
               </li>
              
@@ -814,15 +778,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">.net</a>
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">vs</a>
+                <a href="javascript:void(0)" class="js-tag color4">abstract</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">中文</a>
+                <a href="javascript:void(0)" class="js-tag color3">virtual</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -838,27 +802,35 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Azure AD</a>
+                <a href="javascript:void(0)" class="js-tag color4">抽象类</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">统一登录</a>
+                <a href="javascript:void(0)" class="js-tag color3">接口</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">saml</a>
+                <a href="javascript:void(0)" class="js-tag color5">.net</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color3">vs</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">报错</a>
+                <a href="javascript:void(0)" class="js-tag color3">中文</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">工具命令</a>
+                <a href="javascript:void(0)" class="js-tag color5">Task</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">await</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">async</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -874,19 +846,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">CSS基础</a>
+                <a href="javascript:void(0)" class="js-tag color4">Azure AD</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">半导体</a>
+                <a href="javascript:void(0)" class="js-tag color5">统一登录</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">封装</a>
+                <a href="javascript:void(0)" class="js-tag color5">saml</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -898,11 +866,35 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统架构</a>
+                <a href="javascript:void(0)" class="js-tag color5">工具命令</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">DDD</a>
+                <a href="javascript:void(0)" class="js-tag color4">MES</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">报错</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">CSS基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">半导体</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">封装</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Node</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -918,7 +910,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">工厂模式</a>
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SqlSugar</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -926,23 +922,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MES</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">npm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SqlSugar</a>
+                <a href="javascript:void(0)" class="js-tag color5">工厂模式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -954,6 +934,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Vue</a>
               </li>
              
@@ -962,11 +950,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">辅助</a>
+                <a href="javascript:void(0)" class="js-tag color4">未分类</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">未分类</a>
+                <a href="javascript:void(0)" class="js-tag color5">系统架构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">DDD</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">test</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">辅助</a>
               </li>
             
             <div class="clearfix"></div>
