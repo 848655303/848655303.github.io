@@ -196,9 +196,9 @@
     
     
     
-    <category term="工厂模式" scheme="https://xuzengjie.gitee.io/tags/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/"/>
-    
     <category term="反射" scheme="https://xuzengjie.gitee.io/tags/%E5%8F%8D%E5%B0%84/"/>
+    
+    <category term="工厂模式" scheme="https://xuzengjie.gitee.io/tags/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/"/>
     
   </entry>
   
@@ -397,9 +397,9 @@
     
     
     
-    <category term="工具命令" scheme="https://xuzengjie.gitee.io/tags/%E5%B7%A5%E5%85%B7%E5%91%BD%E4%BB%A4/"/>
-    
     <category term="linux" scheme="https://xuzengjie.gitee.io/tags/linux/"/>
+    
+    <category term="工具命令" scheme="https://xuzengjie.gitee.io/tags/%E5%B7%A5%E5%85%B7%E5%91%BD%E4%BB%A4/"/>
     
     <category term="Node" scheme="https://xuzengjie.gitee.io/tags/Node/"/>
     
@@ -423,11 +423,11 @@
     
     
     
-    <category term="工具命令" scheme="https://xuzengjie.gitee.io/tags/%E5%B7%A5%E5%85%B7%E5%91%BD%E4%BB%A4/"/>
-    
     <category term="linux" scheme="https://xuzengjie.gitee.io/tags/linux/"/>
     
     <category term="报错" scheme="https://xuzengjie.gitee.io/tags/%E6%8A%A5%E9%94%99/"/>
+    
+    <category term="工具命令" scheme="https://xuzengjie.gitee.io/tags/%E5%B7%A5%E5%85%B7%E5%91%BD%E4%BB%A4/"/>
     
   </entry>
   
@@ -449,11 +449,11 @@
     
     
     
+    <category term="工具命令" scheme="https://xuzengjie.gitee.io/tags/%E5%B7%A5%E5%85%B7%E5%91%BD%E4%BB%A4/"/>
+    
     <category term="docker" scheme="https://xuzengjie.gitee.io/tags/docker/"/>
     
     <category term="青龙面板" scheme="https://xuzengjie.gitee.io/tags/%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF/"/>
-    
-    <category term="工具命令" scheme="https://xuzengjie.gitee.io/tags/%E5%B7%A5%E5%85%B7%E5%91%BD%E4%BB%A4/"/>
     
   </entry>
   
