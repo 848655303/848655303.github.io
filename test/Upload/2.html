@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>MVC中客户端向服务器端上传base64格式的图片</title>
+		<script src="jquery-3.6.3.min.js"></script>
+		<script>
+			$(function () {
+				//文件上传控件的onchange事件
+				$('#imgReader').change(function () {
+					if (!this.files.length) return //如果未选择图片则退出函数
+					//定义文件读取对象，并读取文件上传控件选择的文件。
+					var reader = new FileReader()
+					reader.readAsDataURL(this.files[0])
+					//文件对象的onload事件，将base64值赋给img控件的src属性
+					reader.onload = function (e) {
+						$('#img').attr('src', this.result) //this.result也可设置为e.target.result
+					}
+				})
+				//上传文件
+				$('#upload').click(function () {
+					if ($('#img').attr('src').length <= 0) return //如果图片控件内容为空，则退出
+					//通过jquery.ajax上传图片
+					$.ajax({
+						url: 'http://192.168.152.27:5070/api/Test/UploadBase64',
+						type: 'POST',
+						//这里的变量名base64Str一定要和控制器里对应函数的参数名相同
+						//img的src属性为base64字符串，可以以逗号分隔为两部分，前面为文件类型等属性，后面为文件内容。例：data:image/png;base64,ivborwokg...
+						data: { base64Str: $('#img').attr('src').split(',')[1] },
+						success: function () {
+							alert('上传文件成功')
+						}
+					})
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<p><input type="file" id="imgReader" accept="image/*" /></p>
+		<!--文件上传控件-->
+		<p><img src="" style="width: 200px" id="img" /></p>
+		<!--图片容器-->
+		<button id="upload">上传图片</button
+		><!--上传图片按钮-->
+	</body>
+</html>
+
+<!-- 控制器 -->
+<!--     
+    //这里的参数名base64Str一定要和视图里jquery.ajax方法中的data对象里的参数名相同
+        [HttpPost]
+        public void UploadBase64([FromForm]string base64Str)
+        {
+            byte[] base64 = Convert.FromBase64String(base64Str);
+            System.IO.File.WriteAllBytes("1.jpg", base64);
+        }
+ -->

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<input type="file" />
+		<img src="" alt="" id="preview" />
+		<script>
+			const inp = document.querySelector('input')
+			inp.onchange = function () {
+				console.log(this.files[0])
+			}
+
+			function upload(file, onProgress, onFinish) {
+				onProgress(50)
+				const xhr = new XMLHttpRequest()
+				xhr.onload = function () {
+					const resp = JSON.parse(xhr.responseText)
+					onFinish(resp)
+				}
+				xhr.upload.onprogress = (e) => {
+					const percent = Math.floor((e.loaded / e.total) * 100)
+					onProgress(percent)
+				}
+				xhr.open('POST', 'http://192.168.152.27:5070/api/Test/UploadBase64')
+				const form = new FormData()
+				form.append('avatar', file)
+				xhr.send(form)
+				return function () {
+					xhr.abort()
+				}
+			}
+
+			function uploadBase64(file, onProgress, onFinish) {
+				onProgress(50)
+				const xhr = new XMLHttpRequest()
+				xhr.onload = function () {
+					const resp = JSON.parse(xhr.responseText)
+					onFinish(resp)
+				}
+				xhr.upload.onprogress = (e) => {
+					const percent = Math.floor((e.loaded / e.total) * 100)
+					onProgress(percent)
+				}
+				xhr.open('POST', 'http://192.168.152.27:5070/api/Test/UploadBase64')
+				const form = new FormData()
+				form.append('avatar', file)
+				xhr.send(form)
+				return function () {
+					xhr.abort()
+				}
+			}
+		</script>
+	</body>
+</html>
