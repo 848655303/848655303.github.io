@@ -6,7 +6,7 @@
   <link href="https://xuzengjie.gitee.io/atom.xml" rel="self"/>
   
   <link href="https://xuzengjie.gitee.io/"/>
-  <updated>2023-02-02T03:30:32.808Z</updated>
+  <updated>2023-03-28T01:47:54.816Z</updated>
   <id>https://xuzengjie.gitee.io/</id>
   
   <author>
@@ -15,6 +15,60 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>67-webAPI注册为服务</title>
+    <link href="https://xuzengjie.gitee.io/archives/49205ab4.html"/>
+    <id>https://xuzengjie.gitee.io/archives/49205ab4.html</id>
+    <published>2023-03-27T16:00:00.000Z</published>
+    <updated>2023-03-28T01:47:54.816Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="修改-webapi-端口从配置文件读取"><a href="#修改-webapi-端口从配置文件读取" class="headerlink" title="修改 webapi 端口从配置文件读取"></a>修改 webapi 端口从配置文件读取</h1><p>program.cs</p><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> builder = WebApplication.CreateBuilder(args);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> configuration = builder.Configuration;</span><br><span class="line">builder.Host.UseWindowsService();</span><br><span class="line">builder.WebHost.ConfigureKestrel(options =&gt;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//Http端口</span></span><br><span class="line">    options.ListenAnyIP(configuration.GetSection(<span class="string">&quot;Host:HttpPort&quot;</span>).Get&lt;<span class="keyword">int</span>&gt;());</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><p>appsettings.json</p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"><span class="attr">&quot;Host&quot;</span>: &#123;</span><br><span class="line"><span class="attr">&quot;HttpPort&quot;</span>: <span class="number">9010</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h1 id="批处理文件注册程序为服务"><a href="#批处理文件注册程序为服务" class="headerlink" title="批处理文件注册程序为服务"></a>批处理文件注册程序为服务</h1><p>start.bat</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">set serviceName&#x3D;XZJBackManageWebApi9301</span><br><span class="line">set serviceFilePath&#x3D;&quot;D:\HSU_MES\WebAPi\9301\XZJ.BackManage.WebApi.exe&quot;</span><br><span class="line">set serviceDescription&#x3D;&quot;XZJBackManageWebApi9301&quot;</span><br><span class="line"></span><br><span class="line">sc create %serviceName%  BinPath&#x3D;%serviceFilePath%</span><br><span class="line">sc config %serviceName%    start&#x3D;auto</span><br><span class="line">sc config %serviceName%    start&#x3D;delayed-auto</span><br><span class="line">sc description %serviceName%  %serviceDescription%</span><br><span class="line">sc failure %serviceName%  reset&#x3D; 0 actions&#x3D; restart&#x2F;1200000</span><br><span class="line">sc start  %serviceName%</span><br><span class="line">pause</span><br></pre></td></tr></table></figure><h1 id="批处理文件卸载服务"><a href="#批处理文件卸载服务" class="headerlink" title="批处理文件卸载服务"></a>批处理文件卸载服务</h1><p>end.bat</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">set serviceName&#x3D;XZJBackManageWebApi9301</span><br><span class="line">sc stop   %serviceName%</span><br><span class="line">sc delete %serviceName%</span><br><span class="line">pause</span><br><span class="line"></span><br></pre></td></tr></table></figure><h1 id="修改服务权限"><a href="#修改服务权限" class="headerlink" title="修改服务权限"></a>修改服务权限</h1><p>在控制面板-服务内，找到对应服务，右键属性–登录标签页，输入相关账号密码<br><img src="/archives/49205ab4/1.png" alt="1"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;修改-webapi-端口从配置文件读取&quot;&gt;&lt;a href=&quot;#修改-webapi-端口从配置文件读取&quot; class=&quot;headerlink&quot; title=&quot;修改 webapi 端口从配置文件读取&quot;&gt;&lt;/a&gt;修改 webapi 端口从配置文件读取&lt;/h1&gt;&lt;p&gt;pr</summary>
+      
+    
+    
+    
+    
+    <category term="服务" scheme="https://xuzengjie.gitee.io/tags/%E6%9C%8D%E5%8A%A1/"/>
+    
+    <category term="webAPI" scheme="https://xuzengjie.gitee.io/tags/webAPI/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>66-身份认证</title>
+    <link href="https://xuzengjie.gitee.io/archives/72f160ce.html"/>
+    <id>https://xuzengjie.gitee.io/archives/72f160ce.html</id>
+    <published>2023-03-02T16:00:00.000Z</published>
+    <updated>2023-03-03T08:10:20.618Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="登录模式"><a href="#登录模式" class="headerlink" title="登录模式"></a>登录模式</h1><h2 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h2><p>我们登录认证成功之后，将用户信息就存放在服务端(Session)，然后将其对应的 session_id 存储在客户端(Cookie)，从 Cookie 中取出 session_id，服务端就可以根据这个 session_id 获取对应的 Session，从而获取存储用户信息。</p><p>优点是：Session 自动续期，用户体验较好<br>缺点是：</p><ol><li>没有分布式架构，无法支持横向扩展。即分布式架构的情况下，其他服务器是没有办法获取到用户信息的。当然，可以使用 Session 共享的方式来解决这个问题。或者，可以将用户信息存储在 Redis 里，用一个透明令牌(字符串)作为 key，并把这个令牌存储到本地(cookie、localStorage)，然后通过令牌去 Redis 取用户信息。</li><li>Session 依赖 Cookie，如果客户端禁用了 Cookie，那么 Session 无法正常工作。其解决方法就是，可以在请求的 url 后面拼接上 session_id，如：<a href="http://www.liuchengyin.com/test?session_id=xxx%EF%BC%8C%E5%85%B6%E5%AE%89%E5%85%A8%E6%80%A7%E5%92%8C%E7%94%A8%E6%88%B7%E4%BD%93%E9%AA%8C%E6%84%9F%E8%BE%83%E5%B7%AE%E3%80%82">http://www.liuchengyin.com/test?session_id=xxx，其安全性和用户体验感较差。</a></li><li>Session 依赖 Cookie，Cookie 无法防止 CSRF(Cross Site Request Forgery)：跨站请求伪造。Session 认证中，Cookie 是通过浏览器发送到服务端的，借助这个特性，攻击者可以通过让用户误点攻击连接(攻击者通过 cookie 拿到你的 session_id 就可以代替你的身份访问系统)达到攻击效果。</li></ol><h2 id="SSO-单点登录"><a href="#SSO-单点登录" class="headerlink" title="SSO (单点登录)"></a>SSO (单点登录)</h2><p>用户只需要在身份认证服务器上登录一次，就可以访问这个单点登录中其他关联系统的应用软件的权限，同时这种实现是不需要管理员对用户登录状态或其他信息进行修改的，这意味着多个应用系统中，用户只需一次登录就可以访问所有相互信任的应用系统。</p><p>优点：用户身份信息独立管理，可以更好的分布式管理，可以自己扩展安全策略。<br>缺点：认证服务器访问压力会比较大</p><h2 id="Token"><a href="#Token" class="headerlink" title="Token"></a>Token</h2><p>Token 是一种无状态、跨服务器、高性能的验证模式。用户通过用户名和密码发送请求，程序进行验证，验证通过后返回一个签名的 token 给客户端存储(一般 localStorage)，客户端每次请求都会附带上这个 token(一般在 Header 里附带 token)，服务端验证这个 token 之后将数据返回。</p><p>优点：无状态、可扩展、支持移动设备、可跨程序调用、安全，基于标准化，你的 API 考研采用标准化的 JSON Web Token(JWT)<br>缺点：占用宽带且无法在服务端进行销毁(可以在服务器端增加黑名单禁用)</p><h1 id="JWT-令牌的身份验证"><a href="#JWT-令牌的身份验证" class="headerlink" title="JWT 令牌的身份验证"></a>JWT 令牌的身份验证</h1><p>1、JWT 是什么？<br>JSON Web Token（JWT）是一个开放的行业标准(RFC 7519)，它定义了一种简介的、自包含的协议格式，用于在通信双方传递 JSON 对象，传递的信息经过数字签名可以被验证和信任。JWT 可以使用 HMAC 算法或使用 RSA 的公钥/私钥对来签名，防止被篡改。对普通信息进行加密处理后转换成 JSON，转换过后的数据称为 Token。</p><p>2、JWT 能做什么？</p><ol><li>授权：一旦用户登录，每个后续请求将包括 JWT，从而允许用户访问该令牌允许的路由、服务和资源。登录成功之后，生产一个 JWT，其中包含用户的信息。</li><li>信息交换：可以在各方之间安全的传输信息。</li></ol><p>3、JWT 认证和 Session 认证的区别</p><ol><li>Session 认证<br>通过账户密码验证之后，将用户信息保存在 Session。Session 是保存在服务端的，下一次通过 Cookie 存储的 session_id 去 Session 当中取数据。</li><li>JWT 认证<br>通过账户密码验证之后，将用户信息转换成 JWT，以 Token 令牌的形式传给前端，前端将其存储到 Cookie 中(JWT 是保存在客户端的)，以后每一次请求都会带上这个 token，服务器获取到这个 token 之后进行 JWT 解析来读取用户数据，如果没有数据就代表没有登录。</li></ol><p>4、JWT 有哪些优缺点<br>优点：基于 JSON，方便解析，可以在令牌中自定义丰富内容，易扩展。通过非对称加密及数字签名技术，可以防止篡改、安全性高。可以不依赖认证服务就可以完成授权。<br>缺点：</p><ol><li>JWT 令牌较长，占存储空间比较大。</li><li>JWT 加密后的 Token 可在<a href="https://jwt.io/">网站</a>解密</li></ol><p>5、JWT 的结构<br>JWT 令牌由三部分组成，每部分中间使用点（.）分隔,比如：xxxxx.yyyyy.zzzzz</p><ol><li>Header<br>JWT 头部分是一个描述 JWT 元数据的 JSON 对象，头部包括令牌的类型（即 JWT）及使用的哈希算法（如 HMAC SHA256 或 RSA）。</li><li>Payload<br>第二部分是负载，内容也是一个 JSON 对象，通过 Base64Url 编码，得到一个字符串，这个字符串就是 JWT 的第二部分(负载)。<br>它指定了七个默认字段供选择。</li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">iss：发行人</span><br><span class="line">exp：到期时间</span><br><span class="line">sub：主体</span><br><span class="line">aud：用户</span><br><span class="line">nbf：在此之前不可用</span><br><span class="line">iat：发布时间</span><br><span class="line">jti：JWT ID用于标识该JWT</span><br></pre></td></tr></table></figure><p>除了这七个默认字段，还可以自定义私有字段</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">&quot;user&quot;: &quot;xxx&quot;,</span><br><span class="line">&quot;name&quot;: &quot;张三&quot;,</span><br><span class="line">&quot;admin&quot;: true</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>但是不建议在此部分存放敏感信息，此部门可以解码还原原始内容。虽然它可以解码，但是也不能修改这个内容。</p><ol start="3"><li>Signature<br>第三部分是签名哈希部分，是对上面两部分数据签名，通过指定的算法生成哈希，以确保数据不会被篡改。首先，需要指定一个密码（secret）。该密码仅仅为保存在服务器中，并且不能向用户公开。然后，使用标头中指定的签名算法（默认情况下为 HMAC SHA256）根据以下公式生成签名。</li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">HMACSHA256(</span><br><span class="line">base64UrlEncode(header) + &quot;.&quot; +base64UrlEncode(payload),secret</span><br><span class="line">)</span><br></pre></td></tr></table></figure><h1 id="Token-认证在实际使用中的一些问题"><a href="#Token-认证在实际使用中的一些问题" class="headerlink" title="Token 认证在实际使用中的一些问题"></a>Token 认证在实际使用中的一些问题</h1><p>1、下列情况，token 依然有效<br>注销、修改密码、修改用户的权限、角色、用户账号被删除、用户被注销。</p><ol><li>Token 一旦被发出，是没有办法销毁的，只能等到它过期。如果想要其失效，可以将 token 存储在缓存中，服务端每次请求都要验证 token 是否存在，在上述情况的逻辑里要去 Redis 删除对应的 token，但是这违背了 Token 无状态的原则。</li><li>为每个用户提供专属的 token，要让 token 失效直接删除 token 即可。但是这种方式危害极大，分布式情况下每次发送新的 token 都需要在多台服务器同步。如果用户同时在两个浏览器打开系统，那么一个地方退出登录，其他地方都要重新进行登录。</li><li>让 token 保持短暂时间，但是这种需要频繁登录。</li></ol><p>2、token 续签问题</p><ol><li>可以每次请求的时候在服务端检查，如果发现快要过期了，就发个新 token 给浏览器，浏览器每次都要检查新旧 token 是否一致。不一致，就替换为新的 token。但是这个缺点也很大，只有在快要过期的时候那一次请求才会更新 token，对客户端也不友好。</li><li>基于第一种，可以每次请求都更新 token，但这样开销太大了。</li><li>token 时间设置长一点，这仅适用于安全性不高的系统。</li><li>服务端返回两个 token，accessToken 为真实 token(过期时间假设为 30min)，refreshToken 为过期时间 token(过期时间假设为 1 天)。登录就把这两个 token 保存在客户端，每次访问传递 accessToken，如果服务端检测到 accessToken 过期，就将 refreshToken 传给服务端，服务端创建一个新的 accessToken 返回个客户端保存。其缺点：需要客户端配合，用户注销需要两个 token 都要失效，重新请求获取 token 的过程中会有短暂 token 不可用。</li></ol><h1 id="简单自定义-Token"><a href="#简单自定义-Token" class="headerlink" title="简单自定义 Token"></a>简单自定义 Token</h1><p>对账号+密码进行不可逆加密生成 Token，每次访问时，对账号+密码进行加密与 Token 进行校验</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;登录模式&quot;&gt;&lt;a href=&quot;#登录模式&quot; class=&quot;headerlink&quot; title=&quot;登录模式&quot;&gt;&lt;/a&gt;登录模式&lt;/h1&gt;&lt;h2 id=&quot;Session&quot;&gt;&lt;a href=&quot;#Session&quot; class=&quot;headerlink&quot; title=&quot;Ses</summary>
+      
+    
+    
+    
+    
+    <category term="JWT" scheme="https://xuzengjie.gitee.io/tags/JWT/"/>
+    
+    <category term="Token" scheme="https://xuzengjie.gitee.io/tags/Token/"/>
+    
+    <category term="Session" scheme="https://xuzengjie.gitee.io/tags/Session/"/>
+    
+    <category term="Cookie" scheme="https://xuzengjie.gitee.io/tags/Cookie/"/>
+    
+    <category term="SSO" scheme="https://xuzengjie.gitee.io/tags/SSO/"/>
+    
+  </entry>
   
   <entry>
     <title>65-JS数组删除</title>
@@ -397,9 +451,9 @@
     
     
     
-    <category term="工具命令" scheme="https://xuzengjie.gitee.io/tags/%E5%B7%A5%E5%85%B7%E5%91%BD%E4%BB%A4/"/>
-    
     <category term="linux" scheme="https://xuzengjie.gitee.io/tags/linux/"/>
+    
+    <category term="工具命令" scheme="https://xuzengjie.gitee.io/tags/%E5%B7%A5%E5%85%B7%E5%91%BD%E4%BB%A4/"/>
     
     <category term="Node" scheme="https://xuzengjie.gitee.io/tags/Node/"/>
     
@@ -423,11 +477,11 @@
     
     
     
-    <category term="工具命令" scheme="https://xuzengjie.gitee.io/tags/%E5%B7%A5%E5%85%B7%E5%91%BD%E4%BB%A4/"/>
-    
     <category term="linux" scheme="https://xuzengjie.gitee.io/tags/linux/"/>
     
     <category term="报错" scheme="https://xuzengjie.gitee.io/tags/%E6%8A%A5%E9%94%99/"/>
+    
+    <category term="工具命令" scheme="https://xuzengjie.gitee.io/tags/%E5%B7%A5%E5%85%B7%E5%91%BD%E4%BB%A4/"/>
     
   </entry>
   
@@ -449,60 +503,11 @@
     
     
     
+    <category term="工具命令" scheme="https://xuzengjie.gitee.io/tags/%E5%B7%A5%E5%85%B7%E5%91%BD%E4%BB%A4/"/>
+    
     <category term="docker" scheme="https://xuzengjie.gitee.io/tags/docker/"/>
     
     <category term="青龙面板" scheme="https://xuzengjie.gitee.io/tags/%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF/"/>
-    
-    <category term="工具命令" scheme="https://xuzengjie.gitee.io/tags/%E5%B7%A5%E5%85%B7%E5%91%BD%E4%BB%A4/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>47-Azure AD</title>
-    <link href="https://xuzengjie.gitee.io/archives/d311ad10.html"/>
-    <id>https://xuzengjie.gitee.io/archives/d311ad10.html</id>
-    <published>2022-02-08T16:00:00.000Z</published>
-    <updated>2022-10-28T07:21:14.625Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Azure-AD"><a href="#Azure-AD" class="headerlink" title="Azure AD"></a>Azure AD</h1><p>微软的统一登录</p><h1 id="Azure-AD操作流程"><a href="#Azure-AD操作流程" class="headerlink" title="Azure AD操作流程"></a>Azure AD操作流程</h1><ol><li>注册<a href="https://azure.microsoft.com/zh-cn/services/active-directory/">Azure AD账户</a></li><li>找到”企业应用程序”（所有程序内或上方搜索）</li><li>点击新建应用程序</li><li>创建你自己的应用程序</li><li>输入应用的名词，选择”集成未在库中..”,创建</li><li>企业应用程序–所有应用程序  内可以看到刚刚创建的应用</li><li>点击刚刚新建的应用进入</li><li>分配用户和组（选择自己的账户）</li><li>设置SAML单一登录</li><li>点击Test,点击测试登录，下载SAML请求（该请求即是在下面代码中需要拼接的）</li></ol><h1 id="C-实现"><a href="#C-实现" class="headerlink" title="C#实现"></a>C#实现</h1><p>字符串拼接参数值后，使用Deflate压缩，在使用HttpUtility.UrlEncode转码.<br>参数值格式，可以在Azure AD新建后查看</p><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"><span class="doctag">///</span>发送</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">SSo</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> Destination = <span class="string">&quot;https://login.microsoftonline.com/xxxxxxxxxxxxxxxxx/saml2&quot;</span>;</span><br><span class="line">    <span class="keyword">var</span> AssertionConsumerServiceURL = Request.Url.ToString() + <span class="string">&quot;SSO/Callback&quot;</span>;</span><br><span class="line">    <span class="keyword">var</span> ID =<span class="string">&quot;id&quot;</span>+ Guid.NewGuid().ToString().Replace(<span class="string">&quot;-&quot;</span>, <span class="string">&quot;&quot;</span>).Substring(<span class="number">0</span>, <span class="number">32</span>);</span><br><span class="line">    <span class="keyword">var</span> IssueInstant = DateTime.Now.ToString(<span class="string">&quot;yyyy-MM-ddTHH:mm:ss.fffZ&quot;</span>);</span><br><span class="line">    <span class="keyword">var</span> name = <span class="string">&quot;SG_SSO_xxxxxx&quot;</span>;</span><br><span class="line">    <span class="keyword">string</span> messageXML1 = <span class="string">&quot;&lt;samlp:AuthnRequest xmlns:samlp=\&quot;urn:oasis:names:tc:SAML:2.0:protocol\&quot; &quot;</span></span><br><span class="line">    + <span class="string">&quot;Destination=\&quot;&quot;</span> + Destination + <span class="string">&quot;\&quot; &quot;</span></span><br><span class="line">    + <span class="string">&quot;AssertionConsumerServiceURL=\&quot;&quot;</span> + AssertionConsumerServiceURL + <span class="string">&quot;\&quot; &quot;</span></span><br><span class="line">    + <span class="string">&quot;ID=\&quot;&quot;</span> + ID + <span class="string">&quot;\&quot; &quot;</span></span><br><span class="line">    + <span class="string">&quot;IssueInstant=\&quot;&quot;</span> + IssueInstant + <span class="string">&quot;\&quot; &quot;</span></span><br><span class="line">    + <span class="string">&quot;ProtocolBinding=\&quot;urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST\&quot; &quot;</span></span><br><span class="line">    + <span class="string">&quot;Version=\&quot;2.0\&quot;&gt; &quot;</span></span><br><span class="line">    + <span class="string">&quot;&lt;saml:Issuer xmlns:saml=\&quot;urn:oasis:names:tc:SAML:2.0:assertion\&quot;&gt;&quot;</span> + name + <span class="string">&quot;&lt;/saml:Issuer&gt; &lt;samlp:NameIDPolicy AllowCreate=\&quot;1\&quot; /&gt;&lt;/samlp:AuthnRequest&gt;&quot;</span>;</span><br><span class="line">    <span class="keyword">string</span> _deflate = DeflateCompress(messageXML1);</span><br><span class="line">    <span class="keyword">string</span> _urlencode = HttpUtility.UrlEncode(_deflate, Encoding.UTF8);</span><br><span class="line">    ViewBag.sso3 = <span class="string">$&quot;<span class="subst">&#123;Destination&#125;</span>?SAMLRequest=<span class="subst">&#123;_urlencode&#125;</span>&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"><span class="doctag">///</span>返回</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> ActionResult <span class="title">Callback</span>(<span class="params"><span class="keyword">string</span> SAMLResponse</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ViewBag.Message = DecodeBase64(<span class="string">&quot;utf-8&quot;</span>, SAMLResponse); </span><br><span class="line">    <span class="keyword">return</span> View();</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> Deflate压缩函数</span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;strSource&quot;&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">string</span> <span class="title">DeflateCompress</span>(<span class="params"><span class="keyword">string</span> strSource</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (strSource == <span class="literal">null</span> || strSource.Length &gt; <span class="number">8</span> * <span class="number">1024</span>)</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> System.ArgumentException(<span class="string">&quot;字符串为空或长度太大！&quot;</span>);</span><br><span class="line">    <span class="keyword">byte</span>[] buffer = System.Text.Encoding.UTF8.GetBytes(strSource);</span><br><span class="line">    <span class="keyword">using</span> (System.IO.MemoryStream ms = <span class="keyword">new</span> System.IO.MemoryStream())</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">using</span> (System.IO.Compression.DeflateStream stream = <span class="keyword">new</span> System.IO.Compression.DeflateStream(ms, System.IO.Compression.CompressionMode.Compress, <span class="literal">true</span>))</span><br><span class="line">        &#123;</span><br><span class="line">            stream.Write(buffer, <span class="number">0</span>, buffer.Length);</span><br><span class="line">            stream.Close();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">byte</span>[] compressedData = ms.ToArray();</span><br><span class="line">        ms.Close();</span><br><span class="line">        <span class="keyword">return</span> Convert.ToBase64String(compressedData);      <span class="comment">//将压缩后的byte[]转换为Base64String</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">setTimeout</span>(<span class="string">&quot;javascript:location.href=&#x27;@ViewBag.sso3&#x27;&quot;</span>, <span class="number">1000</span>);</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;Azure-AD&quot;&gt;&lt;a href=&quot;#Azure-AD&quot; class=&quot;headerlink&quot; title=&quot;Azure AD&quot;&gt;&lt;/a&gt;Azure AD&lt;/h1&gt;&lt;p&gt;微软的统一登录&lt;/p&gt;
-&lt;h1 id=&quot;Azure-AD操作流程&quot;&gt;&lt;a href=&quot;#Az</summary>
-      
-    
-    
-    
-    
-    <category term="Azure AD" scheme="https://xuzengjie.gitee.io/tags/Azure-AD/"/>
-    
-    <category term="统一登录" scheme="https://xuzengjie.gitee.io/tags/%E7%BB%9F%E4%B8%80%E7%99%BB%E5%BD%95/"/>
-    
-    <category term="saml" scheme="https://xuzengjie.gitee.io/tags/saml/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>46-MES相关整理</title>
-    <link href="https://xuzengjie.gitee.io/archives/6b6bbc1f.html"/>
-    <id>https://xuzengjie.gitee.io/archives/6b6bbc1f.html</id>
-    <published>2022-02-07T16:00:00.000Z</published>
-    <updated>2022-10-28T07:21:14.624Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="文档目的"><a href="#文档目的" class="headerlink" title="文档目的"></a>文档目的</h1><p>本文档是根据系统功能范围结果给出的业务解决方案，重点描述系统总体架构设计、各业务需求对应的功能模块功能设计的描述，作为后续系统开发和系统测试的输入，为项目 顺利 执行作为基础依据。</p><h1 id="项目背景"><a href="#项目背景" class="headerlink" title="项目背景"></a>项目背景</h1><p>基于工厂生产制造特点与信息化管理理念，构筑支撑生产业务开展的高标准生产管理系统为目的，实现产品生产执行计划下发、生产数据采集、生产过程可视化、产品追溯、安灯看板、 数据分析 等功能，达到生产自动跟踪和监控、确保数据的实时处理，同时支持多接口高并发处理，从而实现业务的集中化、资源的整合化、信息的共享化。</p><h1 id="项目目标"><a href="#项目目标" class="headerlink" title="项目目标"></a>项目目标</h1><ol><li>优化生产订单排序，实现作业指导信息化，生产过程可视化</li><li>优化质量检验管理，实现制造质量管理信息化，质量问题可追溯</li><li>优化产品生产跟踪，实现对产品的生产过程跟踪</li><li>生产设备状态管理，实现对生产设备的状态监控</li></ol><h1 id="专业名词"><a href="#专业名词" class="headerlink" title="专业名词"></a>专业名词</h1><table><thead><tr><th>名词</th><th>描述</th></tr></thead><tbody><tr><td>MES</td><td>制造执行系统</td></tr><tr><td>WMS</td><td>仓储管理系统</td></tr><tr><td>PLC</td><td>可编程逻辑控制器</td></tr><tr><td>OPC</td><td>应用程序和PLC的中间控制，用于统一PLC接口标准</td></tr><tr><td>TAG</td><td>标签</td></tr><tr><td>BOM</td><td>物料清单</td></tr><tr><td>OEE</td><td>设备综合效率</td></tr><tr><td>RFID</td><td>射频识别</td></tr></tbody></table>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;文档目的&quot;&gt;&lt;a href=&quot;#文档目的&quot; class=&quot;headerlink&quot; title=&quot;文档目的&quot;&gt;&lt;/a&gt;文档目的&lt;/h1&gt;&lt;p&gt;本文档是根据系统功能范围结果给出的业务解决方案，重点描述系统总体架构设计、各业务需求对应的功能模块功能设计的描述，作为后续系</summary>
-      
-    
-    
-    
-    
-    <category term="MES" scheme="https://xuzengjie.gitee.io/tags/MES/"/>
     
   </entry>
   

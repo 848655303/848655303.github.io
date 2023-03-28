@@ -180,6 +180,242 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-67-webAPI注册为服务" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/archives/49205ab4.html">67-webAPI注册为服务</a>
+    </h1>
+  
+
+        
+        <a href="/archives/49205ab4.html" class="archive-article-date">
+  	<time datetime="2023-03-27T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="修改-webapi-端口从配置文件读取"><a href="#修改-webapi-端口从配置文件读取" class="headerlink" title="修改 webapi 端口从配置文件读取"></a>修改 webapi 端口从配置文件读取</h1><p>program.cs</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> builder = WebApplication.CreateBuilder(args);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> configuration = builder.Configuration;</span><br><span class="line">builder.Host.UseWindowsService();</span><br><span class="line">builder.WebHost.ConfigureKestrel(options =&gt;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//Http端口</span></span><br><span class="line">    options.ListenAnyIP(configuration.GetSection(<span class="string">&quot;Host:HttpPort&quot;</span>).Get&lt;<span class="keyword">int</span>&gt;());</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>appsettings.json</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="attr">&quot;Host&quot;</span>: &#123;</span><br><span class="line">		<span class="attr">&quot;HttpPort&quot;</span>: <span class="number">9010</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="批处理文件注册程序为服务"><a href="#批处理文件注册程序为服务" class="headerlink" title="批处理文件注册程序为服务"></a>批处理文件注册程序为服务</h1><p>start.bat</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">set serviceName&#x3D;XZJBackManageWebApi9301</span><br><span class="line">set serviceFilePath&#x3D;&quot;D:\HSU_MES\WebAPi\9301\XZJ.BackManage.WebApi.exe&quot;</span><br><span class="line">set serviceDescription&#x3D;&quot;XZJBackManageWebApi9301&quot;</span><br><span class="line"></span><br><span class="line">sc create %serviceName%  BinPath&#x3D;%serviceFilePath%</span><br><span class="line">sc config %serviceName%    start&#x3D;auto</span><br><span class="line">sc config %serviceName%    start&#x3D;delayed-auto</span><br><span class="line">sc description %serviceName%  %serviceDescription%</span><br><span class="line">sc failure %serviceName%  reset&#x3D; 0 actions&#x3D; restart&#x2F;1200000</span><br><span class="line">sc start  %serviceName%</span><br><span class="line">pause</span><br></pre></td></tr></table></figure>
+
+<h1 id="批处理文件卸载服务"><a href="#批处理文件卸载服务" class="headerlink" title="批处理文件卸载服务"></a>批处理文件卸载服务</h1><p>end.bat</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">set serviceName&#x3D;XZJBackManageWebApi9301</span><br><span class="line">sc stop   %serviceName%</span><br><span class="line">sc delete %serviceName%</span><br><span class="line">pause</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="修改服务权限"><a href="#修改服务权限" class="headerlink" title="修改服务权限"></a>修改服务权限</h1><p>在控制面板-服务内，找到对应服务，右键属性–登录标签页，输入相关账号密码<br><img src="/archives/49205ab4/1.png" alt="1"></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">服务</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">webAPI</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/archives/49205ab4.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-66-身份认证" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/archives/72f160ce.html">66-身份认证</a>
+    </h1>
+  
+
+        
+        <a href="/archives/72f160ce.html" class="archive-article-date">
+  	<time datetime="2023-03-02T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="登录模式"><a href="#登录模式" class="headerlink" title="登录模式"></a>登录模式</h1><h2 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h2><p>我们登录认证成功之后，将用户信息就存放在服务端(Session)，然后将其对应的 session_id 存储在客户端(Cookie)，从 Cookie 中取出 session_id，服务端就可以根据这个 session_id 获取对应的 Session，从而获取存储用户信息。</p>
+<p>优点是：Session 自动续期，用户体验较好<br>缺点是：</p>
+<ol>
+<li>没有分布式架构，无法支持横向扩展。即分布式架构的情况下，其他服务器是没有办法获取到用户信息的。当然，可以使用 Session 共享的方式来解决这个问题。或者，可以将用户信息存储在 Redis 里，用一个透明令牌(字符串)作为 key，并把这个令牌存储到本地(cookie、localStorage)，然后通过令牌去 Redis 取用户信息。</li>
+<li>Session 依赖 Cookie，如果客户端禁用了 Cookie，那么 Session 无法正常工作。其解决方法就是，可以在请求的 url 后面拼接上 session_id，如：<a target="_blank" rel="noopener" href="http://www.liuchengyin.com/test?session_id=xxx%EF%BC%8C%E5%85%B6%E5%AE%89%E5%85%A8%E6%80%A7%E5%92%8C%E7%94%A8%E6%88%B7%E4%BD%93%E9%AA%8C%E6%84%9F%E8%BE%83%E5%B7%AE%E3%80%82">http://www.liuchengyin.com/test?session_id=xxx，其安全性和用户体验感较差。</a></li>
+<li>Session 依赖 Cookie，Cookie 无法防止 CSRF(Cross Site Request Forgery)：跨站请求伪造。Session 认证中，Cookie 是通过浏览器发送到服务端的，借助这个特性，攻击者可以通过让用户误点攻击连接(攻击者通过 cookie 拿到你的 session_id 就可以代替你的身份访问系统)达到攻击效果。</li>
+</ol>
+<h2 id="SSO-单点登录"><a href="#SSO-单点登录" class="headerlink" title="SSO (单点登录)"></a>SSO (单点登录)</h2><p>用户只需要在身份认证服务器上登录一次，就可以访问这个单点登录中其他关联系统的应用软件的权限，同时这种实现是不需要管理员对用户登录状态或其他信息进行修改的，这意味着多个应用系统中，用户只需一次登录就可以访问所有相互信任的应用系统。</p>
+<p>优点：用户身份信息独立管理，可以更好的分布式管理，可以自己扩展安全策略。<br>缺点：认证服务器访问压力会比较大</p>
+<h2 id="Token"><a href="#Token" class="headerlink" title="Token"></a>Token</h2><p>Token 是一种无状态、跨服务器、高性能的验证模式。用户通过用户名和密码发送请求，程序进行验证，验证通过后返回一个签名的 token 给客户端存储(一般 localStorage)，客户端每次请求都会附带上这个 token(一般在 Header 里附带 token)，服务端验证这个 token 之后将数据返回。</p>
+<p>优点：无状态、可扩展、支持移动设备、可跨程序调用、安全，基于标准化，你的 API 考研采用标准化的 JSON Web Token(JWT)<br>缺点：占用宽带且无法在服务端进行销毁(可以在服务器端增加黑名单禁用)</p>
+<h1 id="JWT-令牌的身份验证"><a href="#JWT-令牌的身份验证" class="headerlink" title="JWT 令牌的身份验证"></a>JWT 令牌的身份验证</h1><p>1、JWT 是什么？<br>JSON Web Token（JWT）是一个开放的行业标准(RFC 7519)，它定义了一种简介的、自包含的协议格式，用于在通信双方传递 JSON 对象，传递的信息经过数字签名可以被验证和信任。JWT 可以使用 HMAC 算法或使用 RSA 的公钥/私钥对来签名，防止被篡改。对普通信息进行加密处理后转换成 JSON，转换过后的数据称为 Token。</p>
+<p>2、JWT 能做什么？</p>
+<ol>
+<li>授权：一旦用户登录，每个后续请求将包括 JWT，从而允许用户访问该令牌允许的路由、服务和资源。登录成功之后，生产一个 JWT，其中包含用户的信息。</li>
+<li>信息交换：可以在各方之间安全的传输信息。</li>
+</ol>
+<p>3、JWT 认证和 Session 认证的区别</p>
+<ol>
+<li>Session 认证<br>通过账户密码验证之后，将用户信息保存在 Session。Session 是保存在服务端的，下一次通过 Cookie 存储的 session_id 去 Session 当中取数据。</li>
+<li>JWT 认证<br>通过账户密码验证之后，将用户信息转换成 JWT，以 Token 令牌的形式传给前端，前端将其存储到 Cookie 中(JWT 是保存在客户端的)，以后每一次请求都会带上这个 token，服务器获取到这个 token 之后进行 JWT 解析来读取用户数据，如果没有数据就代表没有登录。</li>
+</ol>
+<p>4、JWT 有哪些优缺点<br>优点：基于 JSON，方便解析，可以在令牌中自定义丰富内容，易扩展。通过非对称加密及数字签名技术，可以防止篡改、安全性高。可以不依赖认证服务就可以完成授权。<br>缺点：</p>
+<ol>
+<li>JWT 令牌较长，占存储空间比较大。</li>
+<li>JWT 加密后的 Token 可在<a target="_blank" rel="noopener" href="https://jwt.io/">网站</a>解密</li>
+</ol>
+<p>5、JWT 的结构<br>JWT 令牌由三部分组成，每部分中间使用点（.）分隔,比如：xxxxx.yyyyy.zzzzz</p>
+<ol>
+<li>Header<br>JWT 头部分是一个描述 JWT 元数据的 JSON 对象，头部包括令牌的类型（即 JWT）及使用的哈希算法（如 HMAC SHA256 或 RSA）。</li>
+<li>Payload<br>第二部分是负载，内容也是一个 JSON 对象，通过 Base64Url 编码，得到一个字符串，这个字符串就是 JWT 的第二部分(负载)。<br>它指定了七个默认字段供选择。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">iss：发行人</span><br><span class="line">exp：到期时间</span><br><span class="line">sub：主体</span><br><span class="line">aud：用户</span><br><span class="line">nbf：在此之前不可用</span><br><span class="line">iat：发布时间</span><br><span class="line">jti：JWT ID用于标识该JWT</span><br></pre></td></tr></table></figure>
+
+<p>除了这七个默认字段，还可以自定义私有字段</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	&quot;user&quot;: &quot;xxx&quot;,</span><br><span class="line">	&quot;name&quot;: &quot;张三&quot;,</span><br><span class="line">	&quot;admin&quot;: true</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但是不建议在此部分存放敏感信息，此部门可以解码还原原始内容。虽然它可以解码，但是也不能修改这个内容。</p>
+<ol start="3">
+<li>Signature<br>第三部分是签名哈希部分，是对上面两部分数据签名，通过指定的算法生成哈希，以确保数据不会被篡改。首先，需要指定一个密码（secret）。该密码仅仅为保存在服务器中，并且不能向用户公开。然后，使用标头中指定的签名算法（默认情况下为 HMAC SHA256）根据以下公式生成签名。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">HMACSHA256(</span><br><span class="line">	base64UrlEncode(header) + &quot;.&quot; +base64UrlEncode(payload),secret</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h1 id="Token-认证在实际使用中的一些问题"><a href="#Token-认证在实际使用中的一些问题" class="headerlink" title="Token 认证在实际使用中的一些问题"></a>Token 认证在实际使用中的一些问题</h1><p>1、下列情况，token 依然有效<br>注销、修改密码、修改用户的权限、角色、用户账号被删除、用户被注销。</p>
+<ol>
+<li>Token 一旦被发出，是没有办法销毁的，只能等到它过期。如果想要其失效，可以将 token 存储在缓存中，服务端每次请求都要验证 token 是否存在，在上述情况的逻辑里要去 Redis 删除对应的 token，但是这违背了 Token 无状态的原则。</li>
+<li>为每个用户提供专属的 token，要让 token 失效直接删除 token 即可。但是这种方式危害极大，分布式情况下每次发送新的 token 都需要在多台服务器同步。如果用户同时在两个浏览器打开系统，那么一个地方退出登录，其他地方都要重新进行登录。</li>
+<li>让 token 保持短暂时间，但是这种需要频繁登录。</li>
+</ol>
+<p>2、token 续签问题</p>
+<ol>
+<li>可以每次请求的时候在服务端检查，如果发现快要过期了，就发个新 token 给浏览器，浏览器每次都要检查新旧 token 是否一致。不一致，就替换为新的 token。但是这个缺点也很大，只有在快要过期的时候那一次请求才会更新 token，对客户端也不友好。</li>
+<li>基于第一种，可以每次请求都更新 token，但这样开销太大了。</li>
+<li>token 时间设置长一点，这仅适用于安全性不高的系统。</li>
+<li>服务端返回两个 token，accessToken 为真实 token(过期时间假设为 30min)，refreshToken 为过期时间 token(过期时间假设为 1 天)。登录就把这两个 token 保存在客户端，每次访问传递 accessToken，如果服务端检测到 accessToken 过期，就将 refreshToken 传给服务端，服务端创建一个新的 accessToken 返回个客户端保存。其缺点：需要客户端配合，用户注销需要两个 token 都要失效，重新请求获取 token 的过程中会有短暂 token 不可用。</li>
+</ol>
+<h1 id="简单自定义-Token"><a href="#简单自定义-Token" class="headerlink" title="简单自定义 Token"></a>简单自定义 Token</h1><p>对账号+密码进行不可逆加密生成 Token，每次访问时，对账号+密码进行加密与 Token 进行校验</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JWT</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Token</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Session</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Cookie</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSO</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/archives/72f160ce.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-65-JS数组删除" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -933,207 +1169,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-57-JWT和Token" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/archives/c00a4fce.html">57-JWT和Token</a>
-    </h1>
-  
-
-        
-        <a href="/archives/c00a4fce.html" class="archive-article-date">
-  	<time datetime="2022-10-29T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Token"><a href="#Token" class="headerlink" title="Token"></a>Token</h1><h3 id="认证流程"><a href="#认证流程" class="headerlink" title="认证流程"></a>认证流程</h3><ol>
-<li>用户输入用户名和密码，发送给服务器，服务器验证账号密码成功</li>
-<li>服务器生成令牌，本质是一个唯一字符串，可以使用uuid</li>
-<li>将该令牌存到数据库或redis中，key是uuid，value是用户信息</li>
-<li>把令牌返给客户端</li>
-<li>下次请求的时候就把令牌放在请求头里带上</li>
-<li>从数据库或redis中验证该令牌是否过期</li>
-<li>没有过期获取value内容user信息</li>
-</ol>
-<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ol>
-<li>可以隐藏真实数据，安全系数高</li>
-<li>适用于分布式/微服务</li>
-<li>token支持手动控制，过期、吊销等</li>
-<li>可以实时查询现有token</li>
-</ol>
-<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><ol>
-<li>存放在数据库或者redis，依赖服务器资源</li>
-<li>效率相对jwt比较低</li>
-</ol>
-<h1 id="JWT"><a href="#JWT" class="headerlink" title="JWT"></a>JWT</h1><p>JWT是json web token缩写。它将用户信息加密到token里，服务器不保存任何用户信息。服务器通过使用保存的密钥验证token的正确性，只要正确即通过验证</p>
-<h3 id="认证流程-1"><a href="#认证流程-1" class="headerlink" title="认证流程"></a>认证流程</h3><ol>
-<li>用户输入用户名和密码，发送给服务器，服务器验证账号密码成功</li>
-<li>服务器使用签名秘钥生成jwt，把用户id放到jwt中（用户名加密返回客户端）</li>
-<li>把令牌返给客户端</li>
-<li>下次请求的时候就把令牌放在请求头里带上</li>
-<li>服务器使用签名秘钥验证jwt是否有效（解密获取用户名）</li>
-<li>有效后可以从jwt中获取到用户id</li>
-</ol>
-<h3 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h3><ol>
-<li>jwt自身包含用户信息且无法篡改，数据实际保存在客户端，可以分担数据库或服务器的存储压力</li>
-</ol>
-<h3 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h3><ol>
-<li>建议不要放敏感数据</li>
-<li>Jwt生成之后无法修改（发生变化）</li>
-<li>后端无法统计生成jwt</li>
-<li>无法吊销令牌，只能等待令牌自身过期</li>
-<li>令牌长度与其包含用户信息多少正相关，传输开销较大</li>
-<li>Jwt是无状态的，如果别人获取到了，别人也能用</li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">权限验证</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JWT</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Token</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/archives/c00a4fce.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-56-SqlSugar" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/archives/664e5344.html">56-SqlSugar</a>
-    </h1>
-  
-
-        
-        <a href="/archives/664e5344.html" class="archive-article-date">
-  	<time datetime="2022-10-24T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="数据库对象"><a href="#数据库对象" class="headerlink" title="数据库对象"></a>数据库对象</h1><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">SqlSugarClient db = <span class="keyword">new</span> SqlSugarClient(<span class="keyword">new</span> ConnectionConfig()</span><br><span class="line">        &#123;</span><br><span class="line">            ConnectionString = <span class="string">@&quot;Server=192.168.152.3;Database=mes;Uid=mes;Pwd=mes@123!;&quot;</span>,</span><br><span class="line">            DbType = SqlSugar.DbType.MySql,</span><br><span class="line">            IsAutoCloseConnection = <span class="literal">true</span></span><br><span class="line">        &#125;, db =&gt;</span><br><span class="line">        &#123;</span><br><span class="line">            db.Aop.OnLogExecuting = (sql, pars) =&gt;</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(sql);<span class="comment">//输出sql,查看执行sql 性能无影响</span></span><br><span class="line"></span><br><span class="line">                <span class="comment">//5.0.8.2 获取无参数化SQL 对性能有影响，特别大的SQL参数多的，调试使用</span></span><br><span class="line">                <span class="comment">//UtilMethods.GetSqlString(DbType.SqlServer,sql,pars)</span></span><br><span class="line">            &#125;;</span><br><span class="line">        &#125;);</span><br></pre></td></tr></table></figure>
-
-<h1 id="原生SQL-当一个DBHelper使用"><a href="#原生SQL-当一个DBHelper使用" class="headerlink" title="原生SQL(当一个DBHelper使用)"></a>原生SQL(当一个DBHelper使用)</h1><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//查询</span></span><br><span class="line"><span class="keyword">var</span> dt=db.Ado.GetDataTable(sql)</span><br><span class="line"></span><br><span class="line"><span class="comment">//增删改和存储过程，返回影响行数</span></span><br><span class="line">db.Ado.ExecuteCommand(sql);</span><br><span class="line"></span><br><span class="line"><span class="comment">//批量执行使用长连接</span></span><br><span class="line"> <span class="keyword">using</span> (db.Ado.OpenAlways()) &#123; <span class="comment">//开启长连接</span></span><br><span class="line">      <span class="keyword">foreach</span>(<span class="keyword">var</span> pars <span class="keyword">in</span> List&lt;parameter[]&gt;)</span><br><span class="line">      &#123;</span><br><span class="line">         db.Ado.ExecuteCommand(sql,paras);</span><br><span class="line">      &#125;    </span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h1><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//查询表的所有</span></span><br><span class="line"><span class="keyword">var</span> list = db.Queryable&lt;Student&gt;().ToList();</span><br><span class="line"><span class="keyword">var</span> list = db.Queryable&lt;Student&gt;().Where(x=&gt;x.id==<span class="number">1</span>).ToList();</span><br><span class="line"></span><br><span class="line"><span class="comment">//插入</span></span><br><span class="line">db.Insertable(<span class="keyword">new</span> Student() &#123; SchoolId = <span class="number">1</span>, Name = <span class="string">&quot;jack&quot;</span> &#125;).ExecuteCommand();</span><br><span class="line">      </span><br><span class="line"><span class="comment">//更新</span></span><br><span class="line">db.Updateable(<span class="keyword">new</span> Student() &#123; Id = <span class="number">1</span>, SchoolId = <span class="number">2</span>, Name = <span class="string">&quot;jack2&quot;</span> &#125;).ExecuteCommand();</span><br><span class="line">      </span><br><span class="line"><span class="comment">//删除</span></span><br><span class="line">db.Deleteable&lt;Student&gt;().Where(it =&gt; it.Id == <span class="number">1</span>).ExecuteCommand();</span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SqlSugar</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/archives/664e5344.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
@@ -1254,6 +1289,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Hexo使用</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">C#</a>
               </li>
              
@@ -1263,42 +1302,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Hexo使用</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">EF</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">outlook</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">EFCore</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">打印</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">全屏</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">浏览器</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">代码片段</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1318,47 +1321,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">VS</a>
+                <a href="javascript:void(0)" class="js-tag color3">outlook</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">配置</a>
+                <a href="javascript:void(0)" class="js-tag color2">EFCore</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">快捷键</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">行列转换</a>
+                <a href="javascript:void(0)" class="js-tag color3">打印</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">行转列</a>
+                <a href="javascript:void(0)" class="js-tag color3">全屏</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">列转行</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">webapi</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">swagger</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Linq</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">TakeWhile</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SkipWhile</a>
+                <a href="javascript:void(0)" class="js-tag color4">浏览器</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1375,6 +1358,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Oracle</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Linq</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">TakeWhile</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SkipWhile</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1422,7 +1417,43 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
+                <a href="javascript:void(0)" class="js-tag color4">VUE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">行列转换</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">行转列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">列转行</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">VS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">配置</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">快捷键</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">webapi</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">swagger</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1434,7 +1465,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">test</a>
+                <a href="javascript:void(0)" class="js-tag color5">代码片段</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1450,67 +1485,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">VUE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">环境</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">委托</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Action</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Func</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">栅格</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">5等分</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">VSCode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">插件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">单例</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">双判断锁</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">组件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">NPOI</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1526,55 +1505,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">abstract</a>
+                <a href="javascript:void(0)" class="js-tag color3">单例</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">virtual</a>
+                <a href="javascript:void(0)" class="js-tag color5">双判断锁</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">B站</a>
+                <a href="javascript:void(0)" class="js-tag color2">VSCode</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">下载</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">抽象类</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">接口</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">.net</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">vs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">中文</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Task</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">await</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">async</a>
+                <a href="javascript:void(0)" class="js-tag color3">插件</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1590,15 +1533,107 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Azure AD</a>
+                <a href="javascript:void(0)" class="js-tag color3">组件</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">统一登录</a>
+                <a href="javascript:void(0)" class="js-tag color5">NPOI</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">saml</a>
+                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">abstract</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">virtual</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">委托</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Action</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Func</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">栅格</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">5等分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">test</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Task</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">await</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">async</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">MES</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">.net</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">vs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">中文</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">报错</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">工具命令</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">B站</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">下载</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">抽象类</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">接口</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1614,10 +1649,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MES</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
@@ -1626,31 +1657,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">工具命令</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Node</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">报错</a>
+                <a href="javascript:void(0)" class="js-tag color4">Azure AD</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">统一登录</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">saml</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">CSS基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统架构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">DDD</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1659,6 +1682,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">封装</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">系统架构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">DDD</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1674,7 +1705,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">工厂模式</a>
+                <a href="javascript:void(0)" class="js-tag color5">权限验证</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JWT</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Token</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1690,6 +1729,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Vue</a>
               </li>
              
@@ -1698,7 +1741,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">npm</a>
+                <a href="javascript:void(0)" class="js-tag color3">服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">webAPI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">工厂模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Session</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Cookie</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SSO</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1710,15 +1773,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">权限验证</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JWT</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Token</a>
+                <a href="javascript:void(0)" class="js-tag color3">EF</a>
               </li>
             
             <div class="clearfix"></div>

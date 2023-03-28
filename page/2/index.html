@@ -180,6 +180,207 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-57-JWT和Token" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/archives/c00a4fce.html">57-JWT和Token</a>
+    </h1>
+  
+
+        
+        <a href="/archives/c00a4fce.html" class="archive-article-date">
+  	<time datetime="2022-10-29T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Token"><a href="#Token" class="headerlink" title="Token"></a>Token</h1><h3 id="认证流程"><a href="#认证流程" class="headerlink" title="认证流程"></a>认证流程</h3><ol>
+<li>用户输入用户名和密码，发送给服务器，服务器验证账号密码成功</li>
+<li>服务器生成令牌，本质是一个唯一字符串，可以使用uuid</li>
+<li>将该令牌存到数据库或redis中，key是uuid，value是用户信息</li>
+<li>把令牌返给客户端</li>
+<li>下次请求的时候就把令牌放在请求头里带上</li>
+<li>从数据库或redis中验证该令牌是否过期</li>
+<li>没有过期获取value内容user信息</li>
+</ol>
+<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ol>
+<li>可以隐藏真实数据，安全系数高</li>
+<li>适用于分布式/微服务</li>
+<li>token支持手动控制，过期、吊销等</li>
+<li>可以实时查询现有token</li>
+</ol>
+<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><ol>
+<li>存放在数据库或者redis，依赖服务器资源</li>
+<li>效率相对jwt比较低</li>
+</ol>
+<h1 id="JWT"><a href="#JWT" class="headerlink" title="JWT"></a>JWT</h1><p>JWT是json web token缩写。它将用户信息加密到token里，服务器不保存任何用户信息。服务器通过使用保存的密钥验证token的正确性，只要正确即通过验证</p>
+<h3 id="认证流程-1"><a href="#认证流程-1" class="headerlink" title="认证流程"></a>认证流程</h3><ol>
+<li>用户输入用户名和密码，发送给服务器，服务器验证账号密码成功</li>
+<li>服务器使用签名秘钥生成jwt，把用户id放到jwt中（用户名加密返回客户端）</li>
+<li>把令牌返给客户端</li>
+<li>下次请求的时候就把令牌放在请求头里带上</li>
+<li>服务器使用签名秘钥验证jwt是否有效（解密获取用户名）</li>
+<li>有效后可以从jwt中获取到用户id</li>
+</ol>
+<h3 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h3><ol>
+<li>jwt自身包含用户信息且无法篡改，数据实际保存在客户端，可以分担数据库或服务器的存储压力</li>
+</ol>
+<h3 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h3><ol>
+<li>建议不要放敏感数据</li>
+<li>Jwt生成之后无法修改（发生变化）</li>
+<li>后端无法统计生成jwt</li>
+<li>无法吊销令牌，只能等待令牌自身过期</li>
+<li>令牌长度与其包含用户信息多少正相关，传输开销较大</li>
+<li>Jwt是无状态的，如果别人获取到了，别人也能用</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">权限验证</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JWT</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Token</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/archives/c00a4fce.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-56-SqlSugar" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/archives/664e5344.html">56-SqlSugar</a>
+    </h1>
+  
+
+        
+        <a href="/archives/664e5344.html" class="archive-article-date">
+  	<time datetime="2022-10-24T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="数据库对象"><a href="#数据库对象" class="headerlink" title="数据库对象"></a>数据库对象</h1><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">SqlSugarClient db = <span class="keyword">new</span> SqlSugarClient(<span class="keyword">new</span> ConnectionConfig()</span><br><span class="line">        &#123;</span><br><span class="line">            ConnectionString = <span class="string">@&quot;Server=192.168.152.3;Database=mes;Uid=mes;Pwd=mes@123!;&quot;</span>,</span><br><span class="line">            DbType = SqlSugar.DbType.MySql,</span><br><span class="line">            IsAutoCloseConnection = <span class="literal">true</span></span><br><span class="line">        &#125;, db =&gt;</span><br><span class="line">        &#123;</span><br><span class="line">            db.Aop.OnLogExecuting = (sql, pars) =&gt;</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(sql);<span class="comment">//输出sql,查看执行sql 性能无影响</span></span><br><span class="line"></span><br><span class="line">                <span class="comment">//5.0.8.2 获取无参数化SQL 对性能有影响，特别大的SQL参数多的，调试使用</span></span><br><span class="line">                <span class="comment">//UtilMethods.GetSqlString(DbType.SqlServer,sql,pars)</span></span><br><span class="line">            &#125;;</span><br><span class="line">        &#125;);</span><br></pre></td></tr></table></figure>
+
+<h1 id="原生SQL-当一个DBHelper使用"><a href="#原生SQL-当一个DBHelper使用" class="headerlink" title="原生SQL(当一个DBHelper使用)"></a>原生SQL(当一个DBHelper使用)</h1><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//查询</span></span><br><span class="line"><span class="keyword">var</span> dt=db.Ado.GetDataTable(sql)</span><br><span class="line"></span><br><span class="line"><span class="comment">//增删改和存储过程，返回影响行数</span></span><br><span class="line">db.Ado.ExecuteCommand(sql);</span><br><span class="line"></span><br><span class="line"><span class="comment">//批量执行使用长连接</span></span><br><span class="line"> <span class="keyword">using</span> (db.Ado.OpenAlways()) &#123; <span class="comment">//开启长连接</span></span><br><span class="line">      <span class="keyword">foreach</span>(<span class="keyword">var</span> pars <span class="keyword">in</span> List&lt;parameter[]&gt;)</span><br><span class="line">      &#123;</span><br><span class="line">         db.Ado.ExecuteCommand(sql,paras);</span><br><span class="line">      &#125;    </span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h1><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//查询表的所有</span></span><br><span class="line"><span class="keyword">var</span> list = db.Queryable&lt;Student&gt;().ToList();</span><br><span class="line"><span class="keyword">var</span> list = db.Queryable&lt;Student&gt;().Where(x=&gt;x.id==<span class="number">1</span>).ToList();</span><br><span class="line"></span><br><span class="line"><span class="comment">//插入</span></span><br><span class="line">db.Insertable(<span class="keyword">new</span> Student() &#123; SchoolId = <span class="number">1</span>, Name = <span class="string">&quot;jack&quot;</span> &#125;).ExecuteCommand();</span><br><span class="line">      </span><br><span class="line"><span class="comment">//更新</span></span><br><span class="line">db.Updateable(<span class="keyword">new</span> Student() &#123; Id = <span class="number">1</span>, SchoolId = <span class="number">2</span>, Name = <span class="string">&quot;jack2&quot;</span> &#125;).ExecuteCommand();</span><br><span class="line">      </span><br><span class="line"><span class="comment">//删除</span></span><br><span class="line">db.Deleteable&lt;Student&gt;().Where(it =&gt; it.Id == <span class="number">1</span>).ExecuteCommand();</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SqlSugar</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/archives/664e5344.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-55-Oracle" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -910,11 +1111,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">工具命令</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">工具命令</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -998,15 +1199,15 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">工具命令</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">报错</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">工具命令</a>
         		</li>
       		
 		</ul>
@@ -1088,15 +1289,15 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">工具命令</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">青龙面板</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">工具命令</a>
         		</li>
       		
 		</ul>
@@ -1107,223 +1308,6 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a class="article-more-a" href="/archives/2e01cbea.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-47-Azure AD" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/archives/d311ad10.html">47-Azure AD</a>
-    </h1>
-  
-
-        
-        <a href="/archives/d311ad10.html" class="archive-article-date">
-  	<time datetime="2022-02-08T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Azure-AD"><a href="#Azure-AD" class="headerlink" title="Azure AD"></a>Azure AD</h1><p>微软的统一登录</p>
-<h1 id="Azure-AD操作流程"><a href="#Azure-AD操作流程" class="headerlink" title="Azure AD操作流程"></a>Azure AD操作流程</h1><ol>
-<li>注册<a target="_blank" rel="noopener" href="https://azure.microsoft.com/zh-cn/services/active-directory/">Azure AD账户</a></li>
-<li>找到”企业应用程序”（所有程序内或上方搜索）</li>
-<li>点击新建应用程序</li>
-<li>创建你自己的应用程序</li>
-<li>输入应用的名词，选择”集成未在库中..”,创建</li>
-<li>企业应用程序–所有应用程序  内可以看到刚刚创建的应用</li>
-<li>点击刚刚新建的应用进入</li>
-<li>分配用户和组（选择自己的账户）</li>
-<li>设置SAML单一登录</li>
-<li>点击Test,点击测试登录，下载SAML请求（该请求即是在下面代码中需要拼接的）</li>
-</ol>
-<h1 id="C-实现"><a href="#C-实现" class="headerlink" title="C#实现"></a>C#实现</h1><p>字符串拼接参数值后，使用Deflate压缩，在使用HttpUtility.UrlEncode转码.<br>参数值格式，可以在Azure AD新建后查看</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"><span class="doctag">///</span>发送</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">SSo</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> Destination = <span class="string">&quot;https://login.microsoftonline.com/xxxxxxxxxxxxxxxxx/saml2&quot;</span>;</span><br><span class="line">    <span class="keyword">var</span> AssertionConsumerServiceURL = Request.Url.ToString() + <span class="string">&quot;SSO/Callback&quot;</span>;</span><br><span class="line">    <span class="keyword">var</span> ID =<span class="string">&quot;id&quot;</span>+ Guid.NewGuid().ToString().Replace(<span class="string">&quot;-&quot;</span>, <span class="string">&quot;&quot;</span>).Substring(<span class="number">0</span>, <span class="number">32</span>);</span><br><span class="line">    <span class="keyword">var</span> IssueInstant = DateTime.Now.ToString(<span class="string">&quot;yyyy-MM-ddTHH:mm:ss.fffZ&quot;</span>);</span><br><span class="line">    <span class="keyword">var</span> name = <span class="string">&quot;SG_SSO_xxxxxx&quot;</span>;</span><br><span class="line">    <span class="keyword">string</span> messageXML1 = <span class="string">&quot;&lt;samlp:AuthnRequest xmlns:samlp=\&quot;urn:oasis:names:tc:SAML:2.0:protocol\&quot; &quot;</span></span><br><span class="line">    + <span class="string">&quot;Destination=\&quot;&quot;</span> + Destination + <span class="string">&quot;\&quot; &quot;</span></span><br><span class="line">    + <span class="string">&quot;AssertionConsumerServiceURL=\&quot;&quot;</span> + AssertionConsumerServiceURL + <span class="string">&quot;\&quot; &quot;</span></span><br><span class="line">    + <span class="string">&quot;ID=\&quot;&quot;</span> + ID + <span class="string">&quot;\&quot; &quot;</span></span><br><span class="line">    + <span class="string">&quot;IssueInstant=\&quot;&quot;</span> + IssueInstant + <span class="string">&quot;\&quot; &quot;</span></span><br><span class="line">    + <span class="string">&quot;ProtocolBinding=\&quot;urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST\&quot; &quot;</span></span><br><span class="line">    + <span class="string">&quot;Version=\&quot;2.0\&quot;&gt; &quot;</span></span><br><span class="line">    + <span class="string">&quot;&lt;saml:Issuer xmlns:saml=\&quot;urn:oasis:names:tc:SAML:2.0:assertion\&quot;&gt;&quot;</span> + name + <span class="string">&quot;&lt;/saml:Issuer&gt; &lt;samlp:NameIDPolicy AllowCreate=\&quot;1\&quot; /&gt;&lt;/samlp:AuthnRequest&gt;&quot;</span>;</span><br><span class="line">    <span class="keyword">string</span> _deflate = DeflateCompress(messageXML1);</span><br><span class="line">    <span class="keyword">string</span> _urlencode = HttpUtility.UrlEncode(_deflate, Encoding.UTF8);</span><br><span class="line">    ViewBag.sso3 = <span class="string">$&quot;<span class="subst">&#123;Destination&#125;</span>?SAMLRequest=<span class="subst">&#123;_urlencode&#125;</span>&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"><span class="doctag">///</span>返回</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> ActionResult <span class="title">Callback</span>(<span class="params"><span class="keyword">string</span> SAMLResponse</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ViewBag.Message = DecodeBase64(<span class="string">&quot;utf-8&quot;</span>, SAMLResponse); </span><br><span class="line">    <span class="keyword">return</span> View();</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> Deflate压缩函数</span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;strSource&quot;&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">string</span> <span class="title">DeflateCompress</span>(<span class="params"><span class="keyword">string</span> strSource</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (strSource == <span class="literal">null</span> || strSource.Length &gt; <span class="number">8</span> * <span class="number">1024</span>)</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> System.ArgumentException(<span class="string">&quot;字符串为空或长度太大！&quot;</span>);</span><br><span class="line">    <span class="keyword">byte</span>[] buffer = System.Text.Encoding.UTF8.GetBytes(strSource);</span><br><span class="line">    <span class="keyword">using</span> (System.IO.MemoryStream ms = <span class="keyword">new</span> System.IO.MemoryStream())</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">using</span> (System.IO.Compression.DeflateStream stream = <span class="keyword">new</span> System.IO.Compression.DeflateStream(ms, System.IO.Compression.CompressionMode.Compress, <span class="literal">true</span>))</span><br><span class="line">        &#123;</span><br><span class="line">            stream.Write(buffer, <span class="number">0</span>, buffer.Length);</span><br><span class="line">            stream.Close();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">byte</span>[] compressedData = ms.ToArray();</span><br><span class="line">        ms.Close();</span><br><span class="line">        <span class="keyword">return</span> Convert.ToBase64String(compressedData);      <span class="comment">//将压缩后的byte[]转换为Base64String</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">setTimeout</span>(<span class="string">&quot;javascript:location.href=&#x27;@ViewBag.sso3&#x27;&quot;</span>, <span class="number">1000</span>);</span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Azure AD</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">统一登录</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">saml</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/archives/d311ad10.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-46-MES相关整理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/archives/6b6bbc1f.html">46-MES相关整理</a>
-    </h1>
-  
-
-        
-        <a href="/archives/6b6bbc1f.html" class="archive-article-date">
-  	<time datetime="2022-02-07T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="文档目的"><a href="#文档目的" class="headerlink" title="文档目的"></a>文档目的</h1><p>本文档是根据系统功能范围结果给出的业务解决方案，重点描述系统总体架构设计、各业务需求对应的功能模块功能设计的描述，作为后续系统开发和系统测试的输入，为项目 顺利 执行作为基础依据。</p>
-<h1 id="项目背景"><a href="#项目背景" class="headerlink" title="项目背景"></a>项目背景</h1><p>基于工厂生产制造特点与信息化管理理念，构筑支撑生产业务开展的高标准生产管理系统为目的，实现产品生产执行计划下发、生产数据采集、生产过程可视化、产品追溯、安灯看板、 数据分析 等功能，达到生产自动跟踪和监控、确保数据的实时处理，同时支持多接口高并发处理，从而实现业务的集中化、资源的整合化、信息的共享化。</p>
-<h1 id="项目目标"><a href="#项目目标" class="headerlink" title="项目目标"></a>项目目标</h1><ol>
-<li>优化生产订单排序，实现作业指导信息化，生产过程可视化</li>
-<li>优化质量检验管理，实现制造质量管理信息化，质量问题可追溯</li>
-<li>优化产品生产跟踪，实现对产品的生产过程跟踪</li>
-<li>生产设备状态管理，实现对生产设备的状态监控</li>
-</ol>
-<h1 id="专业名词"><a href="#专业名词" class="headerlink" title="专业名词"></a>专业名词</h1><table>
-<thead>
-<tr>
-<th>名词</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>MES</td>
-<td>制造执行系统</td>
-</tr>
-<tr>
-<td>WMS</td>
-<td>仓储管理系统</td>
-</tr>
-<tr>
-<td>PLC</td>
-<td>可编程逻辑控制器</td>
-</tr>
-<tr>
-<td>OPC</td>
-<td>应用程序和PLC的中间控制，用于统一PLC接口标准</td>
-</tr>
-<tr>
-<td>TAG</td>
-<td>标签</td>
-</tr>
-<tr>
-<td>BOM</td>
-<td>物料清单</td>
-</tr>
-<tr>
-<td>OEE</td>
-<td>设备综合效率</td>
-</tr>
-<tr>
-<td>RFID</td>
-<td>射频识别</td>
-</tr>
-</tbody></table>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">MES</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/archives/6b6bbc1f.html">展开全文 >></a>
         </p>
       
 
@@ -1473,6 +1457,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Hexo使用</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">C#</a>
               </li>
              
@@ -1482,42 +1470,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Hexo使用</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">EF</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">outlook</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">EFCore</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">打印</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">全屏</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">浏览器</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">代码片段</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1537,47 +1489,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">VS</a>
+                <a href="javascript:void(0)" class="js-tag color3">outlook</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">配置</a>
+                <a href="javascript:void(0)" class="js-tag color2">EFCore</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">快捷键</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">行列转换</a>
+                <a href="javascript:void(0)" class="js-tag color3">打印</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">行转列</a>
+                <a href="javascript:void(0)" class="js-tag color3">全屏</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">列转行</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">webapi</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">swagger</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Linq</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">TakeWhile</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SkipWhile</a>
+                <a href="javascript:void(0)" class="js-tag color4">浏览器</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1594,6 +1526,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Oracle</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Linq</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">TakeWhile</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SkipWhile</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1641,7 +1585,43 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
+                <a href="javascript:void(0)" class="js-tag color4">VUE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">行列转换</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">行转列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">列转行</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">VS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">配置</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">快捷键</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">webapi</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">swagger</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1653,7 +1633,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">test</a>
+                <a href="javascript:void(0)" class="js-tag color5">代码片段</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1669,67 +1653,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">VUE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">环境</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">委托</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Action</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Func</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">栅格</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">5等分</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">VSCode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">插件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">单例</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">双判断锁</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">组件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">NPOI</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1745,55 +1673,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">abstract</a>
+                <a href="javascript:void(0)" class="js-tag color3">单例</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">virtual</a>
+                <a href="javascript:void(0)" class="js-tag color5">双判断锁</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">B站</a>
+                <a href="javascript:void(0)" class="js-tag color2">VSCode</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">下载</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">抽象类</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">接口</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">.net</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">vs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">中文</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Task</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">await</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">async</a>
+                <a href="javascript:void(0)" class="js-tag color3">插件</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1809,15 +1701,107 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Azure AD</a>
+                <a href="javascript:void(0)" class="js-tag color3">组件</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">统一登录</a>
+                <a href="javascript:void(0)" class="js-tag color5">NPOI</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">saml</a>
+                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">abstract</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">virtual</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">委托</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Action</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Func</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">栅格</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">5等分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">test</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Task</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">await</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">async</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">MES</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">.net</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">vs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">中文</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">报错</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">工具命令</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">B站</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">下载</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">抽象类</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">接口</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1833,10 +1817,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MES</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
@@ -1845,31 +1825,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">工具命令</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Node</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">报错</a>
+                <a href="javascript:void(0)" class="js-tag color4">Azure AD</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">统一登录</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">saml</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">CSS基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统架构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">DDD</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1878,6 +1850,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">封装</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">系统架构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">DDD</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1893,7 +1873,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">工厂模式</a>
+                <a href="javascript:void(0)" class="js-tag color5">权限验证</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JWT</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Token</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1909,6 +1897,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Vue</a>
               </li>
              
@@ -1917,7 +1909,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">npm</a>
+                <a href="javascript:void(0)" class="js-tag color3">服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">webAPI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">工厂模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Session</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Cookie</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SSO</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1929,15 +1941,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">权限验证</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JWT</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Token</a>
+                <a href="javascript:void(0)" class="js-tag color3">EF</a>
               </li>
             
             <div class="clearfix"></div>
