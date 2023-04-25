@@ -6,7 +6,7 @@
   <link href="https://xuzengjie.gitee.io/atom.xml" rel="self"/>
   
   <link href="https://xuzengjie.gitee.io/"/>
-  <updated>2023-04-21T01:15:05.193Z</updated>
+  <updated>2023-04-25T07:17:34.884Z</updated>
   <id>https://xuzengjie.gitee.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>69-MySQL</title>
+    <link href="https://xuzengjie.gitee.io/archives/a42df153.html"/>
+    <id>https://xuzengjie.gitee.io/archives/a42df153.html</id>
+    <published>2023-04-24T16:00:00.000Z</published>
+    <updated>2023-04-25T07:17:34.884Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="查询索引"><a href="#查询索引" class="headerlink" title="查询索引"></a>查询索引</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SHOW</span> <span class="keyword">INDEX</span> <span class="keyword">FROM</span> 表名;</span><br></pre></td></tr></table></figure><h1 id="添加索引"><a href="#添加索引" class="headerlink" title="添加索引"></a>添加索引</h1><p>有 UNIQUE 关键字的为唯一索引</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">UNIQUE</span> <span class="keyword">INDEX</span> 索引名 <span class="keyword">ON</span> 表名 (列名,列名)</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">INDEX</span> 索引名 <span class="keyword">ON</span> 表名 (列名,列名)</span><br><span class="line"></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> 表名 <span class="keyword">add</span> <span class="keyword">index</span> 索引名(列名,列名)</span><br></pre></td></tr></table></figure><h1 id="删除索引"><a href="#删除索引" class="headerlink" title="删除索引"></a>删除索引</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">INDEX</span> 索引名 <span class="keyword">ON</span> 表名;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;查询索引&quot;&gt;&lt;a href=&quot;#查询索引&quot; class=&quot;headerlink&quot; title=&quot;查询索引&quot;&gt;&lt;/a&gt;查询索引&lt;/h1&gt;&lt;figure class=&quot;highlight sql&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;</summary>
+      
+    
+    
+    
+    
+    <category term="MySQL" scheme="https://xuzengjie.gitee.io/tags/MySQL/"/>
+    
+  </entry>
   
   <entry>
     <title>68-网页获取域账号</title>
@@ -478,32 +500,6 @@
     <category term="linux" scheme="https://xuzengjie.gitee.io/tags/linux/"/>
     
     <category term="Node" scheme="https://xuzengjie.gitee.io/tags/Node/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>49-Linux-Centos安装报错</title>
-    <link href="https://xuzengjie.gitee.io/archives/50c712b6.html"/>
-    <id>https://xuzengjie.gitee.io/archives/50c712b6.html</id>
-    <published>2022-03-01T16:00:00.000Z</published>
-    <updated>2022-10-28T07:21:14.627Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="报错信息："><a href="#报错信息：" class="headerlink" title="报错信息："></a>报错信息：</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Error: Failed to download metadata <span class="keyword">for</span> repo <span class="string">&#x27;appstream&#x27;</span>: Cannot prepare internal mirrorlist: No URLs <span class="keyword">in</span> mirrorlist</span><br></pre></td></tr></table></figure><h1 id="切换安装源"><a href="#切换安装源" class="headerlink" title="切换安装源"></a>切换安装源</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc/yum.repos.d</span><br></pre></td></tr></table></figure><p>到<a href="https://developer.aliyun.com/mirror/">阿里云镜像站</a>内的Centos</p><p><img src="/archives/50c712b6/693559872.png" alt="693559872"></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -O /etc/yum.repos.d/CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-vault-8.5.2111.repo</span><br></pre></td></tr></table></figure><p>删除其它的和清缓存  </p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rm Centos-linux-*</span><br><span class="line">yum clean all</span><br><span class="line">yum makecache</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;报错信息：&quot;&gt;&lt;a href=&quot;#报错信息：&quot; class=&quot;headerlink&quot; title=&quot;报错信息：&quot;&gt;&lt;/a&gt;报错信息：&lt;/h1&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;</summary>
-      
-    
-    
-    
-    
-    <category term="工具命令" scheme="https://xuzengjie.gitee.io/tags/%E5%B7%A5%E5%85%B7%E5%91%BD%E4%BB%A4/"/>
-    
-    <category term="linux" scheme="https://xuzengjie.gitee.io/tags/linux/"/>
-    
-    <category term="报错" scheme="https://xuzengjie.gitee.io/tags/%E6%8A%A5%E9%94%99/"/>
     
   </entry>
   
