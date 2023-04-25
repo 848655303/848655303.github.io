@@ -6,7 +6,7 @@
   <link href="https://xuzengjie.gitee.io/atom.xml" rel="self"/>
   
   <link href="https://xuzengjie.gitee.io/"/>
-  <updated>2023-04-25T07:17:34.884Z</updated>
+  <updated>2023-04-25T07:18:42.405Z</updated>
   <id>https://xuzengjie.gitee.io/</id>
   
   <author>
@@ -21,14 +21,14 @@
     <link href="https://xuzengjie.gitee.io/archives/a42df153.html"/>
     <id>https://xuzengjie.gitee.io/archives/a42df153.html</id>
     <published>2023-04-24T16:00:00.000Z</published>
-    <updated>2023-04-25T07:17:34.884Z</updated>
+    <updated>2023-04-25T07:18:42.405Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="查询索引"><a href="#查询索引" class="headerlink" title="查询索引"></a>查询索引</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SHOW</span> <span class="keyword">INDEX</span> <span class="keyword">FROM</span> 表名;</span><br></pre></td></tr></table></figure><h1 id="添加索引"><a href="#添加索引" class="headerlink" title="添加索引"></a>添加索引</h1><p>有 UNIQUE 关键字的为唯一索引</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">UNIQUE</span> <span class="keyword">INDEX</span> 索引名 <span class="keyword">ON</span> 表名 (列名,列名)</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">INDEX</span> 索引名 <span class="keyword">ON</span> 表名 (列名,列名)</span><br><span class="line"></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> 表名 <span class="keyword">add</span> <span class="keyword">index</span> 索引名(列名,列名)</span><br></pre></td></tr></table></figure><h1 id="删除索引"><a href="#删除索引" class="headerlink" title="删除索引"></a>删除索引</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">INDEX</span> 索引名 <span class="keyword">ON</span> 表名;</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h1 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h1><h3 id="查询索引"><a href="#查询索引" class="headerlink" title="查询索引"></a>查询索引</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SHOW</span> <span class="keyword">INDEX</span> <span class="keyword">FROM</span> 表名;</span><br></pre></td></tr></table></figure><h3 id="添加索引"><a href="#添加索引" class="headerlink" title="添加索引"></a>添加索引</h3><p>有 UNIQUE 关键字的为唯一索引</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">UNIQUE</span> <span class="keyword">INDEX</span> 索引名 <span class="keyword">ON</span> 表名 (列名,列名)</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">INDEX</span> 索引名 <span class="keyword">ON</span> 表名 (列名,列名)</span><br><span class="line"></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> 表名 <span class="keyword">add</span> <span class="keyword">index</span> 索引名(列名,列名)</span><br></pre></td></tr></table></figure><h3 id="删除索引"><a href="#删除索引" class="headerlink" title="删除索引"></a>删除索引</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">INDEX</span> 索引名 <span class="keyword">ON</span> 表名;</span><br></pre></td></tr></table></figure>]]></content>
     
     
       
       
-    <summary type="html">&lt;h1 id=&quot;查询索引&quot;&gt;&lt;a href=&quot;#查询索引&quot; class=&quot;headerlink&quot; title=&quot;查询索引&quot;&gt;&lt;/a&gt;查询索引&lt;/h1&gt;&lt;figure class=&quot;highlight sql&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;</summary>
+    <summary type="html">&lt;h1 id=&quot;索引&quot;&gt;&lt;a href=&quot;#索引&quot; class=&quot;headerlink&quot; title=&quot;索引&quot;&gt;&lt;/a&gt;索引&lt;/h1&gt;&lt;h3 id=&quot;查询索引&quot;&gt;&lt;a href=&quot;#查询索引&quot; class=&quot;headerlink&quot; title=&quot;查询索引&quot;&gt;&lt;/a&gt;查询索引&lt;/h</summary>
       
     
     
