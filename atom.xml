@@ -397,9 +397,9 @@
     
     
     
-    <category term="VSCode" scheme="https://xuzengjie.gitee.io/tags/VSCode/"/>
-    
     <category term="linux" scheme="https://xuzengjie.gitee.io/tags/linux/"/>
+    
+    <category term="VSCode" scheme="https://xuzengjie.gitee.io/tags/VSCode/"/>
     
   </entry>
   
@@ -447,9 +447,9 @@
     
     
     
-    <category term="半导体" scheme="https://xuzengjie.gitee.io/tags/%E5%8D%8A%E5%AF%BC%E4%BD%93/"/>
-    
     <category term="测试" scheme="https://xuzengjie.gitee.io/tags/%E6%B5%8B%E8%AF%95/"/>
+    
+    <category term="半导体" scheme="https://xuzengjie.gitee.io/tags/%E5%8D%8A%E5%AF%BC%E4%BD%93/"/>
     
   </entry>
   
