@@ -180,6 +180,157 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-60-Docker" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/archives/d4befdef.html">60-Docker</a>
+    </h1>
+  
+
+        
+        <a href="/archives/d4befdef.html" class="archive-article-date">
+  	<time datetime="2022-11-23T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Docker-是什么"><a href="#Docker-是什么" class="headerlink" title="Docker 是什么"></a>Docker 是什么</h1><p>Docker 是一个应用打包、分发、部署的工具<br>你也可以把它理解为一个轻量的虚拟机，它只虚拟你软件需要的运行环境，多余的一点都不要</p>
+<h1 id="打包、分发、部署"><a href="#打包、分发、部署" class="headerlink" title="打包、分发、部署"></a>打包、分发、部署</h1><p>打包：就是把你软件运行所需的依赖、第三方库、软件打包到一起，变成一个安装包<br>分发：你可以把你打包好的“安装包”上传到一个镜像仓库，其他人可以非常方便的获取和安装<br>部署：拿着“安装包”就可以一个命令运行起来你的应用，自动模拟出一摸一样的运行环境，不管是在 Windows/Mac/Linux。</p>
+<h1 id="Docker-部署的优势"><a href="#Docker-部署的优势" class="headerlink" title="Docker 部署的优势"></a>Docker 部署的优势</h1><p>用 Docker 开发部署流程：自己在 Windows 上开发、测试 –&gt; 打包为 Docker 镜像（可以理解为软件安装包） –&gt; 各种服务器上只需要一个命令部署好</p>
+<h1 id="Docker-通常用来做什么"><a href="#Docker-通常用来做什么" class="headerlink" title="Docker 通常用来做什么"></a>Docker 通常用来做什么</h1><ol>
+<li>应用分发、部署，方便传播给他人安装。特别是开源软件和提供私有部署的应用</li>
+<li>快速安装测试/学习软件，用完就丢（类似小程序），不把时间浪费在安装软件上。例如 Redis / MongoDB / ElasticSearch / ELK</li>
+<li>多个版本软件共存，不污染系统，例如 Python2、Python3，Redis4.0，Redis5.0</li>
+<li>Windows 上体验/学习各种 Linux 系统</li>
+</ol>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>桌面版：<a target="_blank" rel="noopener" href="https://www.docker.com/products/docker-desktop">https://www.docker.com/products/docker-desktop</a><br>服务器版：<a target="_blank" rel="noopener" href="https://docs.docker.com/engine/install/#server">https://docs.docker.com/engine/install/#server</a></p>
+<h2 id="BIOS-开启虚拟化"><a href="#BIOS-开启虚拟化" class="headerlink" title="BIOS 开启虚拟化"></a>BIOS 开启虚拟化</h2><p>可通过任务管理器判断是否开启<br><img src="/archives/d4befdef/4.png" alt="4"></p>
+<h1 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h1><h3 id="WSL-2-异常"><a href="#WSL-2-异常" class="headerlink" title="WSL 2 异常"></a>WSL 2 异常</h3><p>下载 <a target="_blank" rel="noopener" href="https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi">WLS2 更新包</a> 更新<br><img src="/archives/d4befdef/1.png" alt="1"></p>
+<h3 id="启动报错"><a href="#启动报错" class="headerlink" title="启动报错"></a>启动报错</h3><p><img src="/archives/d4befdef/2.png" alt="2"><br>解决：开启 Windows 虚拟机监控程序平台和 Linux 子系统（WSL2)<br><img src="/archives/d4befdef/3.png" alt="3"></p>
+<h3 id="提示-Docker-Desktop-stopped…"><a href="#提示-Docker-Desktop-stopped…" class="headerlink" title="提示 Docker Desktop stopped…"></a>提示 Docker Desktop stopped…</h3><p>安装使用<a target="_blank" rel="noopener" href="https://docs.docker.com/desktop/release-notes/">历史版本</a></p>
+<h1 id="镜像加速源"><a href="#镜像加速源" class="headerlink" title="镜像加速源"></a>镜像加速源</h1><table>
+<thead>
+<tr>
+<th>镜像加速器</th>
+<th>镜像加速器地址</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Docker 中国官方镜像</td>
+<td><a target="_blank" rel="noopener" href="https://registry.docker-cn.com/">https://registry.docker-cn.com</a></td>
+</tr>
+<tr>
+<td>DaoCloud 镜像站</td>
+<td><a target="_blank" rel="noopener" href="http://f1361db2.m.daocloud.io/">http://f1361db2.m.daocloud.io</a></td>
+</tr>
+<tr>
+<td>Azure 中国镜像</td>
+<td><a target="_blank" rel="noopener" href="https://dockerhub.azk8s.cn/">https://dockerhub.azk8s.cn</a></td>
+</tr>
+<tr>
+<td>科大镜像站</td>
+<td><a target="_blank" rel="noopener" href="https://docker.mirrors.ustc.edu.cn/">https://docker.mirrors.ustc.edu.cn</a></td>
+</tr>
+<tr>
+<td>阿里云</td>
+<td>https://<your_code>.mirror.aliyuncs.com</your_code></td>
+</tr>
+<tr>
+<td>七牛云</td>
+<td><a target="_blank" rel="noopener" href="https://reg-mirror.qiniu.com/">https://reg-mirror.qiniu.com</a></td>
+</tr>
+<tr>
+<td>网易云</td>
+<td><a target="_blank" rel="noopener" href="https://hub-mirror.c.163.com/">https://hub-mirror.c.163.com</a></td>
+</tr>
+<tr>
+<td>腾讯云</td>
+<td><a target="_blank" rel="noopener" href="https://mirror.ccs.tencentyun.com/">https://mirror.ccs.tencentyun.com</a></td>
+</tr>
+</tbody></table>
+<p><img src="/archives/d4befdef/5.png" alt="5"></p>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>在 <a target="_blank" rel="noopener" href="https://hub.docker.com/">仓库</a> 搜索需要的软件<br>在 cmd 内执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container run redis</span><br></pre></td></tr></table></figure>
+
+<h1 id="安装使用-mysql"><a href="#安装使用-mysql" class="headerlink" title="安装使用 mysql"></a>安装使用 mysql</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">#拉取镜像</span><br><span class="line">docker pull mysql:8.0.20</span><br><span class="line">#启动镜像,用于拷贝配置文件到宿主机</span><br><span class="line">docker run -p 12305:3306 --name mysql -e MYSQL_ROOT_PASSWORD&#x3D;123456 -d mysql:8.0.20</span><br><span class="line">#查看是否启动成功</span><br><span class="line">docker ps -a</span><br><span class="line">#新建挂载目录并拷贝配置文件</span><br><span class="line">mkdir -p &#x2F;mysqldata&#x2F;</span><br><span class="line">docker cp  mysql:&#x2F;etc&#x2F;mysql &#x2F;mysqldata&#x2F;</span><br><span class="line">#删除原有镜像</span><br><span class="line">docker stop mysql</span><br><span class="line">docker rm -f mysql</span><br><span class="line">#启动mysql ，挂载配置文件，数据持久化到宿主主机</span><br><span class="line">docker run \</span><br><span class="line">-p 13306:3306 \</span><br><span class="line">--name mysql \</span><br><span class="line">--privileged&#x3D;true \</span><br><span class="line">--restart unless-stopped \</span><br><span class="line">-v &#x2F;home&#x2F;mysqldata&#x2F;mysql:&#x2F;etc&#x2F;mysql \</span><br><span class="line">-v &#x2F;home&#x2F;mysqldata&#x2F;mysql&#x2F;logs:&#x2F;logs \</span><br><span class="line">-v &#x2F;home&#x2F;mysqldata&#x2F;mysql&#x2F;data:&#x2F;var&#x2F;lib&#x2F;mysql \</span><br><span class="line">-v &#x2F;etc&#x2F;localtime:&#x2F;etc&#x2F;localtime \</span><br><span class="line">-e MYSQL_ROOT_PASSWORD&#x3D;cqrecadmin \</span><br><span class="line">-d mysql:8.0.20</span><br><span class="line">#检查是否运行成功</span><br><span class="line">docker ps -a</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker inspect mysql</span><br><span class="line"># 查看容器所有状态信息；</span><br><span class="line"></span><br><span class="line">#直接输出 IP 地址信息</span><br><span class="line">docker inspect --format &#39;&#123;&#123; .NetworkSettings.IPAddress &#125;&#125;&#39; mysql</span><br></pre></td></tr></table></figure>
+
+<h1 id="安装-EMQX"><a href="#安装-EMQX" class="headerlink" title="安装 EMQX"></a>安装 EMQX</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker pull emqx&#x2F;emqx:5.0.9</span><br><span class="line">docker run -d --name emqx -p 1883:1883 -p 8083:8083 -p 8883:8883 -p 8084:8084 -p 18083:18083 emqx&#x2F;emqx:5.0.9</span><br></pre></td></tr></table></figure>
+
+<p>网址：<a target="_blank" rel="noopener" href="http://127.0.0.1:18083/">http://127.0.0.1:18083/</a><br>账号：admin<br>密码：public</p>
+<h1 id="nginx-命令"><a href="#nginx-命令" class="headerlink" title="nginx 命令"></a>nginx 命令</h1><p>在 nginx 目录下可执行以下命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">start nginx    #启动</span><br><span class="line"></span><br><span class="line">nginx -s reopen #重启Nginx</span><br><span class="line"></span><br><span class="line">nginx -s reload #重新加载Nginx配置文件，然后以优雅的方式重启Nginx</span><br><span class="line"></span><br><span class="line">nginx -s stop #强制停止Nginx服务</span><br><span class="line"></span><br><span class="line">nginx -s quit #优雅地停止Nginx服务（即处理完所有请求后再停止服务）</span><br><span class="line"></span><br><span class="line">nginx -t #检测配置文件是否有语法错误，然后退出</span><br><span class="line"></span><br><span class="line">nginx -?,-h #打开帮助信息</span><br><span class="line"></span><br><span class="line">nginx -v #显示版本信息并退出</span><br><span class="line"></span><br><span class="line">nginx -V #显示版本和配置选项信息，然后退出</span><br><span class="line"></span><br><span class="line">nginx -t #检测配置文件是否有语法错误，然后退出</span><br><span class="line"></span><br><span class="line">nginx -T #检测配置文件是否有语法错误，转储并退出</span><br><span class="line"></span><br><span class="line">nginx -q #在检测配置文件期间屏蔽非错误信息</span><br><span class="line"></span><br><span class="line">nginx -p prefix #设置前缀路径(默认是:&#x2F;usr&#x2F;share&#x2F;nginx&#x2F;)</span><br><span class="line"></span><br><span class="line">nginx -c filename #设置配置文件(默认是:&#x2F;etc&#x2F;nginx&#x2F;nginx.conf)</span><br><span class="line"></span><br><span class="line">nginx -g directives #设置配置文件外的全局指令</span><br><span class="line"></span><br><span class="line">killall nginx #杀死所有nginx进程</span><br></pre></td></tr></table></figure>
+
+<h1 id="Docker-查询-IP"><a href="#Docker-查询-IP" class="headerlink" title="Docker 查询 IP"></a>Docker 查询 IP</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1、docker inspect 容器 ID</span><br><span class="line">2、docker inspect --format&#x3D;&#39;&#123;&#123;.NetworkSettings.IPAddress&#125;&#125;&#39; 容器名称</span><br></pre></td></tr></table></figure>
+
+<h1 id="Docker-内安装-Ubuntu"><a href="#Docker-内安装-Ubuntu" class="headerlink" title="Docker 内安装 Ubuntu"></a>Docker 内安装 Ubuntu</h1><p>在 CMD 内执行</p>
+<h3 id="拉最新镜像"><a href="#拉最新镜像" class="headerlink" title="拉最新镜像"></a>拉最新镜像</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker pull ubuntu</span><br><span class="line"></span><br><span class="line">或</span><br><span class="line">docker pull ubuntu:latest</span><br></pre></td></tr></table></figure>
+
+<h3 id="生成并运行容器-命名-ubuntu-test"><a href="#生成并运行容器-命名-ubuntu-test" class="headerlink" title="生成并运行容器,命名 ubuntu-test"></a>生成并运行容器,命名 ubuntu-test</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -itd --name ubuntu-test ubuntu</span><br></pre></td></tr></table></figure>
+
+<h3 id="进入容器"><a href="#进入容器" class="headerlink" title="进入容器"></a>进入容器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it ubuntu-test &#x2F;bin&#x2F;bash</span><br></pre></td></tr></table></figure>
+
+<h3 id="退出容器"><a href="#退出容器" class="headerlink" title="退出容器"></a>退出容器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exit</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Docker</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/archives/d4befdef.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-59-反射" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1246,92 +1397,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-50-Centos按照Node" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/archives/502318d4.html">50-Centos按照Node</a>
-    </h1>
-  
-
-        
-        <a href="/archives/502318d4.html" class="archive-article-date">
-  	<time datetime="2022-03-02T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="官网说明"><a href="#官网说明" class="headerlink" title="官网说明"></a>官网说明</h1><p><a target="_blank" rel="noopener" href="https://github.com/nodesource/distributions">https://github.com/nodesource/distributions</a> 内有说明</p>
-<h1 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://rpm.nodesource.com/setup_16.x | bash -</span><br></pre></td></tr></table></figure>
-
-<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y nodejs</span><br></pre></td></tr></table></figure>
-
-<h1 id="查看版本"><a href="#查看版本" class="headerlink" title="查看版本"></a>查看版本</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">工具命令</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Node</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/archives/502318d4.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/3/">下一页</a>
@@ -1452,10 +1517,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Hexo使用</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">C#</a>
               </li>
              
@@ -1464,7 +1525,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">outlook</a>
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">layui</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Hexo使用</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1476,19 +1553,39 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">打印</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">全屏</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">浏览器</a>
+                <a href="javascript:void(0)" class="js-tag color3">outlook</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">EF</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">单例</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">双判断锁</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">代码片段</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">EFCore</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">VS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">配置</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">快捷键</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1508,51 +1605,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">EFCore</a>
+                <a href="javascript:void(0)" class="js-tag color3">打印</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">代码片段</a>
+                <a href="javascript:void(0)" class="js-tag color3">全屏</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">webapi</a>
+                <a href="javascript:void(0)" class="js-tag color4">浏览器</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">swagger</a>
+                <a href="javascript:void(0)" class="js-tag color5">行列转换</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">单例</a>
+                <a href="javascript:void(0)" class="js-tag color4">行转列</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">双判断锁</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">VS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">配置</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">快捷键</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">VUE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">学习</a>
+                <a href="javascript:void(0)" class="js-tag color4">列转行</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1600,7 +1673,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">test</a>
+                <a href="javascript:void(0)" class="js-tag color2">webapi</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">swagger</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1616,6 +1697,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">VUE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">字符串</a>
               </li>
              
@@ -1624,15 +1713,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">环境</a>
+                <a href="javascript:void(0)" class="js-tag color5">test</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1648,6 +1729,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">VSCode</a>
               </li>
              
@@ -1656,19 +1741,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">监听</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SQL Server</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SQL Server Profiler</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">layui</a>
+                <a href="javascript:void(0)" class="js-tag color3">环境</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1692,6 +1769,30 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">B站</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">下载</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">监听</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">SQL Server</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SQL Server Profiler</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
@@ -1704,35 +1805,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">抽象类</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">接口</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">B站</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">下载</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">组件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">NPOI</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">abstract</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">virtual</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">抽象类</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">接口</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1748,14 +1833,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MES</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">.net</a>
               </li>
              
@@ -1768,15 +1845,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+                <a href="javascript:void(0)" class="js-tag color3">组件</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">青龙面板</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">工具命令</a>
+                <a href="javascript:void(0)" class="js-tag color5">NPOI</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1792,6 +1865,50 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">MES</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">青龙面板</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">工具命令</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">系统架构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">DDD</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">报错</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">CSS基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">半导体</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Azure AD</a>
               </li>
              
@@ -1804,19 +1921,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">报错</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">半导体</a>
+                <a href="javascript:void(0)" class="js-tag color4">SqlSugar</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1824,27 +1933,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统架构</a>
+                <a href="javascript:void(0)" class="js-tag color3">反射</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">DDD</a>
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
+                <a href="javascript:void(0)" class="js-tag color5">工厂模式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">CSS基础</a>
+                <a href="javascript:void(0)" class="js-tag color4">IIS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+                <a href="javascript:void(0)" class="js-tag color3">错误</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SqlSugar</a>
+                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">初始</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1860,35 +1973,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">反射</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">工厂模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">初始</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IIS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">错误</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">npm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1904,10 +1989,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">服务</a>
               </li>
              
@@ -1916,11 +1997,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">未分类</a>
+                <a href="javascript:void(0)" class="js-tag color4">域账户</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">域账户</a>
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">安装</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1928,23 +2013,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">行列转换</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">行转列</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">列转行</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color4">未分类</a>
               </li>
             
             <div class="clearfix"></div>
