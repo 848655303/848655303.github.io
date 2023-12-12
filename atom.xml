@@ -6,7 +6,7 @@
   <link href="https://xuzengjie.gitee.io/atom.xml" rel="self"/>
   
   <link href="https://xuzengjie.gitee.io/"/>
-  <updated>2023-12-06T03:00:11.008Z</updated>
+  <updated>2023-12-06T03:03:16.470Z</updated>
   <id>https://xuzengjie.gitee.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://xuzengjie.gitee.io/archives/25e9112c.html"/>
     <id>https://xuzengjie.gitee.io/archives/25e9112c.html</id>
     <published>2023-12-05T16:00:00.000Z</published>
-    <updated>2023-12-06T03:00:11.008Z</updated>
+    <updated>2023-12-06T03:03:16.470Z</updated>
     
     <content type="html"><![CDATA[<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>使用 Electron 封装网页为 EXE</p><h1 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm init</span><br></pre></td></tr></table></figure><h1 id="添加-index-js"><a href="#添加-index-js" class="headerlink" title="添加 index.js"></a>添加 index.js</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">const &#123; app, BrowserWindow &#125; &#x3D; require(&#39;electron&#39;)</span><br><span class="line"></span><br><span class="line">app.on(&#39;ready&#39;, () &#x3D;&gt; &#123;</span><br><span class="line">const mainWin &#x3D; new BrowserWindow(&#123;</span><br><span class="line">&#x2F;&#x2F;frame: false &#x2F;&#x2F;隐藏窗体边框</span><br><span class="line">&#125;)</span><br><span class="line">&#x2F;&#x2F;隐藏菜单栏</span><br><span class="line">mainWin.setMenuBarVisibility(false)</span><br><span class="line">mainWin.loadURL(&#39;http:&#x2F;&#x2F;192.168.152.3:9200&#x2F;&#39;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><h1 id="添加-electron-packager"><a href="#添加-electron-packager" class="headerlink" title="添加 electron-packager"></a>添加 electron-packager</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install electron-packager --save-dev</span><br></pre></td></tr></table></figure><p>在 package.json 中添加代码：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;package&quot;: &quot;electron-packager .&#x2F; myapp --out .&#x2F;OutApp --arch&#x3D;x64 --electron-version&#x3D;28.0.0 --overwrite --icon&#x3D;.&#x2F;app&#x2F;img&#x2F;icon&#x2F;icon.ico&quot;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure><p>sourcedir：项目所在路径<br>appname：应用名称<br>platform：确定了你要构建哪个平台的应用（Windows、Mac 还是 Linux）<br>architecture：决定了使用 x86 还是 x64 还是两个架构都用<br>electron version：electron 的版本<br>optional options：可选选项</p><h1 id="打包"><a href="#打包" class="headerlink" title="打包"></a>打包</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run package</span><br></pre></td></tr></table></figure><p>打包成功后，会在 OutApp 目录（此处的目录是在参数中配置的）下生成.exe，运行该文件，并且没有报错，则说明本次打包成功。</p>]]></content>
     
@@ -38,6 +38,31 @@
     <category term="封装" scheme="https://xuzengjie.gitee.io/tags/%E5%B0%81%E8%A3%85/"/>
     
     <category term="Electron" scheme="https://xuzengjie.gitee.io/tags/Electron/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>71-浏览器文字转语言</title>
+    <link href="https://xuzengjie.gitee.io/archives/5b44af25.html"/>
+    <id>https://xuzengjie.gitee.io/archives/5b44af25.html</id>
+    <published>2023-09-09T16:00:00.000Z</published>
+    <updated>2023-12-12T07:36:20.474Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>HTML5 提供了 Web Speech API，它可以实现将文本转换为语音的功能。</p><h1 id="浏览器兼容性"><a href="#浏览器兼容性" class="headerlink" title="浏览器兼容性"></a>浏览器兼容性</h1><table><thead><tr><th>浏览器</th><th>版本要求</th></tr></thead><tbody><tr><td>Chrome</td><td>33+</td></tr><tr><td>Safari</td><td>7.1+</td></tr><tr><td>Firefox</td><td>49+</td></tr><tr><td>Edge</td><td>14+</td></tr><tr><td>Opera</td><td>37+</td></tr></tbody></table><h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>HTML5语音播报<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;text&quot;</span>&gt;</span>请输入要播报的文本：<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">id</span>=<span class="string">&quot;text&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">&quot;speak()&quot;</span>&gt;</span>播放<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">speak</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> text = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;text&#x27;</span>).value</span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> message = <span class="keyword">new</span> SpeechSynthesisUtterance()</span></span><br><span class="line"><span class="javascript"><span class="comment">//message.volume = 1 // 音量（0-1）</span></span></span><br><span class="line"><span class="javascript"><span class="comment">//message.rate = 1 // 语速（0.1-10）</span></span></span><br><span class="line"><span class="javascript"><span class="comment">//message.pitch = 1 // 音调（0-2）</span></span></span><br><span class="line">message.text = text</span><br><span class="line"><span class="javascript"><span class="built_in">window</span>.speechSynthesis.speak(message)</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure><h1 id="SpeechSynthesisUtterance-主要属性"><a href="#SpeechSynthesisUtterance-主要属性" class="headerlink" title="SpeechSynthesisUtterance 主要属性"></a>SpeechSynthesisUtterance 主要属性</h1><ul><li>text：这是一个字符串，表示要合成为语音的文本。</li><li>lang：这是一个字符串，表示用于合成语音的语言。例如，”en-US”表示美国英语，”zh-CN”是中文</li><li>volume：这是一个浮点数，表示说话的音量。它的值范围通常是 0（无声）到 1（最大音量）。</li><li>rate：这是一个浮点数，表示说话的速度。值越大，说话速度越快。</li><li>pitch：这是一个浮点数，表示声音的音调。值越大，音调越高。</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h1&gt;&lt;p&gt;HTML5 提供了 Web Speech API，它可以实现将文本转换为语音的功能。&lt;/p&gt;
+&lt;h1 id=&quot;浏览器兼容性&quot;&gt;&lt;a href</summary>
+      
+    
+    
+    
+    
+    <category term="浏览器" scheme="https://xuzengjie.gitee.io/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/"/>
+    
+    <category term="文字转语音" scheme="https://xuzengjie.gitee.io/tags/%E6%96%87%E5%AD%97%E8%BD%AC%E8%AF%AD%E9%9F%B3/"/>
     
   </entry>
   
@@ -62,31 +87,6 @@
     <category term="MySQL" scheme="https://xuzengjie.gitee.io/tags/MySQL/"/>
     
     <category term="安装" scheme="https://xuzengjie.gitee.io/tags/%E5%AE%89%E8%A3%85/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>71-浏览器文字转语言</title>
-    <link href="https://xuzengjie.gitee.io/archives/5b44af25.html"/>
-    <id>https://xuzengjie.gitee.io/archives/5b44af25.html</id>
-    <published>2023-08-09T16:00:00.000Z</published>
-    <updated>2023-11-16T07:21:56.342Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>HTML5 提供了 Web Speech API，它可以实现将文本转换为语音的功能。</p><h1 id="浏览器兼容性"><a href="#浏览器兼容性" class="headerlink" title="浏览器兼容性"></a>浏览器兼容性</h1><table><thead><tr><th>浏览器</th><th>版本要求</th></tr></thead><tbody><tr><td>Chrome</td><td>33+</td></tr><tr><td>Safari</td><td>7.1+</td></tr><tr><td>Firefox</td><td>49+</td></tr><tr><td>Edge</td><td>14+</td></tr><tr><td>Opera</td><td>37+</td></tr></tbody></table><h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>HTML5语音播报<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;text&quot;</span>&gt;</span>请输入要播报的文本：<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">id</span>=<span class="string">&quot;text&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">&quot;speak()&quot;</span>&gt;</span>播放<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">speak</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> text = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;text&#x27;</span>).value</span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> message = <span class="keyword">new</span> SpeechSynthesisUtterance()</span></span><br><span class="line"><span class="javascript"><span class="comment">//message.volume = 1 // 音量（0-1）</span></span></span><br><span class="line"><span class="javascript"><span class="comment">//message.rate = 1 // 语速（0.1-10）</span></span></span><br><span class="line"><span class="javascript"><span class="comment">//message.pitch = 1 // 音调（0-2）</span></span></span><br><span class="line">message.text = text</span><br><span class="line"><span class="javascript"><span class="built_in">window</span>.speechSynthesis.speak(message)</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure><h1 id="SpeechSynthesisUtterance-主要属性"><a href="#SpeechSynthesisUtterance-主要属性" class="headerlink" title="SpeechSynthesisUtterance 主要属性"></a>SpeechSynthesisUtterance 主要属性</h1><ul><li>text：这是一个字符串，表示要合成为语音的文本。</li><li>lang：这是一个字符串，表示用于合成语音的语言。例如，”en-US”表示美国英语，”zh-CN”是中文</li><li>volume：这是一个浮点数，表示说话的音量。它的值范围通常是 0（无声）到 1（最大音量）。</li><li>rate：这是一个浮点数，表示说话的速度。值越大，说话速度越快。</li><li>pitch：这是一个浮点数，表示声音的音调。值越大，音调越高。</li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h1&gt;&lt;p&gt;HTML5 提供了 Web Speech API，它可以实现将文本转换为语音的功能。&lt;/p&gt;
-&lt;h1 id=&quot;浏览器兼容性&quot;&gt;&lt;a href</summary>
-      
-    
-    
-    
-    
-    <category term="浏览器" scheme="https://xuzengjie.gitee.io/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/"/>
-    
-    <category term="文字转语音" scheme="https://xuzengjie.gitee.io/tags/%E6%96%87%E5%AD%97%E8%BD%AC%E8%AF%AD%E9%9F%B3/"/>
     
   </entry>
   
@@ -368,9 +368,9 @@
     
     
     
-    <category term="工厂模式" scheme="https://xuzengjie.gitee.io/tags/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/"/>
-    
     <category term="反射" scheme="https://xuzengjie.gitee.io/tags/%E5%8F%8D%E5%B0%84/"/>
+    
+    <category term="工厂模式" scheme="https://xuzengjie.gitee.io/tags/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/"/>
     
   </entry>
   
