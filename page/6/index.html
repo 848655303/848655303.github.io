@@ -180,6 +180,99 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-23-swagger" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/archives/d85e853c.html">23-swagger</a>
+    </h1>
+  
+
+        
+        <a href="/archives/d85e853c.html" class="archive-article-date">
+  	<time datetime="2021-07-08T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="23-swagger"><a href="#23-swagger" class="headerlink" title="23-swagger"></a>23-swagger</h1><h4 id="1、最简配置"><a href="#1、最简配置" class="headerlink" title="1、最简配置"></a>1、最简配置</h4><p>​    NuGet内安装 Swashbuckle.AspNetCore ，</p>
+<p>​    Startup.cs   –&gt;  ConfigureServices 方法内添加 </p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">services.AddSwaggerGen();</span><br></pre></td></tr></table></figure>
+
+<p>​    Startup.cs   –&gt;  Configure 方法内添加 </p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">app.UseSwagger();</span><br><span class="line">app.UseSwaggerUI();</span><br></pre></td></tr></table></figure>
+
+<p><img src="/archives/d85e853c/23-01.png" alt="23-01"></p>
+<h4 id="2、一般配置"><a href="#2、一般配置" class="headerlink" title="2、一般配置"></a>2、一般配置</h4><p>​        在最简配置的基础上增加。</p>
+<p>​        项目–&gt; 属性–&gt;生成–&gt;输出–&gt;XML文档文件–&gt;bin\Debug\net5.0\swaggerTest.xml</p>
+<p>Startup.cs   –&gt;  Configure 方法内添加</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">services.ConfigureSwaggerGen(c =&gt;</span><br><span class="line">    &#123;</span><br><span class="line">        c.SwaggerDoc(<span class="string">&quot;v1&quot;</span>, <span class="keyword">new</span> Microsoft.OpenApi.Models.OpenApiInfo()</span><br><span class="line">        &#123;</span><br><span class="line">            Title=<span class="string">&quot;swagger测试配置中&quot;</span>,</span><br><span class="line">            Version=<span class="string">&quot;v1&quot;</span>,</span><br><span class="line">            Description=<span class="string">&quot;集合测试&quot;</span>,</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="comment">//启用中文注释功能</span></span><br><span class="line">        <span class="keyword">var</span> basePath = PlatformServices.Default.Application.ApplicationBasePath;</span><br><span class="line">        <span class="keyword">var</span> xmlPath = Path.Combine(basePath, <span class="string">&quot;swaggerTest.xml&quot;</span>);</span><br><span class="line">        c.IncludeXmlComments(xmlPath);</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+
+<p><img src="/archives/d85e853c/23-02.png" alt="23-02"></p>
+<p><img src="/archives/d85e853c/23-03.png" alt="23-03"></p>
+<p><a target="_blank" rel="noopener" href="http://localhost:65458/swagger/index.html">http://localhost:65458/swagger/index.html</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">webapi</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">swagger</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/archives/d85e853c.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-22-VS配置修改" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1568,112 +1661,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-13-SQL事物" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/archives/aa960eef.html">13-SQL事物</a>
-    </h1>
-  
-
-        
-        <a href="/archives/aa960eef.html" class="archive-article-date">
-  	<time datetime="2021-02-28T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="13-SQL事物"><a href="#13-SQL事物" class="headerlink" title="13-SQL事物"></a>13-SQL事物</h1><p><strong>事务具有原子性，一致性，隔离性，持久性（ACID）</strong></p>
-<ul>
-<li><p>A  原子性：事务必须是一个自动工作的单元，要么全部执行，要么全部不执行。</p>
-</li>
-<li><p>C  一致性：事务把数据库从一个一致状态带入到另一个一致状态，事务结束的时候，所有的内部数据都是正确的。</p>
-</li>
-<li><p>I   隔离性：并发多个事务时，一个事务的执行不受其他事务的影响。</p>
-</li>
-<li><p>D 持久性：事务提交之后，数据是永久性的，不可再回滚，不受关机等事件的影响。</p>
-</li>
-</ul>
-<p><strong>事务在如下情况终止：</strong></p>
-<ol>
-<li><p>遇到<strong>rollback</strong> 或<strong>commit</strong>命令</p>
-</li>
-<li><p>遇到DDL或者DCL语句.</p>
-</li>
-<li><p>系统发生错误，崩溃或者退出。</p>
-</li>
-</ol>
-<p><strong>常用语句就四个</strong></p>
-<ul>
-<li>Begin Transaction：标记事务开始。</li>
-<li>Commit Transaction：事务已经成功执行，数据已经处理妥当。</li>
-<li>Rollback Transaction：数据处理过程中出错，回滚到没有处理之前的数据状态，或回滚到事务内部的保存点。</li>
-<li>Save Transaction：事务内部设置的保存点，就是事务可以不全部回滚，只回滚到这里，保证事务内部不出错的前提下。</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">---开启事务</span></span><br><span class="line"><span class="keyword">begin</span> tran</span><br><span class="line"><span class="comment">--错误捕捉机制，看好啦，这里也有的。并且可以嵌套。</span></span><br><span class="line"><span class="keyword">begin</span> try  </span><br><span class="line">   <span class="comment">--语句正确</span></span><br><span class="line">   <span class="keyword">insert</span> <span class="keyword">into</span> lives (Eat,Play,<span class="keyword">Numb</span>) <span class="keyword">values</span> (<span class="string">&#x27;猪肉&#x27;</span>,<span class="string">&#x27;足球&#x27;</span>,<span class="number">1</span>)</span><br><span class="line">   <span class="comment">--Numb为int类型，出错</span></span><br><span class="line">   <span class="keyword">insert</span> <span class="keyword">into</span> lives (Eat,Play,<span class="keyword">Numb</span>) <span class="keyword">values</span> (<span class="string">&#x27;猪肉&#x27;</span>,<span class="string">&#x27;足球&#x27;</span>,<span class="string">&#x27;abc&#x27;</span>)</span><br><span class="line">   <span class="comment">--语句正确</span></span><br><span class="line">   <span class="keyword">insert</span> <span class="keyword">into</span> lives (Eat,Play,<span class="keyword">Numb</span>) <span class="keyword">values</span> (<span class="string">&#x27;狗肉&#x27;</span>,<span class="string">&#x27;篮球&#x27;</span>,<span class="number">2</span>)</span><br><span class="line"><span class="keyword">end</span> try</span><br><span class="line"><span class="keyword">begin</span> catch</span><br><span class="line">   <span class="keyword">select</span> Error_number() <span class="keyword">as</span> ErrorNumber,  <span class="comment">--错误代码</span></span><br><span class="line">          Error_severity() <span class="keyword">as</span> ErrorSeverity,  <span class="comment">--错误严重级别，级别小于10 try catch 捕获不到</span></span><br><span class="line">          Error_state() <span class="keyword">as</span> ErrorState ,  <span class="comment">--错误状态码</span></span><br><span class="line">          Error_Procedure() <span class="keyword">as</span> ErrorProcedure , <span class="comment">--出现错误的存储过程或触发器的名称。</span></span><br><span class="line">          Error_line() <span class="keyword">as</span> ErrorLine,  <span class="comment">--发生错误的行号</span></span><br><span class="line">          Error_message() <span class="keyword">as</span> ErrorMessage  <span class="comment">--错误的具体信息</span></span><br><span class="line">   <span class="keyword">if</span>(@@trancount&gt;<span class="number">0</span>) <span class="comment">--全局变量@@trancount，事务开启此值+1，他用来判断是有开启事务</span></span><br><span class="line">      <span class="keyword">rollback</span> tran  <span class="comment">---由于出错，这里回滚到开始，第一条语句也没有插入成功。</span></span><br><span class="line"><span class="keyword">end</span> catch</span><br><span class="line"><span class="keyword">if</span>(@@trancount&gt;<span class="number">0</span>)</span><br><span class="line"><span class="keyword">commit</span> tran  <span class="comment">--如果成功Lives表中，将会有3条数据。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--表本身为空表，ID ,Numb为int 类型，其它为nvarchar类型</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> lives</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">begin</span> tran</span><br><span class="line"><span class="comment">/*--定义变量，用于累计事务执行过程中的错误--*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> [dbo].[<span class="keyword">Test</span>] ([Remark],[IsDelete],UsedState) <span class="keyword">values</span>(<span class="string">&#x27;awer&#x27;</span>,<span class="string">&#x27;0&#x27;</span>,<span class="number">4</span>)  </span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> [dbo].[<span class="keyword">Test</span>] ([Remark],[IsDelete],UsedState) <span class="keyword">values</span>(<span class="string">&#x27;eherh&#x27;</span>,<span class="string">&#x27;1&#x27;</span>,<span class="number">34</span>)</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> [dbo].[<span class="keyword">Test</span>] ([Remark],[IsDelete],UsedState) <span class="keyword">values</span>(<span class="string">&#x27;terj&#x27;</span>,<span class="number">3</span>,<span class="string">&#x27;546&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">declare</span> @<span class="built_in">int</span> <span class="built_in">int</span> </span><br><span class="line"><span class="keyword">SELECT</span> @<span class="built_in">int</span>=<span class="keyword">COUNT</span>(<span class="keyword">Id</span>) <span class="keyword">FROM</span> [ceshi].[dbo].[<span class="keyword">Test</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">IF</span> @<span class="built_in">int</span>&lt;<span class="number">3</span> <span class="comment">--任意条件</span></span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">	<span class="keyword">select</span> <span class="number">-1</span></span><br><span class="line">	<span class="keyword">rollback</span> tran     <span class="comment">--回滚</span></span><br><span class="line"><span class="keyword">END</span></span><br><span class="line"><span class="keyword">ELSE</span></span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">	<span class="keyword">commit</span> tran  <span class="comment">--提交</span></span><br><span class="line"><span class="keyword">END</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>局部回滚和局部提交</strong></p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">begin</span> try</span><br><span class="line">    <span class="keyword">begin</span> tran A</span><br><span class="line">    <span class="keyword">insert</span> <span class="keyword">into</span> dbo.lives ( Eat, Play, <span class="keyword">Numb</span>, times ) <span class="keyword">values</span> ( <span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;&#x27;</span>, <span class="number">0</span>, <span class="keyword">getdate</span>() )</span><br><span class="line">    </span><br><span class="line">    <span class="comment">--select 1/0    --错误信息</span></span><br><span class="line">    <span class="keyword">save</span> tran B_Point</span><br><span class="line">    <span class="keyword">insert</span> <span class="keyword">into</span> dbo.lives ( Eat, Play, <span class="keyword">Numb</span>, times ) <span class="keyword">values</span> ( <span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;&#x27;</span>, <span class="number">0</span>, <span class="keyword">getdate</span>() )</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">save</span> tran C_Point</span><br><span class="line">    <span class="keyword">insert</span> <span class="keyword">into</span> dbo.lives ( Eat, Play, <span class="keyword">Numb</span>, times ) <span class="keyword">values</span> ( <span class="string">&#x27;C&#x27;</span>, <span class="string">&#x27;&#x27;</span>, <span class="number">0</span>, <span class="keyword">getdate</span>() )</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">rollback</span> tran B_Point    <span class="comment">--回滚事务点B_Point 即事务点下的部分都回滚</span></span><br><span class="line">    <span class="keyword">select</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">commit</span> tran A    <span class="comment">--提交整个事务信息</span></span><br><span class="line"><span class="keyword">end</span> try</span><br><span class="line"><span class="keyword">begin</span> catch</span><br><span class="line">    <span class="keyword">select</span> <span class="number">2</span></span><br><span class="line">    <span class="keyword">rollback</span> tran B_Point    <span class="comment">--回滚事务点B_Point 即事务点下的部分都回滚</span></span><br><span class="line">    <span class="keyword">commit</span> tran A    <span class="comment">--提交整个事务信息</span></span><br><span class="line"><span class="keyword">end</span> catch</span><br><span class="line"><span class="keyword">go</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> dbo.lives</span><br><span class="line"><span class="keyword">go</span></span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SQL</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/archives/aa960eef.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/5/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/7/">下一页</a>
@@ -1688,7 +1675,7 @@ var _hmt = _hmt || [];
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2023 徐增杰
+    		&copy; 2024 徐增杰
 
 						<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
 						<script>
@@ -1794,15 +1781,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Hexo使用</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">C#</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">邮件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">outlook</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1826,15 +1813,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">outlook</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SQL</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">EF</a>
+                <a href="javascript:void(0)" class="js-tag color2">Hexo使用</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">EFCore</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1846,35 +1833,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SQLServer</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ACCESS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Oracle</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">EFCore</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">打印</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">全屏</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">浏览器</a>
+                <a href="javascript:void(0)" class="js-tag color3">EF</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1894,15 +1853,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">行列转换</a>
+                <a href="javascript:void(0)" class="js-tag color3">打印</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">行转列</a>
+                <a href="javascript:void(0)" class="js-tag color3">全屏</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">列转行</a>
+                <a href="javascript:void(0)" class="js-tag color4">浏览器</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SQLServer</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">ACCESS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Oracle</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1931,22 +1906,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">拾遗</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">VUE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">test</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1994,7 +1953,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
+                <a href="javascript:void(0)" class="js-tag color5">行列转换</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">行转列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">列转行</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">VUE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">test</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2003,6 +1986,42 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">环境</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">IIS定时任务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">回收</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">未整理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">栅格</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">5等分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">监听</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">SQL Server</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SQL Server Profiler</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2026,46 +2045,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">IIS定时任务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">回收</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">未整理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">监听</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SQL Server</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SQL Server Profiler</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">B站</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">下载</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">栅格</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">5等分</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">组件</a>
               </li>
              
@@ -2074,7 +2053,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">axios</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2086,11 +2073,35 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">B站</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">下载</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">抽象类</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">接口</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">青龙面板</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">工具命令</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2130,31 +2141,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">青龙面板</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">工具命令</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">报错</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">JS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">CSS基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2166,19 +2153,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Node</a>
+                <a href="javascript:void(0)" class="js-tag color4">MES</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
+                <a href="javascript:void(0)" class="js-tag color3">报错</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">axios</a>
+                <a href="javascript:void(0)" class="js-tag color1">CSS基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2186,19 +2173,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MES</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统架构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">DDD</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">封装</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Node</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2222,7 +2201,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">反射</a>
+                <a href="javascript:void(0)" class="js-tag color5">系统架构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">DDD</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2230,7 +2213,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">npm</a>
+                <a href="javascript:void(0)" class="js-tag color3">反射</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2242,7 +2225,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Docker</a>
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2251,6 +2234,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">错误</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2286,11 +2273,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Electron</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">文字转语音</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Electron</a>
+                <a href="javascript:void(0)" class="js-tag color3">辅助</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2298,7 +2289,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">辅助</a>
+                <a href="javascript:void(0)" class="js-tag color3">布局</a>
               </li>
             
             <div class="clearfix"></div>
